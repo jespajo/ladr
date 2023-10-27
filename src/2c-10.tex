@@ -1,0 +1,18 @@
+\documentclass[a4paper]{article}
+\usepackage[leqno]{amsmath}
+\usepackage[top=1cm,right=1cm,bottom=1cm,left=1cm]{geometry}
+\setlength\parindent{0pt}
+\begin{document}
+\Large
+Every polynomial in span$(p_0, p_1, ..., p_m)$ can be expressed as
+\begin{align*}
+    a_0p_0 + a_1p_1 + ... + a_mp_m
+\end{align*}
+Any polynomial that can be expressed as such a sum has a non-zero coefficient for $z^k$, where $k$ is the highest value of $j$ for which $a_j\neq 0$, because $p_k$ is the only polynomial in the sum with a coefficient for $z^k$ and that coefficient is not zero.
+Hence the only way to express the zero function as a linear combination of $p_0$, $p_1$, ..., $p_m$ is to take every $a_j = 0$.
+Thus the list is linearly independent.
+\\
+\\
+Also the list has length $m+1$, which is the dimension of $\mathcal{P}_m(\textbf{F})$, so it is a basis of $\mathcal{P}_m(\textbf{F})$.
+\end{document}
+ 

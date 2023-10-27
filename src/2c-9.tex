@@ -1,0 +1,42 @@
+\documentclass[a4paper]{article}
+\usepackage[leqno]{amsmath}
+\usepackage[top=1cm,right=1cm,bottom=1cm,left=1cm]{geometry}
+\setlength\parindent{0pt}
+\begin{document}
+\Large
+Suppose $U = \text{span}(v_1 + w, ..., v_m + w)$.
+If the list $v_1 + w, ..., v_m + w$ is linearly independent then it is a basis of $U$ and $\text{dim }U = m$.
+\\
+\\
+Otherwise the list is linearly dependent and some element at the $j$th position in the list is a linear combination of the previous elements in the list:
+\begin{align*}
+  v_j + w &= a_1(v_1 + w) + ... + a_{j-1}(v_{j-1} + w) \\
+  v_j + w &= a_1v_1 + a_1w + ... + a_{j-1}v_{j-1} + a_{j-1}w \\
+  v_j + w &= a_1v_1 + ... + a_{j-1}v_{j-1} + (a_1 + ... + a_{j-1})w \\
+ w - (a_1 + ... + a_{j-1})w &= a_1v_1 + ... + a_{j-1}v_{j-1} - v_j \\
+ (1 - a_1 - ... - a_{j-1})w &= a_1v_1 + ... + a_{j-1}v_{j-1} - v_j
+\intertext{
+The right side of the equation is a linear combination of the list $v_1$, ..., $v_j$.
+This list is linearly independent and not all of the scalars are zero (the coefficient of $v_j$ is $-1$).
+Hence the right side of the equation is non-zero.
+Thus the coefficient of $w$ on the left side is non-zero.
+Call it $k$:
+}
+ kw &= a_1v_1 + ... + a_{j-1}v_{j-1} - v_j \\
+ w &= \frac{a_1}{k}v_1 + ... + \frac{a_{j-1}}{k}v_{j-1} - \frac{1}{k}v_j
+\end{align*}
+Thus $w$ can be expressed as a linear combination of the list $v_1$, ..., $v_m$ by taking the above coefficients for the vectors $v_1$, ..., $v_j$ and zero for the remaining coefficients.
+Furthermore, because the list $v_1$, ..., $v_m$ is linearly independent, it is a basis of the subspace it spans, so this representation is unique.
+\\
+\\
+Now say we remove the $j$th element from the list $v_1 + w$, ..., $v_m + w$.
+The resulting list must be linearly independent.
+If it was linearly dependent, we could follow the same steps above and express $w$ as a linear combination of $v_1$, ..., $v_{j-1}$, $v_{j+1}$, ..., $v_m$.
+Then we could add $0v_j$ to express $w$ as a linear combination of $v_1$, ..., $v_m$.
+This cannot be possible because the unique representation of $w$ as a linear combination of $v_1$, ..., $v_m$ has $\frac{-1}{k}$ as a coefficient for $v_j$, not zero.
+\\
+\\
+Therefore we can reduce $v_1 + w$, ..., $v_m + w$ to a linearly independent list (and a basis of $U$) by removing at most one element.
+Hence dim $U$ is either $m$ or $m - 1$.
+\end{document}
+ 
