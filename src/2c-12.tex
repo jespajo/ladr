@@ -1,0 +1,23 @@
+\documentclass[a4paper]{article}
+\usepackage[leqno]{amsmath}
+\usepackage[top=1cm,right=1cm,bottom=1cm,left=1cm]{geometry}
+\setlength\parindent{0pt}
+\begin{document}
+\Large
+\begin{align*}
+    \text{dim }(U + W) &= \text{dim }U + \text{dim }W - \text{dim }(U \cap W) \\
+                       &= 5 + 5 - \text{dim }(U \cap W) \\
+                       &= 10 - \text{dim }(U \cap W)
+\intertext{
+If the intersection of $U$ and $W$ was $\{0\}$, then dim $(U \cap W)$ would be 0 and dim $(U + W)$ would be 10.
+But
+}
+U + W &= \left\{ u + w : u \in U, w \in W \right\} 
+\end{align*}
+Since $U$ and $W$ are both subspaces of $\mathbf{R^9}$, that means $\mathbf{R^9}$ contains every $u \in U$ and every $w \in W$.
+Furthermore, $\mathbf{R^9}$ is closed under addition so it contains all sums of $u + w$.
+Hence $U + W$ is a subspace of $\mathbf{R^9}$.
+Since $\mathbf{R^9}$ is a nine-dimensional subspace, no subspace of $\mathbf{R^9}$ has dimension greater than nine.
+Hence dim $(U \cap W) \ge 1$.
+Thus $U \cap W \neq \{0\}$.
+\end{document}

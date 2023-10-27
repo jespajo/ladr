@@ -1,0 +1,22 @@
+\documentclass[a4paper]{article}
+\usepackage[leqno]{amsmath}
+\usepackage[top=1cm,right=1cm,bottom=1cm,left=1cm]{geometry}
+\setlength\parindent{0pt}
+\begin{document}
+\Large
+\begin{align*}
+    \text{dim }(U + W) &= \text{dim }U + \text{dim }W - \text{dim }(U \cap W) \\
+    &= 4 + 4 - \text{dim }(U \cap W) \\
+    &= 8 - \text{dim }(U \cap W)
+\intertext{
+Both $U$ and $W$ are subspaces of $\mathbf{C^6}$, so $\mathbf{C^6}$ contains every $u \in U$, every $w \in W$ and also every $u + w$ because it is closed under addition.
+Hence $U + W$ is a subspace of $\mathbf{C^6}$.
+Thus
+}
+    \text{dim }\mathbf{C^6} &\ge \text{dim }(U + W) \\
+    6 & \ge 8 - \text{dim }(U \cap W) \\
+    \text{dim }(U \cap W) &\ge 2
+\end{align*}
+Therefore there is a basis of $U \cap W$ of length at least two.
+The first two vectors in this basis are linearly independent, which means that neither is a scalar multiple of the other.
+\end{document}
