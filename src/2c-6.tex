@@ -1,0 +1,41 @@
+\documentclass{article}
+\usepackage[leqno]{amsmath}
+\usepackage[top=0.1cm,right=1cm,bottom=0.1cm,left=1cm]{geometry}
+\begin{document}
+\Large
+\begin{align*}
+\tag{a}
+U &= \{p \in \mathcal{P}_4(\textbf{F}) : p(2) = p(5)\} \\
+\\
+p(z) &= a_0 + a_1z + a_2z^2 + a_3z^3 + a_4z^4 \\
+p(2) &= p(5) \\
+a_0 + 2a_1 + 4a_2 + 8a_3 + 16a_4
+  &= a_0 + 5a_1 + 25a_2 + 125a_3 + 625a_4 \\
+2a_1 + 4a_2 + 8a_3 + 16a_4
+  &= 5a_1 + 25a_2 + 125a_3 + 625a_4 \\
+4a_2 + 8a_3 + 16a_4
+  &= 3a_1 + 25a_2 + 125a_3 + 625a_4 \\
+8a_3 + 16a_4
+  &= 3a_1 + 21a_2 + 125a_3 + 625a_4 \\
+16a_4 &= 3a_1 + 21a_2 + 117a_3 + 625a_4 \\
+0 &= 3a_1 + 21a_2 + 117a_3 + 609a_4 \\
+3a_1 &= -21a_2 - 117a_3 - 609a_4 \\
+a_1 &= -7a_2 - 39a_3 - 203a_4 \\
+\\
+p(z) &= a_0 + (-7a_2 - 39a_3 - 203a_4)z + a_2z^2 + a_3z^3 + a_4z^4 \\
+p(z) &= a_0 - 7a_2z - 39a_3z - 203a_4z + a_2z^2 + a_3z^3 + a_4z^4 \\
+p(z) &= a_0 + a_2z^2 - 7a_2z + a_3z^3 - 39a_3z + a_4z^4 - 203a_4z \\
+p(z) &= a_0 + a_2(z^2 - 7z) + a_3(z^3 - 39z) + a_4(z^4 - 203z) \\
+\end{align*}
+The list $1$, $z^2 - 7z$, $z^3 - 39z$, $z^4 - 203z$ is a basis of $U$.
+\\
+\\
+(b) The polynomial $p(z)=z$ cannot be written as a linear combination of the above basis of $U$.
+So adjoining $z$ to the basis of $U$ list produces a linearly independent list in $\mathcal{P}_4(\textbf{F})$. This is also a basis of $\mathcal{P}_4(\textbf{F})$ since it is the right length.
+\\
+\begin{align*}
+\tag{c}
+\mathcal{P}_4(\textbf{F}) &= U \oplus W \\
+W &= \{ p \in \mathcal{P}_4(\textbf{F}) : p(z) = az : a \in \textbf{F} \} \\
+\end{align*}
+\end{document}
