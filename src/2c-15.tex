@@ -1,0 +1,28 @@
+\documentclass[a4paper]{article}
+\usepackage[leqno]{amsmath}
+\usepackage[top=1cm,right=1cm,bottom=1cm,left=1cm]{geometry}
+\setlength\parindent{0pt}
+\begin{document}
+\Large
+Since $V$ is finite-dimensional with dim $V = n \ge 1$, a list of $n$ vectors exists that is a basis of $V$.
+Denote that list $v_1, \dots, v_n$.
+\\
+\\
+For $j = \{1, \dots, n\}$, let $U_j$ be the span of the vector in the $j$th position in the basis of $V$.
+\begin{align*}
+    U_j &= \text{span}(v_j) = \{av_j : a \in \mathbf{F}\}
+\end{align*}
+Each $U_j$ is 1-dimensional because it has a basis of length one.
+\begin{align*}
+      V &= \{ a_1v_1 + \dots + a_nv_n : a_j \in \mathbf{F} \} \\
+        &= \{ u_1 + \dots + u_n : u_j \in U_j \} \\
+        &= U_1 + \dots + U_n
+\intertext{
+The list $v_1, \dots, v_n$ is a basis of $V$ so it is linearly independent.
+So the only way to write zero as a linear combination of the list is to take every scalar multiple as zero.
+Hence there can be no way of writing $u_1 + \dots + u_n = 0$ unless every $u_j = 0v_j = 0$.
+So we meet the condition for a direct sum.
+}
+    V &= U_1 \oplus \dots \oplus U_n
+\end{align*}
+\end{document}

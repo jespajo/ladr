@@ -1,0 +1,41 @@
+\documentclass[a4paper]{article}
+\usepackage[leqno]{amsmath}
+\usepackage[top=1cm,right=1cm,bottom=1cm,left=1cm]{geometry}
+\setlength\parindent{0pt}
+\begin{document}
+\Large
+Consider this counter-example.
+\begin{align*}
+    U_1 &= \left\{ (a, b, 0) \in \mathbf{F^3} : a, b \in \mathbf{F} \right\} \\
+    U_2 &= \left\{ (0, c, c) \in \mathbf{F^3} : c \in \mathbf{F} \right\} \\
+    U_3 &= \left\{ (0, 0, d) \in \mathbf{F^3} : d \in \mathbf{F} \right\} 
+\end{align*}
+The list $(1,0,0), (0,1,0)$ is a basis of $U_1$, so dim $U_1 = 2$.
+The list $(0,1,1)$ is a basis of $U_2$, so dim $U_2 = 1$.
+The list $(0,0,1)$ is a basis of $U_3$, so dim $U_3 = 1$.
+\\
+\\
+If $v \in (U_1\cap U_2)$ then $v$ has 0 as its first coordinate (to be in $U_2$), 0 as its third coordinate (to be in $U_1$) and its second coordinate must be the same as its third coordinate (to be in $U_2$).
+Hence $v = (0, 0, 0)$.
+So dim $(U_1\cap U_2) = 0$.
+\\
+\\
+Using similar logic, it is clear that $(0, 0, 0)$ is also the only element in $U_1\cap U_3$, the only element in $U_2\cap U_3$, and thus the only element in $U_1\cap U_2\cap U_3$.
+Hence all of the intersection subspaces are 0-dimensional.
+\begin{align*}
+ \text{RHS} = &\text{ dim }U_1 + \text{dim }U_2 + \text{dim }U_3 \\
+        &- \text{dim }(U_1 \cap U_2) - \text{dim }(U_1 \cap U_3) - \text{dim }(U_2 \cap U_3) \\
+        &+ \text{dim }(U_1 \cap U_2 \cap U_3)
+\\
+   = &\text{ }2 + 1 + 1 - 0 - 0 - 0 + 0 \\
+   = &\text{ }4
+\end{align*}
+But $\mathbf{F^3}$ is closed under addition, so every possible sum of three elements of $\mathbf{F^3}$ is in $\mathbf{F^3}$.
+Hence $U_1 + U_2 + U_3$ is a subspace of $\mathbf{F^3}$.
+Thus,
+\begin{align*}
+    \text{dim }(U_1 + U_2 + U_3) &\le \text{dim }\mathbf{F^3} \\
+    \text{LHS } &\le 3
+\end{align*}
+Therefore the statement is false.
+\end{document}

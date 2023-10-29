@@ -1,0 +1,28 @@
+\documentclass[a4paper]{article}
+\usepackage[leqno]{amsmath}
+\usepackage[top=1cm,right=1cm,bottom=1cm,left=1cm]{geometry}
+\setlength\parindent{0pt}
+\begin{document}
+\Large
+The subspace $U_1 + \dots + U_m$ is the set of vectors that can be written as a sum $u_1 + \dots + u_m$ where each $u_j \in U_j$.
+\\
+\\
+The subspaces $U_1, \dots, U_m$ are finite-dimensional so they all have bases.
+So every $u_j \in U_j$ can be written as a linear combination of a basis of $U_j$.
+\\
+\\
+Hence every vector in $U_1 + \dots + U_m$ can be written as a sum of these linear combinations.
+This sum would itself be a linear combination of the list of vectors created by adjoining the bases of $U_1, \dots, U_m$.
+\\
+\\
+The subspace $U_1 + \dots + U_m$ is finite-dimensional since it is spanned by the list created by adjoining the bases of $U_1, \dots, U_m$.
+\\
+\\
+Now consider the desired inequality:
+\begin{align*}
+\text{dim }(U_1 + \dots + U_m) \le \text{dim }U_1 + \dots + \text{dim }U_m
+\end{align*}
+The list created by adjoining the bases of $U_1, \dots, U_m$ has length equal to the right side of the inequality.
+Since this list spans $U_1 + \dots + U_j$, it can be reduced to a basis of the subspace by removing zero or more vectors.
+The result would be a list with length equal to the left side of the inequality.
+\end{document}
