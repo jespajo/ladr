@@ -1,0 +1,29 @@
+\documentclass[a4paper]{article}
+\usepackage{amsmath}
+\usepackage[top=1cm,right=1cm,bottom=1cm,left=1cm]{geometry}
+\setlength\parindent{0pt}
+%
+\usepackage{xcolor}
+\pagecolor[rgb]{0.1,0.1,0.1}
+\color[rgb]{1.0,1.0,1.0}
+%
+\begin{document}
+%
+\newcommand \F [1]  { \mathbf{F}^{#1} }
+\newcommand \LFnFm  { \mathcal{L}(\F{n},\F{m}) }
+%
+\large
+\begin{align*}
+    T \in \LFnFm
+\\
+\\
+    T(x_1, \dots, x_n)
+        &= T ( x_1(1, 0, \dots, 0) + \dots + x_n(0, \dots, 0, 1) ) \\
+        &= T x_1(1, 0, \dots, 0) + \dots + T x_n(0, \dots, 0, 1) \\
+        &= x_1 T(1, 0, \dots, 0) + \dots + x_n T (0, \dots, 0, 1) \\
+        &= x_1 (A_{1,1},\dots,A_{m,1}) + \dots + x_n (A_{1,n},\dots,A_{m,n}) \\
+        &= A_{1,1}x_1+\dots+A_{m,1}x_1 +\dots+ A_{1,n}x_n+\dots+A_{m,n}x_n \\
+        &= A_{1,1}x_1+\dots+A_{1,n}x_n +\dots+ A_{m,1}x_1+\dots+A_{m,n}x_n
+\end{align*}
+Thus each $A_{j,k}$ is the $j$th coordinate of $Tu_k$ where $u_k$ is the $k$th vector in the standard basis of $\F{n}$.
+\end{document}
