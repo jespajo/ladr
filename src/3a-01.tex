@@ -24,22 +24,22 @@ First suppose $b=c=0$.
 Then $T$ is a linear map. Now suppose $T \in \mathcal{L}(\mathbf{R^3}, \mathbf{R^2})$.
 }
     Tu + Tv &= T(x_1,y_1,z_1) + T(x_2,y_2,z_2) \\
-      &= (2x_1-4y_1+3z_1+b,\; 6x_1+cx_1y_1z_1)\;+\;(2x_2-4y_2+3z_2+b,\; 6x_2+cx_2y_2z_2)  \\
-      &= (2x_1-4y_1+3z_1+b + 2x_2-4y_2+3z_2+b,\quad  6x_1+cx_1y_1z_1+6x_2+cx_2y_2z_2) \\
-      &= (2(x_1+x_2)-4(y_1+y_2)+3(z_1+z_2)+2b,\quad  6(x_1+x_2)+c(x_1y_1z_1+x_2y_2z_2)) \tag{1} \\
+      &= (2x_1-4y_1+3z_1+b,\; \dots)\;+\;(2x_2-4y_2+3z_2+b,\; \dots)  \\
+      &= (2x_1+2x_2  -  4y_1-4y_2  +3z_1 +3z_2+b+b,\; \dots) \\
+      &= (2(x_1+x_2)-4(y_1+y_2)+3(z_1+z_2)+2b,\; \dots) \tag{1} \\
 \\
     T(u+v) &= T((x_1,y_1,z_1) + (x_2,y_2,z_2)) \\
         &= T(x_1+x_2,\; y_1+y_2,\; z_1+z_2) \\
-    &= (2(x_1+x_2)-4(y_1+y_2)+3(z_1+z_2)+b,\quad 6(x_1+x_2)+c(x_1+x_2)(y_1+y_2)(z_1+z_2)) \tag{2}
+    &= (2(x_1+x_2)-4(y_1+y_2)+3(z_1+z_2)+b,\; \dots) \tag{2}
 \\
 \\
     T(au) &= T(ax, ay, az) \\
-          &= (2(ax)-4(ay)+3(az)+b, \  6(ax)+c(ax)(ay)(az)) \\
-          &= (2ax-4ay+3az+b, \  6ax+ca^3xyz) \tag{3} \\
+          &= (\dots, \  6(ax)+c(ax)(ay)(az)) \\
+          &= (\dots, \  6ax+ca^3xyz) \tag{3} \\
 \\
-    aTu &= a(2x-4y+3z+b, \   6x+cxyz) \\
-        &= (a(2x-4y+3z+b), \   a(6x+cxyz)) \\
-        &= (2ax-4ay+3az+ab, \   6ax+caxyz) \tag{4}
+    aTu &= a(\dots, \   6x+cxyz) \\
+        &= (\dots, \   a(6x+cxyz)) \\
+        &= (\dots, \   6ax+caxyz) \tag{4}
 \end{align*}
 The additivity of $T$ implies that the first coordinates of (1) and (2) are the same:
 \begin{align*}
@@ -61,13 +61,3 @@ If none of $a$, $x$, $y$, $z$ is 0:
             c &= 0
 \end{align*}
 \end{document}
-
-
-
-
-
-
-
-
-
-
