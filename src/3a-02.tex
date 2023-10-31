@@ -1,0 +1,80 @@
+\documentclass[a4paper]{article}
+\usepackage{amsmath}
+\usepackage[top=1cm,right=1cm,bottom=1cm,left=1cm]{geometry}
+\setlength\parindent{0pt}
+%\usepackage{xcolor}
+%\pagecolor[rgb]{0.25,0.25,0.25}
+%\color[rgb]{0.75,0.75,0.75}
+\begin{document}
+\large
+\begin{align*}
+    Tp &= \left(3p(4)+5p'(6)+bp(1)p(2),\  \int_{-1}^2x^3p(x)\,dx+c\sin p(0) \right)
+\intertext{
+Say $k \in \mathbf{R}$.
+Say $p, q\in \mathcal{P}(\mathbf{R})$.
+}
+%%%%%%%%%Say $p, q\in \mathcal{P}(\mathbf{R}): p(x)=a_0+a_1x+\dots+a_mx^m,\quad q(x)=b_0+b_1x+\dots+b_nx^n$.
+\intertext{
+First suppose $b=c=0$.
+}
+    Tp &= \left(3p(4)+5p'(6),\  \int_{-1}^2x^3p(x)\,dx \right)
+\\
+\\
+    T(kp) &= \left( 3(kp)(4) + 5(kp)'(6),\  \int_{-1}^2  x^3(kp)(x)\,dx \right) \\
+          &= \left( 3kp(4)+5kp'(6),\        \int_{-1}^2  kx^3p(x)\,dx   \right) \\
+          &= \left( k(3p(4)+5p'(6)),\       k\int_{-1}^2 x^3p(x)\,dx    \right) \\
+          &= k\left( 3p(4)+5p'(6),\         \int_{-1}^2  x^3p(x)\,dx    \right) \\
+          &= kTp
+\\
+\\
+    T(p+q) &= \left( 3(p+q)(4)    + 5(p+q)'(6),\      \int_{-1}^2 x^3(p+q)(x)\,dx    \right) \\
+           &= \left( 3(p(4)+q(4)) + 5(p'(6)+q'(6)),\  \int_{-1}^2 x^3(p(x)+q(x))\,dx  \right) \\
+           &= \left( 3p(4)+3q(4)  + 5p'(6)+5q'(6),\   \int_{-1}^2(x^3p(x)+x^3q(x)\,dx \right) \\
+           &= \left( 3p(4) + 5p'(6)+3q(4)+ 5q'(6),\   \int_{-1}^2 x^3p(x)\,dx + \int_{-1}^2 x^3q(x)\,dx \right) \\
+           &= \left( 3p(4) + 5p'(6),\  \int_{-1}^2 x^3p(x)\,dx \right) + \left( 3q(4) + 5q'(6),\  \int_{-1}^2 x^3q(x)\,dx \right) \\
+           &= Tp + Tq
+\end{align*}
+Then $T$ is a linear map. \\
+\\
+Now suppose $T \in \mathcal{L}(\mathcal{P}(\mathbf{R}), \mathbf{R^2})$.
+\begin{align*}
+    Tp + Tq &= \left( 3p(4)+5p'(6)+bp(1)p(2),\dots\right) + \left( 3q(4)+5q'(6)+bq(1)q(2),\dots\right) \\
+            &= \left( 3p(4)+3q(4) + 5p'(6)+5q'(6)   + bp(1)p(2)+bq(1)q(2),     \dots\right) \\
+            &= \left( 3(p(4)+q(4)) + 5(p'(6)+q'(6)) + b(p(1)p(2)+q(1)q(2)),   \dots\right) \\
+            &= \left( 3(p+q)(4) + 5(p+q)'(6)        + b(p(1)p(2)+q(1)q(2)),   \dots\right) \tag{1} \\
+\\
+    Tp + Tq &= \left(\dots,\int_{-1}^2x^3p(x)\,dx+c\sin p(0)\right) + \left(\dots,\int_{-1}^2x^3q(x)\,dx+c\sin q(0)\right) \\
+            &= \left(\dots, \int_{-1}^2 x^3p(x)\,dx + \int_{-1}^2x^3q(x)\,dx  +  c\sin p(0) + c\sin q(0) \right) \\
+            &= \left(\dots, \int_{-1}^2 x^3p(x) + x^3q(x)\,dx  +  c(\sin p(0) + \sin q(0)) \right) \\
+            &= \left(\dots, \int_{-1}^2 x^3(p+q)(x)\,dx + c(\sin p(0)+\sin q(0)) \right) \tag{2} \\
+\\
+    T(p+q) &= \left( 3(p+q)(4)+5(p+q)'(6)+b(p+q)(1)(p+q)(2),\  \int_{-1}^2 x^3(p+q)(x)\,dx+c\sin (p+q)(0) \right) \tag{3} \\
+\\
+    T(kp) &= \left(3(kp)(4)+5(kp)'(6)+b(kp)(1)(kp)(2),\  \int_{-1}^2x^3(kp)(x)\,dx+c\sin (kp)(0) \right) \\
+          &= \left(3kp(4)+5kp'(6)+bk^2p(1)p(2),\  k\int_{-1}^2x^3 p(x)\,dx+c\sin (kp)(0) \right)\tag{4}\\
+\\
+    kTp &= k\left(3p(4)+5p'(6)+bp(1)p(2),\  \int_{-1}^2x^3p(x)\,dx+c\sin p(0) \right)\\
+        &= \left(3kp(4)+5kp'(6)+bkp(1)p(2),\  k\int_{-1}^2x^3p(x)\,dx+kc\sin p(0) \right)\tag{5}\\
+%
+\end{align*}
+The additivity of $T$ implies that the first coordinates of (1) and (3) are the same:
+\begin{align*}
+    3(p+q)(4) + 5(p+q)'(6) + b(p(1)p(2)+q(1)q(2)) &= 3(p+q)(4)+5(p+q)'(6)+b(p+q)(1)(p+q)(2) \\
+                           b(p(1)p(2) + q(1)q(2)) &= b(p+q)(1)(p+q)(2)
+\intertext{
+The additivity of $T$ implies that the second coordinates of (2) and (3) are the same:
+}
+       \int_{-1}^2 x^3(p+q)(x)\,dx + c(\sin p(0)+\sin q(0)) &= \int_{-1}^2 x^3(p+q)(x)\,dx+c\sin (p+q)(0)\\
+                                     c(\sin p(0)+\sin q(0)) &= c\sin (p+q)(0)
+\intertext{
+The homogeneity of $T$ implies that the first coordinates of (4) and (5) are the same:
+}
+        3kp(4) + 5kp'(6) + bk^2p(1)p(2) &= 3kp(4) + 5kp'(6) + bkp(1)p(2)\\
+                           bk^2p(1)p(2) &= bkp(1)p(2)
+\intertext{
+The homogeneity of $T$ implies that the second coordinates of (4) and (5) are the same:
+}
+    k\int_{-1}^2x^3 p(x)\,dx+c\sin (kp)(0) &= k\int_{-1}^2x^3p(x)\,dx+kc\sin p(0)\\
+                             c\sin (kp)(0) &= kc\sin p(0)
+\end{align*}
+\end{document}

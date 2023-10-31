@@ -1,0 +1,73 @@
+\documentclass[a4paper]{article}
+\usepackage{amsmath}
+\usepackage[top=1cm,right=1cm,bottom=1cm,left=1cm]{geometry}
+\setlength\parindent{0pt}
+\begin{document}
+\large
+Let $a \in \mathbf{R}$.
+Let $u, v\in \mathbf{R^3} : u=(x_1,y_1,z_1)$ and $v=(x_2,y_2,z_2)$.
+We will omit the subscripts when dealing with $u$ alone.
+\begin{align*}
+\intertext{
+First suppose $b=c=0$.
+}
+    Tu + Tv &= (2x_1-4y_1+3z_1, \; 6x_1) + (2x_2-4y_2+3z_2, \; 6x_2) \\
+            &= (2x_1-4y_1+3z_1+2x_2-4y_2+3z_2, \  6x_1+6x_2)     \\
+            &= (2(x_1+x_2)-4(y_1+y_2)+3(z_1+z_2), \ 6(x_1+x_2))    \\
+            &= T(u + v) \\
+\\
+    T(au) &= (2(ax) - 4(ay) + 3(az), \  6(ax)) \\
+          &= (2ax - 4ay + 3az, \  6ax)  \\
+          &= (a(2x - 4y + 3z), \ a(6x))  \\
+          &= aTu
+\intertext{
+Then $T$ is a linear map. Now suppose $T \in \mathcal{L}(\mathbf{R^3}, \mathbf{R^2})$.
+}
+    Tu + Tv &= T(x_1,y_1,z_1) + T(x_2,y_2,z_2) \\
+      &= (2x_1-4y_1+3z_1+b,\; 6x_1+cx_1y_1z_1)\;+\;(2x_2-4y_2+3z_2+b,\; 6x_2+cx_2y_2z_2)  \\
+      &= (2x_1-4y_1+3z_1+b + 2x_2-4y_2+3z_2+b,\quad  6x_1+cx_1y_1z_1+6x_2+cx_2y_2z_2) \\
+      &= (2(x_1+x_2)-4(y_1+y_2)+3(z_1+z_2)+2b,\quad  6(x_1+x_2)+c(x_1y_1z_1+x_2y_2z_2)) \tag{1} \\
+\\
+    T(u+v) &= T((x_1,y_1,z_1) + (x_2,y_2,z_2)) \\
+        &= T(x_1+x_2,\; y_1+y_2,\; z_1+z_2) \\
+    &= (2(x_1+x_2)-4(y_1+y_2)+3(z_1+z_2)+b,\quad 6(x_1+x_2)+c(x_1+x_2)(y_1+y_2)(z_1+z_2)) \tag{2}
+\\
+\\
+    T(au) &= T(ax, ay, az) \\
+          &= (2(ax)-4(ay)+3(az)+b, \  6(ax)+c(ax)(ay)(az)) \\
+          &= (2ax-4ay+3az+b, \  6ax+ca^3xyz) \tag{3} \\
+\\
+    aTu &= a(2x-4y+3z+b, \   6x+cxyz) \\
+        &= (a(2x-4y+3z+b), \   a(6x+cxyz)) \\
+        &= (2ax-4ay+3az+ab, \   6ax+caxyz) \tag{4}
+\end{align*}
+The additivity of $T$ implies that the first coordinates of (1) and (2) are the same:
+\begin{align*}
+    2(x_1+x_2)-4(y_1+y_2)+3(z_1+z_2)+2b &= 2(x_1+x_2)-4(y_1+y_2)+3(z_1+z_2)+b \\
+        2b &= b \\
+        b &= 0
+\intertext{
+The homogeneity of $T$ implies that the second coordinates of (3) and (4) are the same:
+}
+    6ax+ca^3xyz &= 6ax+caxyz \\
+        ca^3xyz &= caxyz
+\intertext{
+which is true for any $c \in \mathbf{R}$ if any one of $a, x, y$ or $z$ is 0.
+But the equation is true for all $a$, $x$, $y$, $z \in \mathbf{R}$.
+If none of $a$, $x$, $y$, $z$ is 0:
+}
+      \frac{ca^3xyz}{axyz} &= \frac{caxyz}{axyz} \\
+            ca^2 &= c \\
+            c &= 0
+\end{align*}
+\end{document}
+
+
+
+
+
+
+
+
+
+
