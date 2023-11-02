@@ -1,9 +1,10 @@
-$(shell mkdir -p out)
+# Copy src/ directory structure to out/
+$(shell find src/ -type d | sed 's/^src/out/g' | xargs mkdir -p)
 
-all: $(patsubst src/%.tex,out/%.pdf,$(wildcard src/*))
+all: $(patsubst src/%.tex,out/%.pdf,$(shell find src/ -regex '.*.tex'))
 
-out/%.pdf: src/%.tex; pdflatex -file-line-error -halt-on-error -output-directory out/ $<
+out/%.pdf: src/%.tex; pdflatex -file-line-error -halt-on-error -output-directory $(dir $@) $<
 
 clean:; rm -rf out/
 
-tidy:; rm out/*.aux out/*.log
+tidy:; find out/ -regex '.*.\(aux\|log\)' -delete
