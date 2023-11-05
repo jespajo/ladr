@@ -1,0 +1,49 @@
+\documentclass[a5paper]{article}
+\usepackage{amsmath}
+\usepackage[top=1cm,right=1cm,bottom=1cm,left=1cm]{geometry}
+\setlength\parindent{0pt}
+%
+%\usepackage{xcolor}
+%\pagecolor[rgb]{0.1,0.1,0.1}
+%\color[rgb]{1.0,1.0,1.0}
+%
+\begin{document}
+
+\newcommand   \F    { \mathbf{F} }
+\renewcommand \L    { \mathcal{L} }
+\newcommand   \R    { \mathbf{R} }
+
+Suppose $v = (x,y) \in \R^2 : x,y \in \R$.
+Define a function $\varphi: \R^2 \rightarrow \R$ as
+\begin{align*}
+        \varphi(v) &= \sqrt{x^2 + y^2}
+\intertext{
+Suppose $a \in \R$, then $av = (ax, ay)$.
+Hence
+}
+        \varphi(av) &= \sqrt{(ax)^2 + (ay)^2}           \\
+                    &= \sqrt{a^2x^2 + a^2y^2}           \\
+                    &= \sqrt{a^2(x^2 + y^2)}            \\
+                    &= \sqrt{a^2} \sqrt{x^2 + y^2}      \\
+                    &= a\sqrt{x^2 + y^2}                \\
+                    &= a\varphi(v)
+\intertext{
+Thus $\varphi$ is homogenous.
+Now suppose $u=(3,4)\in\R^2$ and $w=(4,3)\in\R^2$.
+}
+    \varphi(u) + \varphi(w) &= \sqrt{3^2+4^2} + \sqrt{4^2+3^2}  \\
+                            &= \sqrt{9+16} + \sqrt{16+9}        \\
+                            &= \sqrt{25} + \sqrt{25}            \\
+                            &= 5 + 5                            \\
+                            &= 10                               \\
+                                                                \\
+               \varphi(u+w) &= \sqrt{(3+4)^2 + (4+3)^2}         \\
+                            &= \sqrt{7^2 + 7^2}                 \\
+                            &= \sqrt{49 + 49}                   \\
+                            &= \sqrt{98}                        \\
+                                                                \\
+      \varphi(u)+\varphi(w) &\neq \varphi(u+w)
+\end{align*}
+Thus $\varphi$ is not additive.
+Hence $\varphi$ is not a linear map.
+\end{document}

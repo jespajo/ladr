@@ -1,0 +1,46 @@
+\documentclass[a5paper]{article}
+\usepackage{amsmath}
+\usepackage[top=1cm,right=1cm,bottom=1cm,left=1cm]{geometry}
+\setlength\parindent{0pt}
+%
+%\usepackage{xcolor}
+%\pagecolor[rgb]{0.1,0.1,0.1}
+%\color[rgb]{1.0,1.0,1.0}
+%
+\begin{document}
+
+\newcommand    \F  { \mathbf{F} }
+\renewcommand  \L  { \mathcal{L} }
+\newcommand    \R  { \mathbf{R} }
+\newcommand    \C  { \mathbf{C} }
+
+Define a function $\varphi: \C \rightarrow \C$ as
+\begin{align*}
+        \varphi(x+yi) &= y+xi
+\intertext{
+Suppose $w,z\in\C$ such that $w=a+bi$ and $z=c+di$ where $a,b,c,d\in\R$.
+}
+                \varphi(w+z) &= \varphi( a+bi + c+di )                  \\
+                             &= \varphi\big( (a+c) + (b+d)i \big)       \\
+                             &= (b+d) + (a+c)i                          \\
+                             &= b + ai + d + ci                         \\
+                             &= \varphi(a+bi) + \varphi(c+di)           \\
+                             &= \varphi(w) + \varphi(z)
+\intertext{
+Now consider scalar multiplication by $i\in\C$.
+}
+        i \varphi(w) &= i \varphi(a+bi)                 \\
+                     &= i (b + ai)                      \\
+                     &= bi + ai^2                       \\
+                     &= bi - a                          \\
+                                                        \\
+         \varphi(iw) &= \varphi\big( i(a+bi) \big)      \\
+                     &= \varphi( ai + bi^2 )            \\
+                     &= \varphi(ai - b)                 \\
+                     &= a - bi                          \\
+                                                        \\
+        i \varphi(w) &\neq \varphi(iw)
+\end{align*}
+Thus $\varphi$ is not homogenous.
+Hence $\varphi$ is not a linear map.
+\end{document}
