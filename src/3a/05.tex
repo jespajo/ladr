@@ -1,0 +1,57 @@
+\documentclass[a5paper]{article}
+\usepackage{amsmath}
+\usepackage[top=1cm,right=1cm,bottom=1cm,left=1cm]{geometry}
+\setlength\parindent{0pt}
+%
+%\usepackage{xcolor}
+%\pagecolor[rgb]{0.1,0.1,0.1}
+%\color[rgb]{1.0,1.0,1.0}
+%
+\begin{document}
+
+\newcommand   \F { \mathbf{F}  }
+\renewcommand \L { \mathcal{L} }
+
+Suppose $S,T,T_1,T_2,T_3 \in \L(V,W)$ and $v\in V$ and $a,b \in \F$. \\
+
+Arithmetic on $\L(V,W)$ is commutative and associative because arithmetic on $W$ is commutative and associative:
+\begin{align*}
+             (S + T)(v) &= Sv + Tv \\
+                        &= Tv + Sv \\
+                        &= (T + S)(v) \\
+  \\
+    \big( (T_1 + T_2) + T_3 \big)(v) &= (T_1 + T_2)(v) + T_3v     \\
+                                     &= T_1v + T_2v + T_3v      \\
+                                     &= T_1v + (T_2 + T_3)(v)   \\
+                                     &= \big( T_1 + (T_2 + T_3) \big)(v) \\
+  \\
+           \big( (ab)T \big)(v) &= ab(Tv)       \\
+                                &= a(bTv)       \\
+                                &= \big( a(bT) \big)(v)
+\end{align*}
+
+The additive identity in $\L(V,W)$ is the zero map, which takes $v$ to $0\in W$:
+\begin{align*}
+    Tv + 0(v) = Tv + 0 = Tv
+\end{align*}
+
+The additive inverse of $T$ is the function $-T : (-T)(v) = -1\times Tv$.
+$-Tv$ is in $W$ because $Tv$ is in $W$ and $W$ is closed under scalar multiplication.
+$-T$ added to $T$ produces the zero map:
+\begin{align*}
+    Tv + (-T)(v) = Tv + T(-v) = T(v - v) = T(0) = 0 = 0(v)
+\end{align*}
+
+The multiplicative identity holds for $\L(V,W)$:
+\begin{align*}
+    1Tv = T(1v) = Tv
+\end{align*}
+
+Finally, arithmetic on $\L(V,W)$ has distributive properties:
+\begin{align*}
+    a(Sv + Tv) &= aSv + aTv            \\
+  \\
+     (a + b)Tv &= aTv + bTv
+\end{align*}
+Thus $\L(V,W)$ is a vector space.
+\end{document}
