@@ -1,0 +1,31 @@
+\documentclass[a5paper]{article}
+\usepackage{amsmath}
+\usepackage[top=1cm,right=1cm,bottom=1cm,left=1cm]{geometry}
+\setlength\parindent{0pt}
+%
+%\usepackage{xcolor}
+%\pagecolor[rgb]{0.1,0.1,0.1}
+%\color[rgb]{1.0,1.0,1.0}
+%
+\begin{document}
+
+\newcommand   \F    { \mathbf{F} }
+\renewcommand \L    { \mathcal{L} }
+
+Suppose $T \in \L(V,V)$ and $\dim V = 1$.
+
+Since $V$ has a basis of length 1, there exists a vector $u \in V$ such that every $v \in V$ can be written as $v = au$ where $a \in \F$.
+
+Hence
+\begin{align*}
+        Tv  &= T(au)    \\
+            &= aTu
+\intertext{
+Since $Tu \in V$, it can be written as $Tu = bu$ where $b \in F$.
+Hence
+}
+        Tv  &= abu      \\
+            &= b(au)    \\
+            &= bv
+\end{align*}
+\end{document}
