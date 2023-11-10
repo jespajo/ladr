@@ -1,0 +1,72 @@
+\documentclass[a5paper]{article}
+\usepackage{amsmath}
+\usepackage[top=1cm,right=1cm,bottom=1cm,left=1cm]{geometry}
+\setlength\parindent{0pt}
+\setlength\parskip{1em}
+%
+%\usepackage{xcolor}
+%\pagecolor[rgb]{0.1,0.1,0.1}
+%\color[rgb]{1.0,1.0,1.0}
+%
+\begin{document}
+
+\newcommand    \C  { \mathbf{C} }
+\newcommand    \R  { \mathbf{R} }
+\renewcommand  \L  { \mathcal{L} }
+\newcommand    \F  { \mathbf{F} }
+
+Since $V$ is finite-dimensional with $\dim V \ge 2$, a basis of $V$ exists, $v_1,\dots,v_n$, with $n \ge 2$.
+Hence every $v\in V$ can be written as
+\begin{align*}
+    v &= a_1v_1 + \dots + a_nv_n
+\end{align*}
+with $a_1,\dots,a_n\in \F$.
+
+Define $T:V\rightarrow V$ by
+\begin{align*}
+    T(a_1v_1 + \dots + a_nv_n) &= a_2v_1 + \dots + a_nv_{n-1}
+\intertext{
+Define $S:V\rightarrow V$ by
+}
+    S(a_1v_1 + \dots + a_nv_n) &= a_1v_2 + \dots + a_{n-1}v_n
+\end{align*}
+To show that $T$ and $S$ are homogeneous, consider $\lambda \in \F$:
+\begin{align*}
+    T(\lambda v) &= T \big( \lambda(a_1v_1 + \dots + a_nv_n) \big)      \\
+                 &= T ( \lambda a_1v_1 + \dots + \lambda a_nv_n )       \\
+                 &= \lambda a_2v_1 + \dots + \lambda a_nv_{n-1}         \\
+                 &= \lambda (a_2v_1 + \dots + a_nv_{n-1})               \\
+                 &= \lambda Tv                                          \\
+                                                                        \\
+    S(\lambda v) &= S ( \lambda a_1v_1 + \dots + \lambda a_nv_n )       \\
+                 &= \lambda a_1v_2 + \dots + \lambda a_{n-1}v_n         \\
+                 &= \lambda (a_1v_2 + \dots + a_{n-1}v_n)               \\
+                 &= \lambda Sv
+\intertext{
+To show that $T$ and $S$ are additive, consider $u = b_1v_1 + \dots + b_nv_n \in V$ with $b_1,\dots,b_n \in \F$:
+}
+        T(u + v) &= T \big( (a_1 + b_1)v_1 + \dots + (a_n + b_n)v_n \big)       \\
+                 &= (a_2 + b_2)v_1 + \dots + (a_n + b_n)v_{n-1}                 \\
+                 &= a_2v_1 + b_2v_1 + \dots + a_nv_{n-1} + b_nv_{n-1}           \\
+                 &= a_2v_1 + \dots + a_nv_{n-1} + b_2v_1 + \dots + b_nv_{n-1}   \\
+                 &= Tu + Tv                                                     \\
+                                                                                \\
+        S(u + v) &= S \big( (a_1 + b_1)v_1 + \dots + (a_n + b_n)v_n \big)       \\
+                 &= (a_1 + b_1)v_2 + \dots + (a_{n-1} + b_{n-1})v_n             \\
+                 &= a_1v_2 + b_1v_2 + \dots + a_{n-1}v_n + b_{n-1})v_n          \\
+                 &= a_1v_2 + \dots + a_{n-1}v_n + b_1v_2 + \dots + b_{n-1})v_n  \\
+                 &= Su + Sv
+\end{align*}
+Hence $T, S \in \L(V,V)$.
+\begin{align*}
+    (ST)(v) &= S\big( T(a_1v_1 + \dots + a_nv_n) \big)              \\
+            &= S ( a_2v_1 + \dots + a_nv_{n-1} + 0v_n )             \\
+            &= a_2v_2 + \dots + a_nv_n                              \\
+                                                                    \\
+    (TS)(v) &= T\big( S(a_1v_1 + \dots + a_nv_n) \big)              \\
+            &= T ( 0v_1 + a_1v_2 + \dots + a_{n-1}v_n )             \\
+            &= a_1v_1 + \dots + a_{n-1}v_{n-1}
+\end{align*}
+Thus $ST \neq TS$ for $\dim V \ge 2$.
+(For $\dim V < 2$, $ST$ and $TS$ are both the zero map on $V$.)
+\end{document}

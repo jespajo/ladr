@@ -1,0 +1,33 @@
+\documentclass[a5paper]{article}
+\usepackage{amsmath}
+\usepackage[top=1cm,right=1cm,bottom=1cm,left=1cm]{geometry}
+\setlength\parindent{0pt}
+\setlength\parskip{1em}
+%
+%\usepackage{xcolor}
+%\pagecolor[rgb]{0.1,0.1,0.1}
+%\color[rgb]{1.0,1.0,1.0}
+%
+\begin{document}
+
+\newcommand    \C  { \mathbf{C} }
+\newcommand    \R  { \mathbf{R} }
+\renewcommand  \L  { \mathcal{L} }
+\newcommand    \F  { \mathbf{F} }
+
+Because $v_1,\dots,v_m$ is linearly dependent, there is some $j\in\{1,\dots,m\}$ such that
+\begin{align*}
+    v_j &= a_1v_1 + \dots + a_{j-1}v_{j-1}
+\intertext{where $a_1,\dots,a_j\in\F$.}
+\intertext{So for any $T \in \L(V,W)$}
+    Tv_j &= T(a_1v_1 + \dots + a_{j-1}v_{j-1})      \\
+         &= T(a_1v_1) + \dots + T(a_{j-1}v_{j-1})   \\
+         &= a_1Tv_1 + \dots + a_{j-1}Tv_{j-1}
+\intertext{Consider $w_1,\dots,w_m \in W$ such that $w_1=\dots=w_{j-1}=0$ and $w_j\neq 0$.
+If $Tv_k=w_k$ for $k=1,\dots,j-1$,}
+    Tv_j &= a_10 + \dots + a_{j-1}0         \\
+    Tv_j &= 0
+\end{align*}
+Thus $Tv_j \neq w_j$.
+Hence no linear map satisfies $Tv_k=w_k$ for $k=1,\dots,m$.
+\end{document}
