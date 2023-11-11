@@ -1,0 +1,33 @@
+\documentclass[a5paper]{article}
+\usepackage{amsmath}
+\usepackage[top=1cm,right=1cm,bottom=1cm,left=1cm]{geometry}
+\setlength\parindent{0pt}
+\setlength\parskip{1em}
+%
+%\usepackage{xcolor}
+%\pagecolor[rgb]{0.1,0.1,0.1}
+%\color[rgb]{1.0,1.0,1.0}
+%
+\begin{document}
+
+\newcommand    \C  { \mathbf{C} }
+\newcommand    \R  { \mathbf{R} }
+\renewcommand  \L  { \mathcal{L} }
+\newcommand    \F  { \mathbf{F} }
+\newcommand    \nullspace { \text{null\;} }
+\newcommand    \range     { \text{range\;} }
+
+Suppose $T \in \L(\R^4, \R^4)$ is defined by
+\begin{equation*}
+    T(x_1,x_2,x_3,x_4) = (x_3, x_4, 0, 0)
+\end{equation*}
+Then
+\begin{align*}
+    \nullspace T &= \left\{ (x_1, x_2, 0, 0) \in \R^4 : x_1, x_2 \in \R \right\}    \\
+        \range T &= \left\{ (x_3, x_4, 0, 0) \in \R^4 : x_3, x_4 \in \R \right\}
+\end{align*}
+Thus
+\begin{align*}
+    \nullspace T &= \range T
+\end{align*}
+\end{document}

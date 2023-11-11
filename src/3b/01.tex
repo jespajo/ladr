@@ -1,0 +1,34 @@
+\documentclass[a5paper]{article}
+\usepackage{amsmath}
+\usepackage[top=1cm,right=1cm,bottom=1cm,left=1cm]{geometry}
+\setlength\parindent{0pt}
+\setlength\parskip{1em}
+%
+%\usepackage{xcolor}
+%\pagecolor[rgb]{0.1,0.1,0.1}
+%\color[rgb]{1.0,1.0,1.0}
+%
+\begin{document}
+
+\newcommand    \C  { \mathbf{C} }
+\newcommand    \R  { \mathbf{R} }
+\renewcommand  \L  { \mathcal{L} }
+\newcommand    \F  { \mathbf{F} }
+
+Define $T \in \L(\R^5,\R^2)$ by
+\begin{equation*}
+    T(x_1,x_2,x_3,x_4,x_5) = (x_1,x_2)
+\end{equation*}
+Then the range of $T$ is $\left\{ (x_1,x_2) \in \R^2 : x_1,x_2 \in \R \right\}$ which is equal to $\R^2$.
+Thus
+\begin{align*}
+    \dim\text{range\;}T &= \dim \R^2        \\
+                        &= 2
+\intertext{
+From the Fundamental Theorem of Linear Maps,
+}
+    \dim \text{null\;} T &= \dim \R^5 - \dim \text{range\;}T    \\
+                         &= 5 - 2                               \\
+                         &= 3
+\end{align*}
+\end{document}

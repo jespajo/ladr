@@ -1,0 +1,32 @@
+\documentclass[a4paper]{article}
+\usepackage{amsmath}
+\usepackage[top=1cm,right=1cm,bottom=1cm,left=1cm]{geometry}
+\setlength\parindent{0pt}
+\setlength\parskip{1em}
+%
+%\usepackage{xcolor}
+%\pagecolor[rgb]{0.1,0.1,0.1}
+%\color[rgb]{1.0,1.0,1.0}
+%
+\begin{document}
+
+\newcommand    \C  { \mathbf{C} }
+\newcommand    \R  { \mathbf{R} }
+\renewcommand  \L  { \mathcal{L} }
+\newcommand    \F  { \mathbf{F} }
+\newcommand    \nullspace { \text{null\;} }
+\newcommand    \range     { \text{range\;} }
+
+By the Fundamental Theorem of Linear Maps, for any $T \in \L(\R^5, W)$
+\begin{equation*}
+    \dim\nullspace T + \dim\range T  = \dim \R^5 = 5
+\end{equation*}
+The two dimensions on the left side of the equation are nonnegative integers.
+The sum of these integers is an odd number.
+Hence one integer must be even and the other odd.
+Thus
+\begin{align*}
+    \dim\nullspace T &\neq \dim\range T             \\
+        \nullspace T &\neq \range T
+\end{align*}
+\end{document}

@@ -1,0 +1,46 @@
+\documentclass[a5paper]{article}
+\usepackage{amsmath}
+\usepackage[top=1cm,right=1cm,bottom=1cm,left=1cm]{geometry}
+\setlength\parindent{0pt}
+\setlength\parskip{1em}
+%
+%\usepackage{xcolor}
+%\pagecolor[rgb]{0.1,0.1,0.1}
+%\color[rgb]{1.0,1.0,1.0}
+%
+\begin{document}
+
+\newcommand    \C  { \mathbf{C} }
+\newcommand    \R  { \mathbf{R} }
+\renewcommand  \L  { \mathcal{L} }
+\newcommand    \F  { \mathbf{F} }
+
+Define $T_1, T_2 \in \L(\R^5, \R^4)$ by
+\begin{align*}
+    T_1(x_1,x_2,x_3,x_4,x_5) &= (x_1, 0, 0, 0)    \\
+    T_2(x_1,x_2,x_3,x_4,x_5) &= (0, x_2, 0, 0)
+\end{align*}
+Then
+\begin{equation*}
+    \dim\text{null\;}T_1 = \dim\text{null\;}T_2 = 3
+\end{equation*}
+and hence
+\begin{equation*}
+    T_1, T_2 \in \left\{ T \in \L(\R^5,\R^4) : \dim\text{null\;}T > 2 \right\}
+\end{equation*}
+
+However,
+\begin{equation*}
+    (T_1+T_2)(x_1,x_2,x_3,x_4,x_5) = (x_1, x_2, 0, 0)
+\end{equation*}
+So
+\begin{equation*}
+        \dim\text{null\;}(T_1+T_2) = 2
+\end{equation*}
+Thus
+\begin{equation*}
+    T_1+T_2 \notin \left\{T\in\L(\R^5,\R^4):\dim\text{null\;}T>2\right\}
+\end{equation*}
+
+Hence $\left\{T\in\L(\R^5,\R^4):\dim\text{null\;}T>2\right\}$ is not a subspace because it is not closed under addition.
+\end{document}

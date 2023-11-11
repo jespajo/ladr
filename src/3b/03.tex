@@ -1,0 +1,30 @@
+\documentclass[a5paper]{article}
+\usepackage{amsmath}
+\usepackage[top=1cm,right=1cm,bottom=1cm,left=1cm]{geometry}
+\setlength\parindent{0pt}
+\setlength\parskip{1em}
+%
+%\usepackage{xcolor}
+%\pagecolor[rgb]{0.1,0.1,0.1}
+%\color[rgb]{1.0,1.0,1.0}
+%
+\begin{document}
+
+\newcommand    \C  { \mathbf{C} }
+\newcommand    \R  { \mathbf{R} }
+\renewcommand  \L  { \mathcal{L} }
+\newcommand    \F  { \mathbf{F} }
+
+$v_1,\dots,v_m$ is a list of vectors in $V$.
+$T \in \L(\F^m, V)$ is defined by
+\begin{equation*}
+    T(z_1,\dots,z_m) = z_1v_1 + \dots + z_mv_m
+\end{equation*}
+(a) Surjectivity of $T$ implies $v_1,\dots,v_m$ spans $V$.
+If $T$ is surjective, $\text{range\;}T = V$.
+Hence every vector in $V$ can be written as a linear combination of $v_1,\dots,v_m$.
+
+(b) Injectivity of $T$ implies $v_1,\dots,v_m$ is linearly independent.
+If $T$ is injective, then $T(z_1,\dots,z_m)=0$ implies $z_1 = \dots = z_m = 0$.
+Hence the only linear combination of $v_1,\dots,v_m$ equal to 0 has all the $v$'s multiplied by 0.
+\end{document}
