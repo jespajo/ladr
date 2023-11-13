@@ -1,0 +1,75 @@
+\documentclass[a5paper]{article}
+\usepackage{amsmath}
+\usepackage[top=1cm,right=1cm,bottom=1cm,left=1cm]{geometry}
+\setlength\parindent{0pt}
+\setlength\parskip{1em}
+% 
+% \usepackage{xcolor}
+% \pagecolor[rgb]{0.1,0.1,0.1}
+% \color[rgb]{1.0,1.0,1.0}
+% 
+\begin{document}
+
+\newcommand    \C  { \mathbf{C} }
+\newcommand    \R  { \mathbf{R} }
+\renewcommand  \L  { \mathcal{L} }
+\newcommand    \F  { \mathbf{F} }
+\newcommand    \nullspace { \text{null\;} }
+\newcommand    \range     { \text{range\;} }
+
+$V$ and $W$ are finite-dimensional with $\dim V \ge \dim W \ge 2$.
+
+Suppose $v_1,\dots,v_n$ is a basis of $V$ and $w_1,\dots,w_m$ is a basis of $W$.
+Thus $n \ge m$.
+
+Define $S_1,S_2 \in \L(V,W)$ such that
+\begin{align*}
+  \begin{split}
+    S_1v_j &=
+        \begin{cases}
+            w_1  &\text{if } j = 1                      \\
+            0    &\text{if } j \in \{2,\dots,n\}
+        \end{cases}
+  \end{split}
+  \begin{split}
+    S_2v_j &=
+        \begin{cases}
+            0    &\text{if } j = 1                      \\
+            w_j  &\text{if } j \in \{2,\dots,m\}        \\
+            0    &\text{if } j \in \{m+1,\dots,n\}
+        \end{cases}
+  \end{split}
+\end{align*}
+
+Every $v \in V$ can be written with $a_1,\dots,a_n\in\F$ as
+\begin{align*}
+    v    &= a_1v_1 + \dots + a_nv_n
+\intertext{
+So
+}
+    S_1v &= S_1(a_1v_1 + \dots + a_nv_n)            \\
+         &= S_1(a_1v_1) + \dots + S_1(a_nv_n)       \\
+         &= a_1(S_1v_1) + \dots + a_n(S_1v_n)       \\
+         &= a_1w_1                                  \\
+                                                    \\
+    S_2v &= S_2(a_1v_1 + \dots + a_nv_n)            \\
+         &= S_2(a_1v_1) + \dots + S_2(a_nv_n)       \\
+         &= a_1(S_2v_1) + \dots + a_n(S_2v_n)       \\
+         &= a_2w_2 + \dots + a_mw_m
+\end{align*}
+$w_1,\dots,w_m$ is a linearly independent list of at least two vectors, so $w_2$ exists and cannot be written as a scalar multiple of $w_1$.
+Hence $w_2 \notin \range S_1$.
+Similarly $w_1$ exists and cannot be written as a linear combination of $w_2,\dots,w_m$.
+Hence $w_1 \notin \range S_2$.
+Thus neither $S_1$ nor $S_2$ is surjective.
+
+But
+\begin{align*}
+    (S_1 + S_2)(v) &= S_1v + S_2v                       \\
+                   &= a_1w_1 + \dots + a_mw_m
+\end{align*}
+Thus $\range (S_1 + S_2) = \text{span\;}(w_1,\dots,w_m) = W$.
+So $S_1 + S_2$ is surjective.
+
+Hence $\left\{ T \in \L(V,W) : T \text{ is not surjective} \right\}$ is not a subspace because it is not closed under addition.
+\end{document}

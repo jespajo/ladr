@@ -1,0 +1,36 @@
+\documentclass[a5paper]{article}
+\usepackage{amsmath}
+\usepackage[top=1cm,right=1cm,bottom=1cm,left=1cm]{geometry}
+\setlength\parindent{0pt}
+\setlength\parskip{1em}
+% 
+% \usepackage{xcolor}
+% \pagecolor[rgb]{0.1,0.1,0.1}
+% \color[rgb]{1.0,1.0,1.0}
+% 
+\begin{document}
+
+\newcommand    \C  { \mathbf{C} }
+\newcommand    \R  { \mathbf{R} }
+\renewcommand  \L  { \mathcal{L} }
+\newcommand    \F  { \mathbf{F} }
+\renewcommand  \P  { \mathcal{P} }
+\newcommand    \nullspace { \text{null\;} }
+\newcommand    \range     { \text{range\;} }
+\newcommand    \linspan   { \text{span\;} }
+
+We have $T \in \L(V,W)$ and $v_1,\dots,v_n$ spans $V$.
+
+Every $v \in V$ can be written 
+\begin{align*}
+    v &= a_1v_1 + \dots + a_nv_n
+\intertext{
+with $a_1,\dots,a_n \in \F$.
+Hence
+}
+    Tv &= T(a_1v_1 + \dots + a_nv_n)        \\
+       &= T(a_1v_1) + \dots + T(a_nv_n)     \\
+       &= a_1(Tv_1) + \dots + a_n(Tv_n)
+\end{align*}
+Thus $\range T = \linspan(Tv_1,\dots,Tv_n)$.
+\end{document}
