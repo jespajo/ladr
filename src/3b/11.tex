@@ -1,0 +1,36 @@
+\documentclass[a5paper]{article}
+\usepackage{amsmath}
+\usepackage[top=1cm,right=1cm,bottom=1cm,left=1cm]{geometry}
+\usepackage[pdfstartview=FitH]{hyperref}
+\setlength\parindent{0pt}
+\setlength\parskip{1em}
+%\usepackage{xcolor}
+%\pagecolor[rgb]{0.1,0.1,0.1}
+%\color[rgb]{1.0,1.0,1.0}
+\begin{document}
+\newcommand    \C          {\mathbf{C}}
+\newcommand    \R          {\mathbf{R}}
+\renewcommand  \L          {\mathcal{L}}
+\newcommand    \F          {\mathbf{F}}
+\renewcommand  \P          {\mathcal{P}}
+\newcommand    \nullspace  {\text{null\;}}
+\newcommand    \range      {\text{range\;}}
+\newcommand    \linspan    {\text{span\;}}
+
+    $S_1,\dots,S_n$ are injective linear maps such that $S_1S_2\dots S_n$ makes sense.
+
+    Suppose $u$ is an element in the domain of $S_n$ such that
+\begin{align*}
+        (S_1 S_2 \dots S_n)(u) &= 0
+\intertext{
+    Then follow this multi-step process for $j = 1,\dots,n$.
+}
+        0 &= (S_j S_{j+1} \dots S_n)(u)             \\
+          &= S_j \big( (S_{j+1} \dots S_n)(u) \big)
+\end{align*}
+    At the end of each step, we know $(S_{j+1} \dots S_n)(u) = 0$ because $S_j$ is injective.
+
+    At the $n$th step, we have $S_nu = 0$ and thus $u = 0$.
+
+    Hence $S_1S_2\dots S_n$ is injective because its null space equals $\{0\}$.
+\end{document}
