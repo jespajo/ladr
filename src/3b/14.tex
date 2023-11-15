@@ -1,0 +1,36 @@
+\documentclass[a5paper]{article}
+\usepackage{amsmath}
+\usepackage[top=1cm,right=1cm,bottom=1cm,left=1cm]{geometry}
+\usepackage[pdfstartview=FitH]{hyperref}
+\setlength\parindent{0pt}
+\setlength\parskip{1em}
+%\usepackage{xcolor}
+%\pagecolor[rgb]{0.1,0.1,0.1}
+%\color[rgb]{1.0,1.0,1.0}
+\begin{document}
+\newcommand    \C          {\mathbf{C}}
+\newcommand    \R          {\mathbf{R}}
+\renewcommand  \L          {\mathcal{L}}
+\newcommand    \F          {\mathbf{F}}
+\renewcommand  \P          {\mathcal{P}}
+\newcommand    \nullspace  {\text{null\;}}
+\newcommand    \range      {\text{range\;}}
+\newcommand    \linspan    {\text{span\;}}
+
+    $U$ is a 3-dimensional subspace of $\R^8$.
+    $T \in \L(\R^8, \R^5)$.
+    $\nullspace T = U$.
+
+    From the Fundamental Theorem of Linear Maps,
+\begin{align*}
+            \dim \R^8 &= \dim \nullspace T + \dim \range T      \\
+                    8 &= 3 + \dim \range T                      \\
+        \dim \range T &= 5
+\intertext{
+    So $\range T$ is a 5-dimensional subspace of $\R^5$.
+    Hence
+}
+             \range T &= \R^5
+\end{align*}
+    Thus $T$ is surjective.
+\end{document}

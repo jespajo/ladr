@@ -7,4 +7,4 @@ out/%.pdf: src/%.tex; pdflatex -file-line-error -halt-on-error -output-directory
 
 clean:; rm -rf out/
 
-tidy:; find out/ -regex '.*.\(aux\|log\)' -delete
+tidy:; find out/ -regex '.*.\(aux\|log\|out\)' -delete
