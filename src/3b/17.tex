@@ -1,0 +1,45 @@
+\documentclass[a5paper]{article}
+\usepackage{amsmath}
+\usepackage[top=1cm,right=1cm,bottom=1cm,left=1cm]{geometry}
+\usepackage[pdfstartview=FitH]{hyperref}
+\setlength\parindent{0pt}
+\setlength\parskip{1em}
+%\usepackage{xcolor}
+%\pagecolor[rgb]{0.1,0.1,0.1}
+%\color[rgb]{1.0,1.0,1.0}
+\begin{document}
+\newcommand    \C          {\mathbf{C}}
+\newcommand    \R          {\mathbf{R}}
+\renewcommand  \L          {\mathcal{L}}
+\newcommand    \F          {\mathbf{F}}
+\renewcommand  \P          {\mathcal{P}}
+\newcommand    \nullspace  {\text{null\;}}
+\newcommand    \range      {\text{range\;}}
+\newcommand    \linspan    {\text{span\;}}
+
+    $V$ and $W$ are finite-dimensional.
+
+    Let $v_1,\dots,v_m$ be a basis of $V$ and $w_1,\dots,w_n$ be a basis of $W$.
+    Thus $\dim V = m$ and $\dim W = n$.
+
+    First suppose there exists an injective linear map from $V$ to $W$.
+    No linear map to a larger dimensional space is injective, so $\dim V \le \dim W$.
+
+    To prove the other direction, suppose $\dim V \le \dim W$.
+    Then $m \le n$.
+    Hence there exists $T \in \L(V,W)$ such that
+\begin{align*}
+        Tv_j = w_j \quad \text{for} \quad j = 1, \dots, m
+\end{align*}
+    For $v \in V$, there are $a_1,\dots,a_m$ such that
+\begin{align*}
+         v &=   a_1v_1 + \dots + a_mv_m             \\
+        Tv &= T(a_1v_1 + \dots + a_mv_m)            \\
+        Tv &= a_1(Tv_1) + \dots + a_m(Tv_m)         \\
+        Tv &= a_1w_1 + \dots + a_mw_m
+\end{align*}
+    Suppose $Tv = 0$.
+    Because $w_1,\dots,w_m$ is linearly independent, $a_1=\dots=a_m=0$.
+    That means $v=0$.
+    Hence $T$ is injective.
+\end{document}
