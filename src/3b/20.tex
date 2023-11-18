@@ -1,0 +1,95 @@
+\documentclass[a5paper]{article}
+\usepackage{amsmath}
+\usepackage[top=1cm,right=1cm,bottom=1cm,left=1cm]{geometry}
+\setlength\parindent{0pt}
+\setlength\parskip{1em}
+%\usepackage{xcolor}
+%\pagecolor[rgb]{0.1,0.1,0.1}
+%\color[rgb]{1.0,1.0,1.0}
+\begin{document}
+\newcommand   \C           {\mathbf{C}}
+\newcommand   \R           {\mathbf{R}}
+\renewcommand \L           {\mathcal{L}}
+\newcommand   \F           {\mathbf{F}}
+\renewcommand \P           {\mathcal{P}}
+\newcommand   \nullspace   {\text{null\:}}
+\newcommand   \range       {\text{range\:}}
+\newcommand   \linspan     {\text{span\:}}
+\newcommand   \question[1] {\textbf{\boldmath#1\unboldmath}\par}
+
+\question{
+    3.B.20.
+    Suppose $W$ is finite-dimensional and that $T \in \L(V,W)$.
+    Prove that $T$ is injective if and only if there exists $S \in \L(W,V)$ such that $ST$ is the identity map on $V$.
+}
+    To prove in one direction, suppose $S \in \L(W,V)$ exists such that $ST$ is the identity map on $V$.
+
+    Suppose $v \in V$ such that $Tv = 0$.
+    Then 
+\begin{equation*}
+        (ST)(v) = S(Tv) = S(0) = 0 .
+\end{equation*}
+    So the identity map on $V$ takes $v$ to 0.
+    Thus $v=0$.
+    Hence $T$ is injective.
+
+    To prove in the other direction, suppose $T$ is injective.
+
+    $\range T$ has a basis because it is a subspace of $W$.
+    Denote this basis $w_1,\dots,w_m$.
+    So $\dim \range T = m$.
+
+    Clearly there exist $v_1,\dots,v_m \in V$ such that $Tv_j = w_j$ for each $j = 1,\dots,m$.
+    In fact $v_1,\dots,v_m$ is a basis of $V$.
+
+    To show this, suppose $a_1,\dots,a_m \in \F$ such that
+\begin{align*}
+        a_1v_1 + \dots + a_mv_m &= 0 .
+\intertext{
+    Applying $T$ to both sides of the equation,
+}
+        a_1Tv_1 + \dots + a_mTv_m &= T(0) \\
+          a_1w_1 + \dots + a_mw_m &= 0 .
+\end{align*}
+    Then $a_1=\dots=a_m=0$ since $w_1,\dots,w_m$ is linearly independent.
+    Hence $v_1,\dots,v_m$ is also linearly independent.
+    So to prove that $v_1,\dots,v_m$ is a basis of $V$, we only need to show that it has the right length.
+
+    Because $T$ is injective, $\dim \nullspace T = \dim \{0\} = 0$.
+    Thus from the Fundamental Theorem of Linear Maps,
+\begin{align*}
+        \dim V &= \dim \range T \\
+               &= m
+\end{align*}
+    as desired.
+    Thus every $v \in V$ can be written as
+\begin{equation*}
+        v = b_1v_1 + \dots + b_mv_m
+\end{equation*}
+    with $b_1,\dots,b_m \in \F$.
+
+    We can extend $w_1,\dots,w_m$ to a basis of $W$ by appending $w_{m+1},\dots,w_{m+n} \in W$.
+
+    Then there exists $S \in \L(W,V)$ such that
+\begin{align*}
+        Sw_k =
+            \begin{cases}
+                \ v_k \ &\text{if}\quad k \le m \\
+                \ 0   \ &\text{if}\quad k  >  m
+            \end{cases}
+\end{align*}
+    for each $k = 1,\dots,m+n$.
+    (The second case doesn't matter and 0 could be any vector in $V$.)
+
+    Hence
+\begin{align*}
+        (ST)(v) &= S(Tv) \\
+                &= S \big( T(b_1v_1 + \dots + b_mv_m) \big) \\
+                &= S (b_1Tv_1 + \dots + b_mTv_m ) \\
+                &= S(b_1w_1 + \dots + b_mw_m) \\
+                &= b_1Sw_1 + \dots + b_mSw_m \\
+                &= b_1v_1 + \dots + b_mv_m \\
+                &= v .
+\end{align*}
+    Thus $ST$ is the identity map on $V$.
+\end{document}
