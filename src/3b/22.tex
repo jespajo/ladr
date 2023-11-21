@@ -1,0 +1,115 @@
+\documentclass[a5paper]{article}
+\usepackage{amsmath}
+\usepackage[top=1cm,right=1cm,bottom=1cm,left=1cm]{geometry}
+\setlength\parindent{0pt}
+\setlength\parskip{1em}
+%\usepackage{xcolor}
+%\pagecolor[rgb]{0.1,0.1,0.1}
+%\color[rgb]{1.0,1.0,1.0}
+\begin{document}
+\newcommand   \C           {\mathbf{C}}
+\newcommand   \R           {\mathbf{R}}
+\renewcommand \L           {\mathcal{L}}
+\newcommand   \F           {\mathbf{F}}
+\renewcommand \P           {\mathcal{P}}
+\newcommand   \nullspace   {\text{null\:}}
+\newcommand   \range       {\text{range\:}}
+\newcommand   \linspan     {\text{span\:}}
+\newcommand   \question[1] {\textbf{\boldmath#1\unboldmath}\par}
+
+\question{
+    3.B.22.
+    Suppose $U$ and $V$ are finite-dimensional vector spaces and $S \in \L(V,W)$ and $T \in \L(U,V)$.
+    Prove that
+    \begin{equation*}
+            \dim \nullspace ST \le \dim \nullspace S + \dim \nullspace T .
+    \end{equation*}
+}
+    Both $\nullspace S$ and $\range T$ are subspaces of $V$.
+    Hence the intersection of these subspaces is also a subspace of $V$ (as we proved in 1.C.11).
+
+    Suppose $u_1,\dots,u_m$ is a basis of $\nullspace S \cap \range T$.
+    Suppose we extend this list to a basis of $\range T$ by appending $v_1,\dots,v_n$.
+    Thus
+\begin{align*}
+        & \dim (\nullspace S \cap \range T) = m &\text{and}&& \dim \range T = m + n . &
+\end{align*}
+    Then we can write any $Tu \in \range T$ as
+\begin{align*}
+        Tu &= a_1u_1 + \dots + a_mu_m + b_1v_1 + \dots + b_nv_n
+\intertext{
+    with $a_1,\dots,a_m,b_1,\dots,b_n \in \F$.
+    Hence
+}
+        (ST)(u) &= S(Tu) \\
+                &= S(a_1u_1 + \dots + a_mu_m + b_1v_1 + \dots + b_nv_n) \\
+                &= a_1Su_1 + \dots + a_mSu_m + b_1Sv_1 + \dots + b_nSv_n \\
+                &= b_1Sv_1 + \dots + b_nSv_n
+\end{align*}
+    where each $a_ju_j$ dissapears because $u_j \in \nullspace S$.
+
+    Thus $Sv_1,\dots,Sv_n$ spans $\range ST$.
+    In fact this list is a basis of $\range ST$.
+    To see this, suppose $c_1,\dots,c_n \in \F$ such that
+\begin{equation*}
+        c_1Sv_1 + \dots + c_nSv_n = 0 .
+\end{equation*}
+    Then
+\begin{equation*}
+        S(c_1v_1 + \dots + c_nv_n) = 0 .
+\end{equation*}
+    Thus $c_1v_1 + \dots + c_nv_n \in \nullspace S$.
+    Also $c_1v_1 + \dots + c_nv_n \in \range T$ because it is a linear combination of vectors in $\range T$.
+    So $c_1v_1 + \dots + c_nv_n \in \nullspace S \cap \range T$.
+
+    Hence there are $d_1,\dots,d_m \in \F$ such that
+\begin{equation*}
+        c_1v_1 + \dots + c_nv_n = d_1u_1 + \dots + d_mu_m .
+\end{equation*}
+    So
+\begin{equation*}
+        0 = d_1u_1 + \dots + d_mu_m - c_1v_1 - \dots - c_nv_n .
+\end{equation*}
+    Since this is a linear combination of $u_1,\dots,u_m,v_1,\dots,v_n$, which is a linearly independent list, $d_1=\dots=d_m=c_1=\dots=c_n=0$.
+
+    Then because $c_1=\dots=c_n=0$, we know $Sv_1,\dots,Sv_n$ is linearly independent in addition to spanning $\range ST$.
+    Hence $Sv_1,\dots,Sv_n$ is a basis of $\range ST$.
+    Thus $\dim \range ST = n$.
+
+    Hence $n = (m + n) - m$, or
+\begin{equation*}
+        \dim \range ST = \dim \range T - \dim (\nullspace S \cap \range T) . \tag{a}
+\end{equation*}
+
+    Now, $ST$ and $T$ are both linear maps on $U$.
+    So from the Fundamental Theorem of Linear Maps,
+\begin{align*}
+        \dim U &= \dim \nullspace ST + \dim \range ST \\
+               &= \dim \nullspace T + \dim \range T .
+\end{align*}
+    Thus
+\begin{equation*}
+        \dim \nullspace ST + \dim \range ST = \dim \nullspace T + \dim \range T .
+\end{equation*}
+    So
+\begin{equation*}
+        \dim \range ST = \dim \nullspace T + \dim \range T - \dim \nullspace ST .
+\end{equation*}
+
+    Substituting (a) in,
+\begin{align*}
+       \dim \range T - \dim (\nullspace S \cap \range T) &= \dim \nullspace T + \dim \range T - \dim \nullspace ST \\
+                     - \dim (\nullspace S \cap \range T) &= \dim \nullspace T - \dim \nullspace ST \\
+                                      \dim \nullspace ST &= \dim \nullspace T + \dim (\nullspace S \cap \range T) . \tag{b}
+\end{align*}
+
+    Finally, $\nullspace S \cap \range T$ is a subspace of $\nullspace S$.
+    So
+\begin{equation*}
+        \dim (\nullspace S \cap \range T) \le \dim \nullspace S .
+\end{equation*}
+    Hence from (b),
+\begin{equation*}
+        \dim \nullspace ST \le \dim \nullspace S + \dim \nullspace T .
+\end{equation*}
+\end{document}
