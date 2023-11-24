@@ -1,0 +1,70 @@
+\documentclass[a5paper]{article}
+\usepackage{amsmath}
+\usepackage[top=1cm,right=1cm,bottom=1cm,left=1cm]{geometry}
+\setlength\parindent{0pt}
+\setlength\parskip{1em}
+%\usepackage{xcolor}
+%\pagecolor[rgb]{0.1,0.1,0.1}
+%\color[rgb]{1.0,1.0,1.0}
+\begin{document}
+\newcommand   \C           {\mathbf{C}}
+\newcommand   \R           {\mathbf{R}}
+\renewcommand \L           {\mathcal{L}}
+\newcommand   \F           {\mathbf{F}}
+\renewcommand \P           {\mathcal{P}}
+\newcommand   \nullspace   {\text{null\:}}
+\newcommand   \range       {\text{range\:}}
+\newcommand   \linspan     {\text{span\:}}
+\newcommand   \question[1] {\textbf{\boldmath#1\unboldmath}\par}
+
+\question{
+    3.B.23.
+    Suppose $U$ and $V$ are finite-dimensional vector spaces and $S \in \L(V,W)$ and $T \in \L(U,V)$.
+    Prove that
+    \begin{equation*}
+            \dim \range ST \le \min \{ \dim \range S, \dim \range T \} .
+    \end{equation*}
+}
+    Suppose $w \in \range ST$.
+    Then there is some $u \in U$ such that
+\begin{equation*}
+        w = (ST)(u) = S(Tu) .
+\end{equation*}
+    Thus $w \in \range S$.
+
+    So $\range ST \subset \range S$.
+    Hence
+\begin{equation*}
+         \dim \range ST \le \dim \range S . \tag{a}
+\end{equation*}
+
+    A basis of $\range T$ exists because $\range T$ is a subspace of $V$.
+    Suppose $v_1,\dots,v_n$ is a basis of $\range T$.
+    Thus $\dim \range T = n$.
+
+    Then for $Tu \in \range T$,
+\begin{equation*}
+        Tu = a_1v_1 + \dots + a_nv_n
+\end{equation*}
+    with $a_1,\dots,a_n \in \F$.
+
+    So for $w \in \range ST$,
+\begin{align*}
+        w &= S(Tu) \\
+          &= S(a_1v_1 + \dots + a_nv_n) \\
+          &= a_1(Sv_1) + \dots + a_n(Sv_n) .
+\end{align*}
+    Thus $\range ST$ is spanned by $Sv_1, \dots, Sv_n \in W$.
+
+    Hence $\range ST$ is finite-dimensional and has a basis.
+    The length of the basis cannot be greater than $n$ because no linearly independent list is longer than a spanning list.
+    So
+\begin{equation*}
+         \dim \range ST \le \dim \range T . \tag{b}
+\end{equation*}
+
+    So from (a) and (b),
+\begin{equation*}
+         \dim \range ST \le \min \{\dim\range S, \dim\range T \} .
+\end{equation*}
+\end{document}

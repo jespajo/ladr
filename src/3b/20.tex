@@ -25,7 +25,7 @@
     To prove in one direction, suppose $S \in \L(W,V)$ exists such that $ST$ is the identity map on $V$.
 
     Suppose $v \in V$ such that $Tv = 0$.
-    Then 
+    Then
 \begin{equation*}
         (ST)(v) = S(Tv) = S(0) = 0 .
 \end{equation*}
@@ -53,15 +53,22 @@
 \end{align*}
     Then $a_1=\dots=a_m=0$ since $w_1,\dots,w_m$ is linearly independent.
     Hence $v_1,\dots,v_m$ is also linearly independent.
-    So to prove that $v_1,\dots,v_m$ is a basis of $V$, we only need to show that it has the right length.
 
-    Because $T$ is injective, $\dim \nullspace T = \dim \{0\} = 0$.
-    Thus from the Fundamental Theorem of Linear Maps,
+    So we can prove that $v_1,\dots,v_m$ is a basis of $V$ by proving that $V$ is finite-dimensional and that $v_1,\dots,v_m$ has has length equal to $\dim V$.
+
+    No linear map to a smaller-dimensional subspace is injective, so the fact that $T$ is injective means $\dim V \le \dim W$.
+    Thus $V$ is finite-dimensional.
+
+    Hence we can use the Fundamental Theorem of Linear Maps to show
 \begin{align*}
-        \dim V &= \dim \range T \\
-               &= m
+        \dim V &= \dim \range T + \dim \nullspace T \\
+               &= \dim \range T + \dim \{ 0 \} \\
+               &= \dim \range T \\
+               &= m .
 \end{align*}
-    as desired.
+    So $v_1,\dots,v_m$ has length equal to $\dim V$.
+    Hence this list is a basis of $V$.
+
     Thus every $v \in V$ can be written as
 \begin{equation*}
         v = b_1v_1 + \dots + b_mv_m
