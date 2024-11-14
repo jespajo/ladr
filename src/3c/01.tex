@@ -1,0 +1,52 @@
+\documentclass[a5paper]{article}
+\usepackage{amsmath}
+\usepackage[top=1cm,right=1cm,bottom=1cm,left=1cm]{geometry}
+\setlength\parindent{0pt}
+\setlength\parskip{1em}
+%\usepackage{xcolor}
+%\pagecolor[rgb]{0.1,0.1,0.1}
+%\color[rgb]{1.0,1.0,1.0}
+\begin{document}
+\newcommand   \C           {\mathbf{C}}
+\newcommand   \R           {\mathbf{R}}
+\renewcommand \L           {\mathcal{L}}
+\newcommand   \F           {\mathbf{F}}
+\renewcommand \P           {\mathcal{P}}
+\newcommand   \question[1] {\textbf{\boldmath#1\unboldmath}\par}
+\newcommand   \op          {\operatorname}
+
+\question{
+    3.C.1.
+    Suppose $T \in \L(V, W)$.
+    Show with respect to each choice of bases of $V$ and $W$, the matrix of $T$ has at least $\op{dim} \op{range} T$ nonzero entries.
+}
+
+    Suppose $v_1,\dots,v_n$ is a basis of $V$, and $w_1,\dots,w_m$ is a basis of $W$.
+
+    For $k \in \{1,\dots,n\}$,
+\begin{equation*}
+        Tv_k = A_{1,k}w_1 + \dots + A_{m,k}w_m
+\end{equation*}
+    where each $A_{j,k}$ is an entry in the $k$th column of the matrix of $T$.
+
+    Suppose we went through the list $v_1,\dots,v_n$ and added each $v_k$ to another list if every $A_{j,k} = 0$.
+    Let $p$ denote the length of the new list.
+
+    $T$ sends every vector in the new list to zero.
+    So the new list would be a linearly independent list of vectors in the null space of $T$.
+    We could extend this list to a basis of $T$'s null space.
+    Thus
+\begin{equation*}
+        p \le \op{dim}\op{null}T .
+\end{equation*}
+
+    From the Fundamental Theorem of Linear Maps,
+\begin{equation*}
+        \op{dim}V - \op{dim}\op{null}T = \op{dim}\op{range}T .
+\end{equation*}
+    $\op{dim}V = n$, so the left side of the equation can only get larger if we replace it with $n - p$:
+\begin{equation*}
+        n - p \ge \op{dim}\op{range}T .
+\end{equation*}
+    Since $n - p$ is the number of columns of the matrix of $T$ with at least one nonzero entry, we have the desired result.
+\end{document}

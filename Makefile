@@ -1,3 +1,5 @@
+MAKEFLAGS += --jobs=$(shell nproc)
+
 # Copy src/ directory structure to out/
 $(shell find src/ -type d | sed 's/^src/out/g' | xargs mkdir -p)
 
