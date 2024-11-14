@@ -14,15 +14,23 @@
 \newcommand    \R  { \mathbf{R} }
 \renewcommand  \L  { \mathcal{L} }
 \newcommand    \F  { \mathbf{F} }
+\renewcommand \P           {\mathcal{P}}
+\newcommand   \question[1] {\textbf{\boldmath#1\unboldmath}\par}
+\newcommand   \op          {\operatorname}
 
-$S, T \in \L(V,V)$. Since $\text{range\;}S \subset \text{null\;}T$, we have $(TS)(v) = 0$ for all $v \in V$.
+\question{
+    Suppose $S, T \in \L(V,V)$ are such that $\op{range}S \subseteq \op{null}T$.
+    Prove that $(ST)^2 = 0$.
+}
 
-Hence,
+    Since $\op{range}S \subseteq \op{null}T$, we have $(TS)(v) = 0$ for all $v \in V$.
+
+    Hence,
 \begin{align*}
     (ST)^2(v) &= (STST)(v)                      \\
               &= S \big( (TS)(Tv) \big)         \\
               &= S (0)                          \\
               &= 0
 \end{align*}
-with the last equality holding because all linear maps take 0 to 0.
+    with the last equality holding because all linear maps take 0 to 0.
 \end{document}
