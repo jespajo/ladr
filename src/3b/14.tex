@@ -17,20 +17,31 @@
 \newcommand    \range      {\text{range\;}}
 \newcommand    \linspan    {\text{span\;}}
 
-    $U$ is a 3-dimensional subspace of $\R^8$.
-    $T \in \L(\R^8, \R^5)$.
-    $\nullspace T = U$.
+    Suppose $U$ is a subspace of $\F^5$ such that
+\begin{align*}
+        U = \left\{ (x_1,x_2,x_3,x_4,x_5) \in \F^5 : x_1=3x_2 \text{ and } x_3=x_4=x_5 \right\}
+\end{align*}
+    Then for any $u \in U$,
+\begin{align*}
+        u &= (x_1, x_2, x_3, x_4, x_4)          \\
+          &= (3x_2, x_2, x_3, x_3, x_3)         \\
+          &= x_2(3,1,0,0,0) + x_3(0,0,1,1,1)
+\end{align*}
+    So the list $(3,1,0,0,0), (0,0,1,1,1)$ spans $U$.
 
+    This list is also linearly independent because if $u=(0,0,0,0,0)$ then $x_2=x_3=0$.
+
+    Hence this list is a basis of $U$.
+    Thus $\dim U = 2$.
+
+    Now suppose $T \in \L(\F^5,W)$ with $\nullspace T = U$.
     From the Fundamental Theorem of Linear Maps,
 \begin{align*}
-            \dim \R^8 &= \dim \nullspace T + \dim \range T      \\
-                    8 &= 3 + \dim \range T                      \\
-        \dim \range T &= 5
-\intertext{
-    So $\range T$ is a 5-dimensional subspace of $\R^5$.
-    Hence
-}
-             \range T &= \R^5
+                   \dim U + \dim \range T &= \dim \F^5     \\
+                        2 + \dim \range T &= 5             \\
+                            \dim \range T &= 3
 \end{align*}
-    Thus $T$ is surjective.
+    $\range T$ is a subspace of $W$, so we know $\dim W \ge 3$.
+
+    Hence $W$ cannot be $\F^2$ because $\dim \F^2=2$.
 \end{document}

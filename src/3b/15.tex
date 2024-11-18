@@ -17,31 +17,30 @@
 \newcommand    \range      {\text{range\;}}
 \newcommand    \linspan    {\text{span\;}}
 
-    Suppose $U$ is a subspace of $\F^5$ such that
+    We know there exists a linear map on $V$ whose null space and range are finite-dimensional.
+    Denote this map $T$.
+
+    Suppose $u_1,\dots,u_m$ is a basis of $\nullspace T$.
+    Suppose $Tw_1,\dots,Tw_n$ is a basis of $\range T$.
+
+    For $v \in V$, there are $a_1,\dots,a_n \in \F$ such that
 \begin{align*}
-        U = \left\{ (x_1,x_2,x_3,x_4,x_5) \in \F^5 : x_1=3x_2 \text{ and } x_3=x_4=x_5 \right\}
+        Tv &= a_1(Tw_1) + \dots + a_n(Tw_n)     \\
+        Tv &= T(a_1w_1 + \dots + a_nw_n) \\
+        0 &= T(a_1w_1 + \dots + a_nw_n) - Tv \\
+        0 &= T(a_1w_1 + \dots + a_nw_n - v) 
 \end{align*}
-    Then for any $u \in U$,
+    Hence $a_1w_1 + \dots + a_nw_n - v \in \nullspace T$.
+
+    So there are $b_1,\dots,b_m \in \F$ such that
 \begin{align*}
-        u &= (x_1, x_2, x_3, x_4, x_4)          \\
-          &= (3x_2, x_2, x_3, x_3, x_3)         \\
-          &= x_2(3,1,0,0,0) + x_3(0,0,1,1,1)
+        b_1u_1 + \dots + b_mu_m &= a_1w_1 + \dots + a_nw_n - v 
 \end{align*}
-    So the list $(3,1,0,0,0), (0,0,1,1,1)$ spans $U$.
-
-    This list is also linearly independent because if $u=(0,0,0,0,0)$ then $x_2=x_3=0$.
-
-    Hence this list is a basis of $U$.
-    Thus $\dim U = 2$.
-
-    Now suppose $T \in \L(\F^5,W)$ with $\nullspace T = U$.
-    From the Fundamental Theorem of Linear Maps,
+    Hence
 \begin{align*}
-                   \dim U + \dim \range T &= \dim \F^5     \\
-                        2 + \dim \range T &= 5             \\
-                            \dim \range T &= 3
+        v &= b_1u_1 + \dots + b_mu_m - a_1w_1 - \dots - a_nw_n
 \end{align*}
-    $\range T$ is a subspace of $W$, so we know $\dim W \ge 3$.
+    So the list $u_1,\dots,u_m,w_1,\dots,w_n$ spans $V$.
 
-    Hence $W$ cannot be $\F^2$ because $\dim \F^2=2$.
+    Thus $V$ is finite-dimensional.
 \end{document}

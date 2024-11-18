@@ -17,23 +17,20 @@
 \newcommand    \range      {\text{range\;}}
 \newcommand    \linspan    {\text{span\;}}
 
-    We have a linear map $T : \F^4 \rightarrow \F^2$ such that
-\begin{align*}
-        \nullspace T = \left\{ (x_1,x_2,x_3,x_4) \in \F^4 : x_1 = 5x_2 \text{ and } x_3 = 7x_4 \right\}
-\end{align*}
-    A basis of $\nullspace T$ is $(5,1,0,0),(0,0,7,1)$.
-    Thus $\dim \nullspace T = 2$.
+    $S_1,\dots,S_n$ are injective linear maps such that $S_1S_2\dots S_n$ makes sense.
 
-    From the Fundamental Theorem of Linear Maps,
+    Suppose $u$ is an element in the domain of $S_n$ such that
 \begin{align*}
-           \dim \F^4 &= \dim\nullspace T + \dim\range T     \\
-                   4 &= 2 + \dim\range T                    \\
-        \dim\range T &= 2
+        (S_1 S_2 \dots S_n)(u) &= 0
 \intertext{
-    $\range T$ is therefore a subspace of $\F^2$ with the same dimension as $\F^2$.
-    Hence
+    Then follow this multi-step process for $j = 1,\dots,n$.
 }
-                               \range T  &=  \F^2
+        0 &= (S_j S_{j+1} \dots S_n)(u)             \\
+          &= S_j \big( (S_{j+1} \dots S_n)(u) \big)
 \end{align*}
-    Thus $T$ is surjective.
+    At the end of each step, we know $(S_{j+1} \dots S_n)(u) = 0$ because $S_j$ is injective.
+
+    At the $n$th step, we have $S_nu = 0$ and thus $u = 0$.
+
+    Hence $S_1S_2\dots S_n$ is injective because its null space equals $\{0\}$.
 \end{document}

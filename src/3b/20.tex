@@ -18,85 +18,52 @@
 \newcommand   \question[1] {\textbf{\boldmath#1\unboldmath}\par}
 
 \question{
-    3.B.20.
-    Suppose $W$ is finite-dimensional and that $T \in \L(V,W)$.
-    Prove that $T$ is injective if and only if there exists $S \in \L(W,V)$ such that $ST$ is the identity map on $V$.
+    3.B.21.
+    Suppose $V$ is finite-dimensional and $T \in \L(V,W)$.
+    Prove that $T$ is surjective if and only if there exists $S \in \L(W,V)$ such that $TS$ is the identity map on $W$.
 }
-    To prove in one direction, suppose $S \in \L(W,V)$ exists such that $ST$ is the identity map on $V$.
+    To prove in one direction, suppose there exists $S \in \L(W,V)$ such that $TS$ is the identity map on $W$.
 
-    Suppose $v \in V$ such that $Tv = 0$.
+    Suppose $w \in W$.
     Then
+\begin{align*}
+        w = (TS)(w) = T(Sw) .
+\end{align*}
+    Thus $w \in \range T$.
+    So $T$ is surjective.
+
+    To prove in the other direction, suppose $T$ is surjective.
+
+    No linear map to a larger dimensional subspace is surjective, so $\dim V \ge \dim W$.
+    In particular $W$ is finite-dimensional.
+    Thus $\range T$ has a basis.
+
+    Suppose $Tv_1,\dots,Tv_n$ is a basis of $\range T$ with $v_1,\dots,v_n \in V$.
+    Of course $Tv_1,\dots,Tv_n$ is also a basis of $W$ because $\range T = W$.
+
+    Then we can write any $w \in W$ as
+\begin{align*}
+        w &= a_1Tv_1 + \dots + a_nTv_n
+\end{align*}
+    with $a_1,\dots,a_n \in \F$.
+
+    There exists $S \in \L(W,V)$ such that
 \begin{equation*}
-        (ST)(v) = S(Tv) = S(0) = 0 .
+        S(Tv_j) = v_j
 \end{equation*}
-    So the identity map on $V$ takes $v$ to 0.
-    Thus $v=0$.
-    Hence $T$ is injective.
-
-    To prove in the other direction, suppose $T$ is injective.
-
-    $\range T$ has a basis because it is a subspace of $W$.
-    Denote this basis $w_1,\dots,w_m$.
-    So $\dim \range T = m$.
-
-    Clearly there exist $v_1,\dots,v_m \in V$ such that $Tv_j = w_j$ for each $j = 1,\dots,m$.
-    In fact $v_1,\dots,v_m$ is a basis of $V$.
-
-    To show this, suppose $a_1,\dots,a_m \in \F$ such that
-\begin{align*}
-        a_1v_1 + \dots + a_mv_m &= 0 .
-\intertext{
-    Applying $T$ to both sides of the equation,
-}
-        a_1Tv_1 + \dots + a_mTv_m &= T(0) \\
-          a_1w_1 + \dots + a_mw_m &= 0 .
-\end{align*}
-    Then $a_1=\dots=a_m=0$ since $w_1,\dots,w_m$ is linearly independent.
-    Hence $v_1,\dots,v_m$ is also linearly independent.
-
-    So we can prove that $v_1,\dots,v_m$ is a basis of $V$ by proving that $V$ is finite-dimensional and that $v_1,\dots,v_m$ has has length equal to $\dim V$.
-
-    No linear map to a smaller-dimensional subspace is injective, so the fact that $T$ is injective means $\dim V \le \dim W$.
-    Thus $V$ is finite-dimensional.
-
-    Hence we can use the Fundamental Theorem of Linear Maps to show
-\begin{align*}
-        \dim V &= \dim \range T + \dim \nullspace T \\
-               &= \dim \range T + \dim \{ 0 \} \\
-               &= \dim \range T \\
-               &= m .
-\end{align*}
-    So $v_1,\dots,v_m$ has length equal to $\dim V$.
-    Hence this list is a basis of $V$.
-
-    Thus every $v \in V$ can be written as
-\begin{equation*}
-        v = b_1v_1 + \dots + b_mv_m
-\end{equation*}
-    with $b_1,\dots,b_m \in \F$.
-
-    We can extend $w_1,\dots,w_m$ to a basis of $W$ by appending $w_{m+1},\dots,w_{m+n} \in W$.
-
-    Then there exists $S \in \L(W,V)$ such that
-\begin{align*}
-        Sw_k =
-            \begin{cases}
-                \ v_k \ &\text{if}\quad k \le m \\
-                \ 0   \ &\text{if}\quad k  >  m
-            \end{cases}
-\end{align*}
-    for each $k = 1,\dots,m+n$.
-    (The second case doesn't matter and 0 could be any vector in $V$.)
-
+    for each $j = 1,\dots,n$.
     Hence
 \begin{align*}
-        (ST)(v) &= S(Tv) \\
-                &= S \big( T(b_1v_1 + \dots + b_mv_m) \big) \\
-                &= S (b_1Tv_1 + \dots + b_mTv_m ) \\
-                &= S(b_1w_1 + \dots + b_mw_m) \\
-                &= b_1Sw_1 + \dots + b_mSw_m \\
-                &= b_1v_1 + \dots + b_mv_m \\
-                &= v .
+        Sw &= S \big( a_1Tv_1 + \dots + a_nTv_n \big) \\
+           &= a_1 \big( S(Tv_1) \big) + \dots + a_n \big( S(Tv_n) \big) \\
+           &= a_1v_1 + \dots + a_nv_n .
 \end{align*}
-    Thus $ST$ is the identity map on $V$.
+    Thus
+\begin{align*}
+        (TS)(w) &= T (Sw) \\
+                &= T (a_1v_1 + \dots + a_nv_n) \\
+                &= a_1Tv_1 + \dots + a_nTv_n \\
+                &= w .
+\end{align*}
+    So $TS$ is the identity map on $W$.
 \end{document}

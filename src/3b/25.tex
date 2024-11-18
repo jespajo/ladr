@@ -16,203 +16,126 @@
 \newcommand   \op          {\operatorname}
 
 \question{
-    3.B.25.
-    Suppose $V$ is finite-dimensional and $T_1,T_2 \in \L(V, W)$.
-    Prove that $\op{range}T_1 \subset \op{range}T_2$ if and only if there exists $S \in \L(V, V)$ such that $T_1=T_2S$.
+    3.B.24.
+    Suppose $W$ is finite-dimensional and $T_1,T_2 \in \L(V, W)$.
+    Prove that $\op{null}T_1 \subset \op{null}T_2$ if and only if there exists $S \in \L(W, W)$ such that $T_2=ST_1$.
 }
 
-    To prove in one direction, suppose there exists $S \in \L(V, V)$ such that $T_1=T_2S$.
+    To prove in one direction, suppose there exists $S \in \L(W, W)$ such that $T_2=ST_1$.
 
-    Suppose $v \in \op{range}T_1$.
-    There exists $u \in V$ such that
+    Suppose $v \in \op{null}T_1$.
+    Then $T_1v = 0$.
+    So
 \begin{equation*}
-        v = T_1u = (T_2S)(u) = T_2(Su) .
+        T_2v = (ST_1)(v) = S(T_1v) = S(0) = 0 .
 \end{equation*}
-    Thus $v \in \op{range}T_2$.
-    Hence $\op{range}T_1 \subset \op{range}T_2$.
+    Thus $v \in \op{null}T_2$.
+    Hence $\op{null}T_1 \subset \op{null}T_2$.
 
-    To prove in the other direction, suppose $\op{range}T_1 \subset \op{range}T_2$.
+    To prove in the other direction, suppose $\op{null}T_1 \subset \op{null}T_2$.
 
-    Suppose $v_1,\dots,v_n$ is a basis of $V$.
+    $\op{range}T_1$ has a basis because it is a subspace of $W$.
+    Suppose $u_1,\dots,u_m \in V$ such that $T_1u_1,\dots,T_1u_m$ is a basis of $\op{range}T_1$.
+    
     Suppose $v \in V$.
-    Then
-\begin{equation*}
-        v = a_1v_1 + \dots + a_nv_n
-\end{equation*}
-    with $a_1,\dots,a_n \in \F$.
+    There exist $a_1,\dots,a_m \in \F$ such that
+\begin{align*}
+        T_1v &= a_1T_1u_1 + \dots + a_mT_1u_m .
+\intertext{
+    Taking $T_1v$ away from both sides,
+}
+        0 &= a_1T_1u_1 + \dots + a_mT_1u_m - T_1v \\
+          &= T_1(a_1u_1 + \dots + a_mu_m - v) .
+\end{align*}
+    So $a_1u_1 + \dots + a_mu_m - v \in \op{null}T_1$.
 
-    For $j=\{1,\dots,n\}$, since $T_1v_j$ is in $\op{range}T_1$, it is also in $\op{range}T_2$ because $\op{range}T_1 \subset \op{range}T_2$.
-    So there exists $u_j \in V$ such that $T_2u_j = T_1v_j$.
-
-    Hence we can define $S \in \L(V,V)$ on the basis of $v_1,\dots,v_n$ such that $Sv_j = u_j$ for each $j=\{1,\dots,n\}$.
-
+    Hence this vector is also in $\op{null}T_2$ because $\op{null}T_1 \subset \op{null}T_2$.
     Thus
 \begin{align*}
-        Sv &= S(a_1v_1 + \dots + a_nv_n) \\
-           &= a_1Sv_1 + \dots + a_nSv_n \\
-           &= a_1u_1 + \dots + a_nu_n .
+        0 &= T_2(a_1u_1 + \dots + a_mu_m - v) \\
+          &= a_1T_2u_1 + \dots + a_mT_2u_m - T_2v .
+\intertext{
+    Adding $T_2v$ to both sides,
+}
+        T_2v &= a_1T_2u_1 + \dots + a_mT_2u_m \\
+             &= T_2(a_1u_1 + \dots + a_mu_m) .
 \end{align*}
+    Now, since $T_1u_1,\dots,T_1u_m$ is a linearly independent list in $W$, we can extend it to a basis of $W$ by appending $w_1,\dots,w_n \in W$.
+
+    Then because $T_1u_1,\dots,T_1u_m,w_1,\dots,w_n$ is a basis of $W$ and $T_2u_1,\dots,T_2u_m \in W$, we can find $S \in \L(W,W)$ such that
+\begin{alignat*}{3}
+        S(T_1u_j) &= T_2u_j && \quad\text{for}\quad j=\{1,\dots,m\} \quad\text{and} \\
+             Sw_k &= 0      && \quad\text{for}\quad k=\{1,\dots,n\} .
+\end{alignat*}
     Hence
 \begin{align*}
-        (T_2S)(v) &= T_2(Sv) \\
-                  &= T_2(a_1u_1 + \dots + a_nu_n) \\
-                  &= a_1T_2u_1 + \dots + a_nT_2u_n \\
-                  &= a_1T_1v_1 + \dots + a_nT_1v_n \\
-                  &= T_1(a_1v_1 + \dots + a_nv_n) \\
-                  &= T_1v .
+        (ST_1)(v) &= S( T_1v ) \\
+                  &= S( a_1T_1u_1 + \dots + a_mT_1u_m ) \\
+                  &= a_1 S(T_1u_1) + \dots + a_m S(T_1u_m) \\
+                  &= a_1T_2u_1 + \dots + a_mT_2u_m \\
+                  &= T_2(a_1u_1 + \dots + a_mu_m) \\
+                  &= T_2v .
 \end{align*}
-
-
 \end{document}
 %
-%       $V$ is finite-dimensional, so $\op{null}T_1$ is finite-dimensional.
-%       The Fundamental Theorem of Linear Maps says that
-%   \begin{equation*}
-%           \dim\op{range}T_1 = \dim V - \dim\op{null}T_1
-%   \end{equation*}
-%       so $\op{range}T_1$ is finite-dimensional and has a basis.
-%   
-%       Say $u_1,\dots,u_m \in V$ such that $T_1u_1,\dots,T_1u_m$ is a basis of $\op{range}T_1$.
-%       
-%       Then $u_1,\dots,u_m$ are linearly independent in $V$.
-%       To see this...
-%   
-%       We can extend $u_1,\dots,u_m$ to a basis of $V$ by appending $v_1,\dots,v_n \in V$.
-%   
-%       Suppose $v \in V$.
-%       We can write $v$ as
-%   \begin{equation*}
-%           v = a_1u_1+\dots+a_mu_m+b_1v_1+\dots+b_nv_n
-%   \end{equation*}
-%       with $a_1,\dots,a_m,b_1,\dots,b_n \in \F$.
-%   
-%       We can find a linear map $S \in \L(V,V)$ such that
-%   \begin{alignat*}{3}
-%           Su_j &= u_j && \quad\text{for}\quad j=\{1,\dots,m\} \quad\text{and} \\
-%           Sv_k &= 0   && \quad\text{for}\quad k=\{1,\dots,n\} .
-%   \end{alignat*}
-%       Hence
-%   \begin{align*}
-%           Sv &= S(a_1u_1+\dots+a_mu_m+b_1v_1+\dots+b_nv_n) \\
-%              &= a_1Su_1 + \dots + a_mSu_m + b_1Sv_1 + \dots + b_nSv_n \\
-%              &= a_1u_1 + \dots + a_mu_m .
-%   \end{align*}
-%       Thus
-%   \begin{align*}
-%           (T_2S)(v) &= T_2(Sv) \\
-%                     &= T_2(a_1u_1+\dots+a_mu_m) \\
-%                     &= a_1T_2u_1 + \dots + a_mT_2u_m .
-%   \end{align*}
-%       So we may complete our proof by showing that $T_1v = a_1T_2u_1 + \dots + a_mT_2u_m$.
-%   
-%   
-%   \end{document}
-%       
-%       
-%   
-%   %    Since $\op{null}T_2$ is a subspace of $V$, it has a basis.
-%   %    Say $u_1,\dots,u_m$ is a basis of $\op{null}T_2$.
-%   %
-%   %    We can extend this list to a basis of $V$ by appending $v_1,\dots,v_n \in V$.
-%   %    Thus $u_1,\dots,u_m,v_1,\dots,v_n$ is a basis of $V$.
-%   %
-%   %    Suppose $v \in V$.
-%   %    Then
-%   %\begin{equation*}
-%   %        v = a_1u_1 + \dots + a_mu_m + b_1v_1 + \dots + b_nv_n .
-%   %\end{equation*}
-%   %    Thus
-%   %\begin{align*}
-%   %        T_2v &= T_2(a_1u_1 + \dots + a_mu_m + b_1v_1 + \dots + b_nv_n) \\
-%   %             &= a_1T_2u_1 + \dots + a_mT_2u_m + b_1T_2v_1 + \dots + b_nT_2v_n \\
-%   %             &= b_1T_2v_1 + \dots + b_nT_2v_n .
-%   %\end{align*}
-%   %    Hence the list $T_2v_1,\dots,T_2v_n \in W$ spans $\op{range}T_2$.
-%   %
-%   %    We can write $T_1v$ as
-%   %\begin{align*}
-%   %        T_1v &= T_1(a_1u_1 + \dots + a_mu_m + b_1v_1 + \dots + b_nv_n) \\
-%   %             &= a_1T_1u_1 + \dots + a_mT_1u_m + b_1T_1v_1 + \dots + b_nT_1v_n .
-%   %\end{align*}
-%   %    Since $\op{range}T_1 \subset \op{range}T_2$, we can also write $T_1v$ as a linear combination of $T_2v_1,\dots,T_2v_n$:
-%   %\begin{equation*}
-%   %        v = a_1u_1 + \dots + a_mu_m + b_1v_1 + \dots + b_nv_n .
-%   %\end{equation*}
-%   %
-%   %\end{document}
-%   %    
-%   %
-%   %%       To prove in the other direction, suppose $\op{range}T_1 \subset \op{range}T_2$.
-%   %%   
-%   %%       Since $\op{null}T_1$ is a subspace of $V$, it has a basis.
-%   %%       Say $u_1,\dots,u_m$ is a basis of $\op{null}T_1$.
-%   %%   
-%   %%       We can extend this list to a basis of $V$ by appending $v_1,\dots,v_n \in V$.
-%   %%       Thus $u_1,\dots,u_m,v_1,\dots,v_n$ is a basis of $V$.
-%   %%   
-%   %%       Suppose $v \in V$.
-%   %%       Then
-%   %%   \begin{equation*}
-%   %%           v = a_1u_1 + \dots a_mu_m + b_1v_1 + \dots + b_nv_n
-%   %%   \end{equation*}
-%   %%       with $a_1,\dots,a_m,b_1,\dots,b_n \in \F$.
-%   %%       Hence
-%   %%   \begin{align*}
-%   %%           T_1v &= T_1(a_1u_1 + \dots a_mu_m + b_1v_1 + \dots + b_nv_n) \\
-%   %%                &= b_1T_1v_1 + \dots + b_nT_1v_n .
-%   %%   \end{align*}
-%   %%       Then since $T_1v \in \op{range}T_2$, there exists $u \in V$ such that $T_1v = T_2u$.
-%   %%       Hence there exist $c_1,\dots,c_m,d_1,\dots,d_n \in \F$ such that
-%   %%   \begin{align*}
-%   %%           T_1v &= T_2u \\
-%   %%                &= T_2(c_1u_1 + \dots c_mu_m + d_1v_1 + \dots + d_nv_n) \\
-%   %%                &= c_1T_2u_1 + \dots c_mT_2u_m + d_1T_2v_1 + \dots + d_nT_2v_n .
-%   %%   \end{align*}
-%   %%     
-%   %%   
-%   %%   
-%   %%   
-%   %%       
-%   %%   
-%   %%       We can find $S \in \L(V,V)$ such that
-%   %%   \begin{alignat*}{3}
-%   %%           Su_j &= 0   && \quad\text{for}\quad j=\{1,\dots,m\} \quad\text{and} \\
-%   %%           Sv_k &= v_k && \quad\text{for}\quad k=\{1,\dots,n\} .
-%   %%   \end{alignat*}
-%   %%       Thus
-%   %%   \begin{align*}
-%   %%           Sv &= S(a_1u_1 + \dots a_mu_m + b_1v_1 + \dots + b_nv_n) \\
-%   %%              &= a_1Su_1 + \dots a_mSu_m + b_1Sv_1 + \dots + b_nSv_n \\
-%   %%              &= b_1v_1 + \dots + b_nv_n .
-%   %%   \end{align*}
-%   %%       Hence
-%   %%   \begin{align*}
-%   %%           (T_2S)(v) &= T_2( Sv ) \\
-%   %%                     &= T_2(b_1v_1 + \dots + b_nv_n) \\
-%   %%                     &= b_1T_2v_1 + \dots + b_nT_2v_n \\
-%   %%                     &= T_1v .
-%   %%   \end{align*}
-%   %%       (We haven't proved this yet but that's the goal.)
-%   %%   \end{document}
-%   %%   %    Say $v_1,\dots,v_m$ is a basis of $V$.
-%   %%   %
-%   %%   %    Suppose $v \in V$.
-%   %%   %    There exist $a_1,\dots,a_m \in \F$ such that
-%   %%   %\begin{equation*}
-%   %%   %        v = a_1v_1 + \dots + a_mv_m .
-%   %%   %\end{equation*}
-%   %%   %    Hence
-%   %%   %\begin{align*}
-%   %%   %        T_1v &= T_1(a_1v_1 + \dots + a_mv_m) = a_1T_1v_1 + \dots + a_mT_1v_m \quad\text{and} \\
-%   %%   %        T_2v &= T_2(a_1v_1 + \dots + a_mv_m) = a_1T_2v_1 + \dots + a_mT_2v_m .
-%   %%   %\end{align*}
-%   %%   %    Since $\op{range}T_1 \subset \op{range}T_2$, there also exist $b_1,\dots,b_m \in \F$ such that
-%   %%   %\begin{equation*}
-%   %%   %        T_1v = T_2(b_1v_1 + \dots + b_mv_m) = b_1T_2v_1 + \dots + b_mT_2v_m .
-%   %%   %\end{equation*}
-%   %%   %    Consider
-%   %%   %\begin{align*}
-%   %%   %        T_1v + T_2v &= b_1T_2v_1 + \dots + b_mT_2v_m + a_1T_2v_1 + \dots + a_mT_2v_m \\
-%   %%   %                    &= (b_1 + a_1)T_2v_1 + \dots + (b_m + a_m)T_2v_m \\
-%   %%   %                    &= T_2\big( (b_1 + a_1)v_1 + \dots + (b_m + a_m)v_m \big) . \\
-%   %%   %\end{align*}
+%
+%    Suppose $w_1,\dots,w_m$ is a basis of $\op{range} T_1$.
+%
+%    Clearly there exist $v_1,\dots,v_m \in V$ such that $T_1v_j = w_j$ for each $j=1,\dots,m$.
+%    In fact we will prove that
+%\begin{equation*}
+%        V = \op{null} T_1 \oplus \op{span}(v_1,\dots,v_m) .
+%\end{equation*}
+%    This takes a few steps.
+%    First we show that $V = \op{null} T_1 + \op{span}(v_1,\dots,v_m)$.
+%
+%    $\op{null} T_1 + \op{span}(v_1,\dots,v_m) \subset V$ because the sum of subspaces is the smallest containing subspace, and $V$ contains both $\op{null} T_1$ and $\op{span}(v_1,\dots,v_m)$.
+%
+%    To see inclusion in the other direction, suppose $v \in V$.
+%
+%    Then because $T_1v \in \op{range} T_1$, there exist $a_1,\dots,a_m \in \F$ such that
+%\begin{equation*}
+%        a_1T_1v_1 + \dots + a_mT_1v_m = T_1v .
+%\end{equation*}
+%    Moving each vector from the left side to the right side of the equation,
+%\begin{align*}
+%        0 &= T_1v - a_1T_1v_1 - \dots - a_mT_1v_m \\
+%          &= T_1(v - a_1v_1 - \dots - a_mv_m) .
+%\end{align*}
+%    Thus $(v - a_1v_1 - \dots - a_mv_m) \in \op{null} T_1$.
+%
+%    Then we can write $v$ as a sum of a vector in $\op{null} T_1$ and a vector in $\op{span}(v_1,\dots,v_m)$:
+%\begin{equation*}
+%        v = (v - a_1v_1 - \dots - a_mv_m) + (a_1v_1 + \dots + a_mv_m) .
+%\end{equation*}
+%    This shows $V \subset \op{null} T_1 + \op{span}(v_1,\dots,v_m)$.
+%
+%    Hence $V = \op{null} T_1 + \op{span}(v_1,\dots,v_m)$.
+%    To see that this sum is a direct sum, suppose $u_1 \in \op{null} T_1$ and $u_2 \in \op{span}(v_1,\dots,v_m)$ such that $u_1+u_2=0$.
+%
+%    There exist $b_1,\dots,b_m \in \F$ such that $u_2 = b_1v_1+\dots+b_mv_m$.
+%    So
+%\begin{equation*}
+%        u_1 + b_1v_1+\dots+b_mv_m = 0 .
+%\end{equation*}
+%    Applying $T_1$ to both sides, we get
+%\begin{equation*}
+%        b_1T_1v_1+\dots+b_mT_1v_1 = 0
+%\end{equation*}
+%    where $T_1u_1$ disappears because $u_1 \in \op{null} T_1$.
+%
+%    Then $b_1=\dots=b_m=0$ because $T_1v_1,\dots,T_1v_m$ is linearly independent.
+%    Thus
+%\begin{equation*}
+%        u_2 = 0v_1+\dots+0v_m = 0 .
+%\end{equation*}
+%    Then $u_1+0=0$ so $u_1=0$.
+%
+%    Hence the sum of $\op{null} T_1$ and $\op{span}(v_1,\dots,v_m)$ is a direct sum.
+%
+%%%
+%
+%    The list $v_1,\dots,v_m$ is linearly independent.
+%    To see this, suppose $a_1,\dots,a_m \in \F$ such that $a_1v_1 + \dots + a_mv_m = 0$.
+%    Applying $T_1$ to both sides yields $a_1w_1 + \dots + a_mw_m = 0$, so $a_1=\dots=a_m=0$.
+%

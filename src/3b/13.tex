@@ -17,23 +17,20 @@
 \newcommand    \range      {\text{range\;}}
 \newcommand    \linspan    {\text{span\;}}
 
-    We have a linear map $T : \F^4 \rightarrow \F^2$ such that
-\begin{align*}
-        \nullspace T = \left\{ (x_1,x_2,x_3,x_4) \in \F^4 : x_1 = 5x_2 \text{ and } x_3 = 7x_4 \right\}
-\end{align*}
-    A basis of $\nullspace T$ is $(5,1,0,0),(0,0,7,1)$.
-    Thus $\dim \nullspace T = 2$.
+    $U$ is a 3-dimensional subspace of $\R^8$.
+    $T \in \L(\R^8, \R^5)$.
+    $\nullspace T = U$.
 
     From the Fundamental Theorem of Linear Maps,
 \begin{align*}
-           \dim \F^4 &= \dim\nullspace T + \dim\range T     \\
-                   4 &= 2 + \dim\range T                    \\
-        \dim\range T &= 2
+            \dim \R^8 &= \dim \nullspace T + \dim \range T      \\
+                    8 &= 3 + \dim \range T                      \\
+        \dim \range T &= 5
 \intertext{
-    $\range T$ is therefore a subspace of $\F^2$ with the same dimension as $\F^2$.
+    So $\range T$ is a 5-dimensional subspace of $\R^5$.
     Hence
 }
-                               \range T  &=  \F^2
+             \range T &= \R^5
 \end{align*}
     Thus $T$ is surjective.
 \end{document}

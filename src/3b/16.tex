@@ -17,30 +17,29 @@
 \newcommand    \range      {\text{range\;}}
 \newcommand    \linspan    {\text{span\;}}
 
-    We know there exists a linear map on $V$ whose null space and range are finite-dimensional.
-    Denote this map $T$.
+    $V$ and $W$ are finite-dimensional.
 
-    Suppose $u_1,\dots,u_m$ is a basis of $\nullspace T$.
-    Suppose $Tw_1,\dots,Tw_n$ is a basis of $\range T$.
+    Let $v_1,\dots,v_m$ be a basis of $V$ and $w_1,\dots,w_n$ be a basis of $W$.
+    Thus $\dim V = m$ and $\dim W = n$.
 
-    For $v \in V$, there are $a_1,\dots,a_n \in \F$ such that
+    First suppose there exists an injective linear map from $V$ to $W$.
+    No linear map to a larger dimensional space is injective, so $\dim V \le \dim W$.
+
+    To prove the other direction, suppose $\dim V \le \dim W$.
+    Then $m \le n$.
+    Hence there exists $T \in \L(V,W)$ such that
 \begin{align*}
-        Tv &= a_1(Tw_1) + \dots + a_n(Tw_n)     \\
-        Tv &= T(a_1w_1 + \dots + a_nw_n) \\
-        0 &= T(a_1w_1 + \dots + a_nw_n) - Tv \\
-        0 &= T(a_1w_1 + \dots + a_nw_n - v) 
+        Tv_j = w_j \quad \text{for} \quad j = 1, \dots, m
 \end{align*}
-    Hence $a_1w_1 + \dots + a_nw_n - v \in \nullspace T$.
-
-    So there are $b_1,\dots,b_m \in \F$ such that
+    For $v \in V$, there are $a_1,\dots,a_m$ such that
 \begin{align*}
-        b_1u_1 + \dots + b_mu_m &= a_1w_1 + \dots + a_nw_n - v 
+         v &=   a_1v_1 + \dots + a_mv_m             \\
+        Tv &= T(a_1v_1 + \dots + a_mv_m)            \\
+        Tv &= a_1(Tv_1) + \dots + a_m(Tv_m)         \\
+        Tv &= a_1w_1 + \dots + a_mw_m
 \end{align*}
-    Hence
-\begin{align*}
-        v &= b_1u_1 + \dots + b_mu_m - a_1w_1 - \dots - a_nw_n
-\end{align*}
-    So the list $u_1,\dots,u_m,w_1,\dots,w_n$ spans $V$.
-
-    Thus $V$ is finite-dimensional.
+    Suppose $Tv = 0$.
+    Because $w_1,\dots,w_m$ is linearly independent, $a_1=\dots=a_m=0$.
+    That means $v=0$.
+    Hence $T$ is injective.
 \end{document}

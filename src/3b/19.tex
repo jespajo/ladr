@@ -12,88 +12,91 @@
 \renewcommand \L           {\mathcal{L}}
 \newcommand   \F           {\mathbf{F}}
 \renewcommand \P           {\mathcal{P}}
-\newcommand   \nullspace   {\text{null\,}}
-\newcommand   \range       {\text{range\,}}
-\newcommand   \linspan     {\text{span\,}}
+\newcommand   \nullspace   {\text{null\:}}
+\newcommand   \range       {\text{range\:}}
+\newcommand   \linspan     {\text{span\:}}
 \newcommand   \question[1] {\textbf{\boldmath#1\unboldmath}\par}
 
 \question{
-    3.B.19. Suppose $V$ and $W$ are finite-dimensional and that $U$ is a subspace of $V$.
-    Prove that there exists $T \in \L(V,W)$ such that $\nullspace T = U$ if and only if $\dim U \ge \dim V - \dim W$.
+    3.B.20.
+    Suppose $W$ is finite-dimensional and that $T \in \L(V,W)$.
+    Prove that $T$ is injective if and only if there exists $S \in \L(W,V)$ such that $ST$ is the identity map on $V$.
 }
-    To prove in one direction, suppose $T \in \L(V,W)$ exists such that $\nullspace T = U$.
-    Then applying the Fundamental Theorem of Linear Maps,
-\begin{align*}
-        \dim U &= \dim \nullspace T \\
-            &= \dim V - \dim \range T .
-\intertext{
-    Since $\dim W \ge \dim \range T$, if we replace $\dim \range T$ in the equation above with $\dim W$, the right side of the equation gets smaller or stays the same.
-    Thus
-}
-        \dim U &\ge \dim V - \dim W .
-\end{align*}
-    To prove in the other direction, suppose $\dim U \ge \dim V - \dim W$.
-
-    Let $u_1,\dots,u_m$ be a basis of $U$.
-    Extend this list to a basis of $V$ by appending $v_1,\dots,v_n \in V$.
-
-    Then $\dim U = m$ and $\dim V = m + n$.
-    So
-\begin{align*}
-             m &\ge m + n - \dim W \\
-             0 &\ge n - \dim W \\
-        \dim W &\ge n .
-\end{align*}
-    Hence there exists a list of length $n$ of linearly independent vectors in $W$.
-    Denote this list $w_1,\dots,w_n$.
-
-    Since $u_1,\dots,u_m, v_1,\dots,v_n$ is a basis of $V$, there exists $T \in \L(V,W)$ such that
-\begin{alignat*}{3}
-        Tu_j\,&=\,0  \quad &&\text{for}\quad j\;& =&\;1,\dots,m\quad\text{and} \\
-        Tv_k\,&=\,w_k\quad &&\text{for}\quad k\;& =&\;1,\dots,n .
-\end{alignat*}
-    So we need to prove that $\nullspace T = U$.
-    We do so by showing $U \subset \nullspace T$ and then $\nullspace T \subset U$.
-    
-    First suppose $u \in U$.
-    Then we can write $u$ as
-\begin{align*}
-        u &= a_1u_1 + \dots + a_mu_m
-\intertext{
-    with $a_1,\dots,a_m \in \F$.
-    So
-}
-        Tu &= T(a_1u_1 + \dots + a_mu_m) \\
-           &= a_1(Tu_1) + \dots + a_m(Tu_m) \\
-           &= a_1(0) + \dots + a_m(0) \\
-           &= 0 .
-\end{align*}
-    Thus $u$ is in the null space of $T$.
-    Hence $U \subset \nullspace T$.
-
-    Now to show $\nullspace T \subset U$.
+    To prove in one direction, suppose $S \in \L(W,V)$ exists such that $ST$ is the identity map on $V$.
 
     Suppose $v \in V$ such that $Tv = 0$.
-    We can write $v$ as
+    Then
 \begin{equation*}
-        v = b_1u_1+\dots+b_mu_m + c_1v_1+\dots+c_nv_n
+        (ST)(v) = S(Tv) = S(0) = 0 .
 \end{equation*}
-    with $b_1,\dots,b_m,c_1,\dots,c_n \in \F$. So
+    So the identity map on $V$ takes $v$ to 0.
+    Thus $v=0$.
+    Hence $T$ is injective.
+
+    To prove in the other direction, suppose $T$ is injective.
+
+    $\range T$ has a basis because it is a subspace of $W$.
+    Denote this basis $w_1,\dots,w_m$.
+    So $\dim \range T = m$.
+
+    Clearly there exist $v_1,\dots,v_m \in V$ such that $Tv_j = w_j$ for each $j = 1,\dots,m$.
+    In fact $v_1,\dots,v_m$ is a basis of $V$.
+
+    To show this, suppose $a_1,\dots,a_m \in \F$ such that
 \begin{align*}
-        T(b_1u_1+\dots+b_mu_m + c_1v_1+\dots+c_nv_n) &= 0 \\
-        T(b_1u_1+\dots+b_mu_m) + T(c_1v_1+\dots+c_nv_n) &= 0 \\
-        T(c_1v_1+\dots+c_nv_n) &= -T(b_1u_1+\dots+b_mu_m) \\
-        c_1(Tv_1) +\dots+ c_n(Tv_n) &= -b_1(Tu_1) -\dots- b_m(Tu_m) \\
-        c_1w_1 +\dots+ c_nw_n &= -b_1(0) -\dots- b_m(0) \\
-        c_1w_1 +\dots+ c_nw_n &= 0 .
+        a_1v_1 + \dots + a_mv_m &= 0 .
+\intertext{
+    Applying $T$ to both sides of the equation,
+}
+        a_1Tv_1 + \dots + a_mTv_m &= T(0) \\
+          a_1w_1 + \dots + a_mw_m &= 0 .
 \end{align*}
-    Then since $w_1,\dots,w_n$ is linearly independent, $c_1=\dots=c_n=0$.
+    Then $a_1=\dots=a_m=0$ since $w_1,\dots,w_m$ is linearly independent.
+    Hence $v_1,\dots,v_m$ is also linearly independent.
+
+    So we can prove that $v_1,\dots,v_m$ is a basis of $V$ by proving that $V$ is finite-dimensional and that $v_1,\dots,v_m$ has has length equal to $\dim V$.
+
+    No linear map to a smaller-dimensional subspace is injective, so the fact that $T$ is injective means $\dim V \le \dim W$.
+    Thus $V$ is finite-dimensional.
+
+    Hence we can use the Fundamental Theorem of Linear Maps to show
+\begin{align*}
+        \dim V &= \dim \range T + \dim \nullspace T \\
+               &= \dim \range T + \dim \{ 0 \} \\
+               &= \dim \range T \\
+               &= m .
+\end{align*}
+    So $v_1,\dots,v_m$ has length equal to $\dim V$.
+    Hence this list is a basis of $V$.
+
+    Thus every $v \in V$ can be written as
+\begin{equation*}
+        v = b_1v_1 + \dots + b_mv_m
+\end{equation*}
+    with $b_1,\dots,b_m \in \F$.
+
+    We can extend $w_1,\dots,w_m$ to a basis of $W$ by appending $w_{m+1},\dots,w_{m+n} \in W$.
+
+    Then there exists $S \in \L(W,V)$ such that
+\begin{align*}
+        Sw_k =
+            \begin{cases}
+                \ v_k \ &\text{if}\quad k \le m \\
+                \ 0   \ &\text{if}\quad k  >  m
+            \end{cases}
+\end{align*}
+    for each $k = 1,\dots,m+n$.
+    (The second case doesn't matter and 0 could be any vector in $V$.)
+
     Hence
 \begin{align*}
-        v &= b_1u_1+\dots+b_mu_m + 0v_1+\dots+0v_n \\
-          &= b_1u_1+\dots+b_mu_m
+        (ST)(v) &= S(Tv) \\
+                &= S \big( T(b_1v_1 + \dots + b_mv_m) \big) \\
+                &= S (b_1Tv_1 + \dots + b_mTv_m ) \\
+                &= S(b_1w_1 + \dots + b_mw_m) \\
+                &= b_1Sw_1 + \dots + b_mSw_m \\
+                &= b_1v_1 + \dots + b_mv_m \\
+                &= v .
 \end{align*}
-    Thus $v \in U$ because $U = \linspan(u_1,\dots,u_m)$.
-
-    Hence $\nullspace T = U$.
+    Thus $ST$ is the identity map on $V$.
 \end{document}
