@@ -1,0 +1,50 @@
+\documentclass[a5paper]{article}
+\usepackage{amsmath}
+\usepackage[top=1cm,right=1cm,bottom=1cm,left=1cm]{geometry}
+\setlength\parindent{0pt}
+\setlength\parskip{1em}
+%
+%\usepackage{xcolor}
+%\pagecolor[rgb]{0.1,0.1,0.1}
+%\color[rgb]{1.0,1.0,1.0}
+%
+\begin{document}
+\newcommand   \C           {\mathbf{C}}
+\newcommand   \R           {\mathbf{R}}
+\renewcommand \L           {\mathcal{L}}
+\newcommand   \F           {\mathbf{F}}
+\renewcommand \P           {\mathcal{P}}
+\newcommand   \M           {\mathcal{M}}
+\newcommand   \question[1] {\textbf{\boldmath#1\unboldmath}\par}
+\newcommand   \op          {\operatorname}
+
+\question{
+    3.C.3. Suppose $v_1,\dots,v_n$ is a basis of $V$ and $w_1,\dots,w_m$ is a basis of $W$.
+}
+\question{
+    (a) Show that if $S,T \in \L(V,W)$, then $\M(S+T) = \M(S)+\M(T)$.
+}
+
+    Suppose $\M(S) = A$ and $\M(T) = B$.
+    Then for $k = 1,\dots,n$,
+\begin{align*}
+        (S+T)v_k &= Sv_k + Tv_k \\
+                 &= \sum_{j=1}^m A_{j,k}w_j + \sum_{j=1}^m B_{j,k}w_j \\
+                 &= \sum_{j=1}^m (A_{j,k}w_j + B_{j,k}w_j) \\
+                 &= \sum_{j=1}^m (A_{j,k} + B_{j,k}) w_j .
+\end{align*}
+    Thus $\M(S + T)$ is the $m$ by $n$ matrix in which each entry is the sum of the corresponding entries in $\M(S)$ and $\M(T)$.
+
+\question{
+    (b) Show that if $\lambda \in \F$ and $T \in \L(V,W)$, then $\M(\lambda T) = \lambda\M(T)$.
+}
+
+    Suppose $\M(T) = A$.
+    Then for $k = 1,\dots,n$,
+\begin{align*}
+        (\lambda T)v_k &= \lambda Tv_k \\
+                     &= \lambda \sum_{j=1}^m A_{j,k}w_j \\
+                     &= \sum_{j=1}^m (\lambda A_{j,k})w_j .
+\end{align*}
+    Thus $\M(\lambda T)$ is the $m$ by $n$ matrix in which each entry is the corresponding entry of $\M(T)$ multiplied by the scalar $\lambda$.
+\end{document}
