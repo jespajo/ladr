@@ -15,19 +15,42 @@
 \renewcommand  \L  { \mathcal{L} }
 \newcommand    \F  { \mathbf{F} }
 
-Because $v_1,\dots,v_m$ is linearly dependent, there is some $j\in\{1,\dots,m\}$ such that
+$U$ is a subspace of $V$ and $S \in \L(U,W)$.
+
+$V$ is finite-dimensional so $U$ is finite-dimensional.
+Thus a basis of $U$ exists, which we'll denote $u_1,\dots,u_m$.
+
+Hence for $u \in U$
 \begin{align*}
-    v_j &= a_1v_1 + \dots + a_{j-1}v_{j-1}
-\intertext{where $a_1,\dots,a_j\in\F$.}
-\intertext{So for any $T \in \L(V,W)$}
-    Tv_j &= T(a_1v_1 + \dots + a_{j-1}v_{j-1})      \\
-         &= T(a_1v_1) + \dots + T(a_{j-1}v_{j-1})   \\
-         &= a_1Tv_1 + \dots + a_{j-1}Tv_{j-1}
-\intertext{Consider $w_1,\dots,w_m \in W$ such that $w_1=\dots=w_{j-1}=0$ and $w_j\neq 0$.
-If $Tv_k=w_k$ for $k=1,\dots,j-1$,}
-    Tv_j &= a_10 + \dots + a_{j-1}0         \\
-    Tv_j &= 0
+     u &= a_1u_1 + \dots + a_mu_m       \\
+    Su &= S(a_1u_1 + \dots + a_mu_m)
 \end{align*}
-Thus $Tv_j \neq w_j$.
-Hence no linear map satisfies $Tv_k=w_k$ for $k=1,\dots,m$.
+where $a_1,\dots,a_m \in \F$.
+
+Seen as a linearly independent list in $V$, the basis of $U$ can be extended to a basis of $V$.
+Thus
+\begin{align*}
+    u_1,\dots,u_m,v_1,\dots,v_n
+\end{align*}
+is a basis of $V$.
+
+By 3.5, there exists a linear map $T \in \L(V,W)$ such that $Tu_j=Su_j$ for $j=1,\dots,m$ and $Tv_k=w_k$ for $k=1,\dots,n$ where $w_k$ is some vector in $W$.
+
+Hence for $u\in V$
+\begin{align*}
+    Tu  &= T(b_1u_1 + \dots + b_mu_m + c_1v_1 + \dots + c_nv_n)     \\
+        &= b_1Tu_1 + \dots + b_mTu_m + c_1Tv_1 + \dots + c_nTv_n    \\
+        &= b_1Su_1 + \dots + b_mSu_m + c_1w_1 + \dots + c_nw_n
+\end{align*}
+where $b_1,\dots,b_m,c_1,\dots,c_n\in\F$.
+
+If $u \in U$, then $u$ can be written uniquely as a linear combination of $u_1,\dots,u_m,v_1,\dots,v_n$ by taking its representation as a linear combination of the basis of $U$ and adding each $v_k$ multiplied by 0.
+Hence
+\begin{align*}
+    Tu  &= T(a_1u_1 + \dots + a_mu_m + 0v_1 + \dots + 0v_n)     \\
+        &= a_1Su_1 + \dots + a_mSu_m + 0w_1 + \dots + 0w_n      \\
+        &= a_1Su_1 + \dots + a_mSu_m                            \\
+        &= S(a_1u_1 + \dots + a_mu_m)
+\end{align*}
+Thus $Tu=Su$ for all $u\in U$.
 \end{document}
