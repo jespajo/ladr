@@ -1,0 +1,94 @@
+\documentclass[a5paper]{article}
+\usepackage{amsmath}
+\usepackage[top=1cm,right=1cm,bottom=1cm,left=1cm]{geometry}
+\setlength\parindent{0pt}
+\setlength\parskip{1em}
+%
+%\usepackage{xcolor}
+%\pagecolor[rgb]{0.1,0.1,0.1}
+%\color[rgb]{1.0,1.0,1.0}
+%
+\begin{document}
+\newcommand   \C           {\mathbf{C}}
+\newcommand   \R           {\mathbf{R}}
+\renewcommand \L           {\mathcal{L}}
+\newcommand   \F           {\mathbf{F}}
+\renewcommand \P           {\mathcal{P}}
+\newcommand   \M           {\mathcal{M}}
+\newcommand   \op          {\operatorname}
+
+    3.B.28.
+    Suppose $D \in \L\big(\P(\R)\big)$ is such that $\op{deg}Dp = (\op{deg}P) - 1$ for every non-constant polynomial $p \in \P(\R)$.
+    Prove that $D$ is surjective.
+
+    Suppose $p \in \P(\R)$.
+    Let $m$ denote the degree of $p$.
+    Then $p \in \P_m(\R)$.
+
+    Consider this list of polynomials:
+\begin{equation*}
+        Dz, Dz^2, \dots, Dz^{m+1} .
+\end{equation*}
+    The polynomial with the highest degree in the list is the last one:
+\begin{align*}
+        \op{deg}Dz^{m+1}&=\op{deg}z^{m+1} - 1 \\
+                          &=m .
+\end{align*}
+    Hence every polynomial in the list is an element of $P_m(\R)$.
+
+    Since $\op{dim}P_m(\R) = m+1$, our list has the right length to be a basis of $\P_m(\R)$.
+    So we can show that it is a basis by showing that it is linearly independent.
+
+    Consider a linear combination of the list with the scalars $a_1,\dots,a_{m+1} \in \R$.
+    Suppose some scalar is nonzero.
+    Let $k$ be the largest value for which $a_k \neq 0$.
+    Then we can write the combination as
+\begin{equation*}
+        a_1Dz + \dots + a_kDz^k .
+\end{equation*}
+    The last term is a polynomial with a nonzero coefficient for $z^{k-1}$, because $\op{deg}Dz^k = k-1$.
+    No other term has a nonzero coefficient for $z^{k-1}$.
+    This implies that the sum as a whole is nonzero.
+
+    Hence if the combination is zero, $a_1=\dots=a_{m+1}=0$.
+    Thus the list $Dz,\dots,Dz^{m+1}$ is linearly independent and therefore a basis of $P_m(\R)$.
+    In particular the list spans $P_m(\R)$.
+
+    Since $p \in \P_m(\R)$, this means there exist $b_1,\dots,b_{m+1}\in\R$ such that
+\begin{align*}
+        p &= b_1Dz + \dots + b_{m+1}Dz^{m+1} \\
+          &= D(b_1z + \dots + b_{m+1}z^{m+1}) .
+\end{align*}
+    Thus for $p \in \P(\R)$ there exists some $q \in \P(\R)$ such that $Dq = p$.
+    In other words, $D$ is surjective.
+
+%    First we show that $D$ takes every constant polynomial to 0.
+%
+%    Consider two functions, $z$ and $z+1$.
+%    Both are first-degree polynomials, so there exist constant functions $a, b \in \P_0(\R)$ such that
+%\begin{equation*}
+%        Dz = a \quad \text{and} \quad D(z+1) = b .
+%\end{equation*}
+%    In fact $a = b$.
+%    To see this, suppose we have another function, $(b - a)z - a$.
+%    If $a \neq b$, this would be a first-degree polynomial, so applying $D$ would send the function to a constant function.
+%    But, applying $D$,
+%\begin{align*}
+%        D\left((b - a)z - a\right) &= D(bz - az - a) \\
+%                           &= D\left(bz - a(z + 1)\right) \\
+%                           &= bDz - aD(z + 1) \\
+%                           &= ba - ab \\
+%                           &= 0 .
+%\intertext{
+%    Therefore $a = b$.
+%    So
+%}
+%        Dz &= D(z+1) \\
+%        Dz &= Dz+D1 \\
+%        0  &= D1 .
+%\end{align*}
+%    Hence for $k \in \P_0(\R)$,
+%\begin{equation*}
+%        Dk = kD1 = k0 = 0 .
+%\end{equation*}
+\end{document}
