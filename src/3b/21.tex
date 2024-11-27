@@ -1,0 +1,93 @@
+\documentclass[a5paper]{article}
+\usepackage{amsmath}
+\usepackage[top=1cm,right=1cm,bottom=1cm,left=1cm]{geometry}
+\setlength\parindent{0pt}
+\setlength\parskip{1em}
+%
+%\usepackage{xcolor}
+%\pagecolor[rgb]{0.1,0.1,0.1}
+%\color[rgb]{1.0,1.0,1.0}
+%
+\begin{document}
+\newcommand   \C           {\mathbf{C}}
+\newcommand   \R           {\mathbf{R}}
+\renewcommand \L           {\mathcal{L}}
+\newcommand   \F           {\mathbf{F}}
+\renewcommand \P           {\mathcal{P}}
+\newcommand   \M           {\mathcal{M}}
+\newcommand   \op          {\operatorname}
+
+    3.B.21.
+    Suppose $V$ is finite-dimensional, $T \in \L(V,W)$, and $U$ is a subspace of $W$.
+    Prove that $\{v \in V : Tv \in U\}$ is a subspace of $V$ and
+\begin{equation*}
+        \op{dim}\{v \in V : Tv \in U\} = \op{dim}\op{null}T + \op{dim}(U \cap \op{range}T) .
+\end{equation*}
+
+    In this proof, we sometimes refer to $\{v \in V : Tv \in U\}$ as ``our set''.
+
+    Our set contains 0 because $T(0)=0$.
+    The 0 on the right side is an element of $U$ because $U$ is a subspace of $W$.
+    
+    To see that our set is closed under addition, suppose $u,w \in \{v \in V : Tv \in U\}$.
+    Then $Tu,Tw \in U$.
+    Hence $Tu+Tw \in U$ because $U$ is closed under addition.
+    $T(u+w)=Tu+Tw$ so $u+w$ is an element of our set.
+
+    To see that our set is closed under scalar multiplication, suppose $u \in \{v \in V : Tv \in U\}$ and $a \in \F$.
+    Then $Tu \in U$.
+    Hence $aTu \in U$ because $U$ is closed under scalar multiplication.
+    $T(au)=aTu$ so $au$ is an element of our set.
+
+    Hence our set is a subspace of $V$.
+
+    $\op{null}T$ is a subspace of our set.
+    To see this, suppose $u \in \op{null}T$.
+    Then $Tu = 0$.
+    This implies $u$ is in our set because $0 \in U$.
+    Thus $\op{null}T \subseteq \{v \in V : Tv \in U\}$.
+
+    Suppose $u_1,\dots,u_m$ is a basis of $\op{null}T$.
+    Suppose we extend this list to a basis of our set by appending $v_1,\dots,v_n$.
+    In other words,
+\begin{equation*}
+        u_1,\dots,u_m,v_1,\dots,v_n
+\end{equation*}
+    is a basis of $\{v \in V : Tv \in U\}$.
+
+    Our task then is to show that
+\begin{align*}
+        \op{dim}\{v \in V : Tv \in U\} &= \op{dim}\op{null}T + \op{dim}(U \cap \op{range}T) \\
+                                 m + n &= m + \op{dim}(U \cap \op{range}T) \\
+                                     n &= \op{dim}(U \cap \op{range}T) .
+\end{align*}
+    Suppose $w \in U \cap \op{range}T$.
+    Because $w \in \op{range}T$, there exists $u \in V$ such that $Tu = w$.
+    $u$ must be in our set because $w \in U$.
+    So there exist $a_1,\dots,a_m,b_1,\dots,b_n \in \F$ such that
+\begin{align*}
+         w &= Tu \\
+           &= T(a_1u_1 + \dots + a_mu_m + b_1v_1 + \dots + b_nv_n) \\
+           &= a_1Tu_1 + \dots + a_mTu_m + b_1Tv_1 + \dots + b_nTv_n \\
+           &= b_1Tv_1 + \dots + b_nTv_n .
+\end{align*}
+    Hence the list $Tv_1,\dots,Tv_n$ spans $U \cap \op{range}T$.
+    (The $a_jTu_j$ terms disappeared because each $u_j \in \op{null}T$.)
+
+    Now suppose $c_1,\dots,c_n \in \F$ such that $c_1Tv_1 + \dots + c_nTv_n = 0$.
+    Then
+\begin{equation*}
+        T(c_1v_1 + \dots + c_nv_n) = 0.
+\end{equation*}
+    Thus $c_1v_1+\dots+c_nv_n \in \op{null}T$.
+    So there exist $d_1,\dots,d_m \in \F$ such that
+\begin{align*}
+        d_1u_1 + \dots + d_mu_m &= c_1v_1 + \dots + c_nv_n \\
+        0 &= c_1v_1 + \dots + c_nv_n - d_1u_1 - \dots - d_mu_m .
+\end{align*}
+    Here is a linear combination of a linearly independent list equal to 0, so $c_1=\dots=c_n=d_1=\dots=d_m=0$.
+    Thus $Tv_1,\dots,Tv_n$ is linearly independent.
+
+    Hence $Tv_1,\dots,Tv_n$ is a basis of $U \cap \op{range}T$.
+    So $\op{dim}(U \cap \op{range}T) = n$, as desired.
+\end{document}
