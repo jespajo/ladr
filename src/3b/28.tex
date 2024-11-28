@@ -23,35 +23,45 @@
 
     Suppose $p \in \P(\R)$.
     Let $m$ denote the degree of $p$.
-    Then $p \in \P_m(\R)$.
 
-    Consider this list of polynomials:
+    Consider the list of polynomials
 \begin{equation*}
-        Dz, Dz^2, \dots, Dz^{m+1} .
+        Dz, Dz^2, \dots, Dz^{m+1}
 \end{equation*}
-    The polynomial with the highest degree in the list is the last one:
+    where each $z^j$ is the polynomial that sends $z$ to $z^j$.
+    Thus
 \begin{align*}
-        \op{deg}Dz^{m+1}&=\op{deg}z^{m+1} - 1 \\
-                          &=m .
+        \op{deg}Dz^j&=\op{deg}z^j - 1 \\
+                    &=j-1 .
 \end{align*}
+    Clearly the highest-degree polynomial in the list is the last one with $\op{deg}Dz^{m+1} = m$.
     Hence every polynomial in the list is an element of $P_m(\R)$.
 
     Since $\op{dim}P_m(\R) = m+1$, our list has the right length to be a basis of $\P_m(\R)$.
-    So we can show that it is a basis by showing that it is linearly independent.
+    Thus we can show that it is a basis by showing that it is linearly independent.
 
-    Consider a linear combination of the list with the scalars $a_1,\dots,a_{m+1} \in \R$.
-    Suppose some scalar is nonzero.
+    Consider a linear combination of the list
+\begin{equation*}
+        a_1Dz + \dots + a_{m+1}Dz^{m+1}
+\end{equation*}
+    with scalars $a_1,\dots,a_{m+1} \in \R$.
+
+    Suppose at least one of the $a$'s is nonzero.
     Let $k$ be the largest value for which $a_k \neq 0$.
-    Then we can write the combination as
+    Then we can write the linear combination as
 \begin{equation*}
         a_1Dz + \dots + a_kDz^k .
 \end{equation*}
-    The last term is a polynomial with a nonzero coefficient for $z^{k-1}$, because $\op{deg}Dz^k = k-1$.
-    No other term has a nonzero coefficient for $z^{k-1}$.
-    This implies that the sum as a whole is nonzero.
+    The last term is a nonzero scalar multiplied by a polynomial with degree $k-1$.
+    So the last term has a nonzero coefficient for $z^{k-1}$.
+    Every other term has degree less than $k-1$.
+    So the last term is the only term with a nonzero coefficient for $z^{k-1}$.
+    This implies that the linear combination as a whole has a nonzero coefficient for $z^{k-1}$.
+    In particular the linear combination is nonzero.
 
-    Hence if the combination is zero, $a_1=\dots=a_{m+1}=0$.
-    Thus the list $Dz,\dots,Dz^{m+1}$ is linearly independent and therefore a basis of $P_m(\R)$.
+    By contraposition, if the linear combination equals zero, $a_1=\dots=a_{m+1}=0$.
+    Thus the list $Dz,\dots,Dz^{m+1}$ is linearly independent.
+    Therefore the list is a basis of $P_m(\R)$.
     In particular the list spans $P_m(\R)$.
 
     Since $p \in \P_m(\R)$, this means there exist $b_1,\dots,b_{m+1}\in\R$ such that
@@ -59,9 +69,9 @@
         p &= b_1Dz + \dots + b_{m+1}Dz^{m+1} \\
           &= D(b_1z + \dots + b_{m+1}z^{m+1}) .
 \end{align*}
-    Thus for $p \in \P(\R)$ there exists some $q \in \P(\R)$ such that $Dq = p$.
+    Thus there exists $q \in \P(\R)$ such that $Dq = p$.
     In other words, $D$ is surjective.
-
+%
 %    First we show that $D$ takes every constant polynomial to 0.
 %
 %    Consider two functions, $z$ and $z+1$.
