@@ -9,63 +9,55 @@
 %\color[rgb]{1.0,1.0,1.0}
 %
 \begin{document}
+\newcommand   \C           {\mathbf{C}}
+\newcommand   \R           {\mathbf{R}}
+\renewcommand \L           {\mathcal{L}}
+\newcommand   \F           {\mathbf{F}}
+\renewcommand \P           {\mathcal{P}}
+\newcommand   \M           {\mathcal{M}}
+\newcommand   \op          {\operatorname}
 
-\newcommand    \C  { \mathbf{C} }
-\newcommand    \R  { \mathbf{R} }
-\renewcommand  \L  { \mathcal{L} }
-\newcommand    \F  { \mathbf{F} }
+    3.A.14.
+    Suppose $V$ is finite-dimensional with $\op{dim}V > 0$, and suppose $W$ is infinite-dimensional.
+    Prove that $\L(V,W)$ is infinite-dimensional.
 
-$V$ is finite-dimensional with $\dim V > 0$.
-$W$ is infinite-dimensional.
+    Suppose $v_1,\dots,v_n$ is a basis of $V$.
+    Suppose $T_1,\dots,T_m \in \L(V,W)$.
 
-Because $V$ is finite-dimensional, there exists a basis of $V$, $v_1,\dots,v_m$.
-Hence for $v\in V$
+    For $T \in \op{span}(T_1,\dots,T_m)$ and $v \in V$, there exist $a_1,\dots,a_m,b_1,\dots,b_n \in \F$ such that
 \begin{align*}
-    v = a_1v_1 + \dots + a_mv_m
+        T &= a_1T_1+\dots+a_mT_m \quad \text{and} \\
+        v &= b_1v_1+\dots+b_nv_n .
 \end{align*}
-where $a_1,\dots,a_m\in \F$ and $\dim V=m$.
-
-So $T \in \L(V,W)$ can be defined uniquely with respect to this basis as
+    Thus
 \begin{align*}
-    T(a_1v_1 + \dots + a_mv_m) &= a_1w_1 + \dots + a_mw_m
+        Tv &= T(b_1v_1+\dots+b_nv_n) \\
+           &= b_1Tv_1 + \dots + b_nTv_n \\
+           &= b_1(a_1T_1+\dots+a_mT_m)v_1 + \dots + b_n(a_1T_1+\dots+a_mT_m)v_n \\
+           &= a_1b_1T_1v_1+\dots+a_mb_1T_mv_1 + \dots + a_1b_nT_1v_n+\dots+a_mb_nT_mv_n .
 \end{align*}
-with $w_1,\dots,w_m\in W$.
+    Hence any vector in $\op{range}T$ is a linear combination of the list of vectors
+\begin{equation*}
+        T_1v_1,\dots,T_mv_1, \dots, T_1v_n,\dots,T_mv_n .
+\end{equation*}
+    No list spans $W$ because $W$ is infinite-dimensional.
+    So there exists $w \in W$ such that $w$ cannot be written as a linear combination of this list of vectors.
 
-Hence any function in $\text{span\,}(T_1,\dots,T_n)$ can be defined with $b_1,\dots,b_n \in \F$ as
+    Define $S \in \L(V,W)$ such that $Sv_1=w$ and $Sv_j=0$ for $2 \le j \le n$.
+
+    To see that it is not possible to write $S$ as a linear combination of $T_1,\dots,T_m$, suppose that it is possible.
+    Then there exist $c_1,\dots,c_m \in \F$ such that
 \begin{align*}
-    (b_1T_1 + &\dots + b_nT_n)(a_1v_1 + \dots + a_mv_m)                                                \\
-           &= b_1T_1(a_1v_1 + \dots + a_mv_m)       + \dots + b_nT_n(a_1v_1 + \dots + a_mv_m)          \\
-           &= b_1(a_1w_{1,1} + \dots + a_mw_{m,1})  + \dots + b_n(a_1w_{1,n} + \dots + a_mw_{m,n})     \\
-           &= a_1b_1w_{1,1} + \dots + a_mb_1w_{m,1} + \dots + a_1b_nw_{1,n} + \dots + a_mb_nw_{m,n}
+        c_1T_1 + \dots + c_mT_m = S .
 \end{align*}
-where $T_kv_j = w_{j,k}$ for $j=1,\dots,m$ and $k=1,\dots,n$.
-
-Thus every vector in the range of $b_1T_1+\dots+b_nT_n$ can be written as a linear combination of a list of length $mn$ of vectors in $W$.
-
-Since $W$ is infinite-dimensional, no list spans $W$.
-Hence there is some $w \in W$ that is not in the range of $b_1T_1+\dots+b_nT_n$.
-
-We can define $S: V \rightarrow W$ as
+    Applying both sides of the equation to $v_1$,
 \begin{align*}
-    Sv = S(a_1v_1 + \dots + a_mv_m) = a_1w
+        (c_1T_1 + \dots + c_mT_m)v_1  &= Sv_1 \\
+        c_1T_1v_1 + \dots + c_mT_mv_1 &= w .
 \end{align*}
-If there is any doubt that $S$ is a linear map, consider $c \in \F$:
-\begin{align*}
-    S(cv) &= S(ca_1v_1 + \dots + ca_mv_m)                   \\
-          &= ca_1w                                          \\
-          &= cSv
-\intertext{
-Thus $S$ is homogeneous. Next consider $u = c_1v_1 + \dots + c_mv_m \in V$:
-}
-    S(v + u) &= S\big( (a_1+c_1)v_1 + \dots + (a_m+c_m)v_m \big)   \\
-             &= (a_1+c_1)w                                         \\
-             &= a_1w + c_1w                                        \\
-             &= Sv + Su
-\end{align*}
-Thus $S$ is additive.
-Hence $S$ is a linear map.
+    This is a contradiction because the left side of the equation is a linear combination of the list of vectors that we defined $w$ not to be in the span of.
 
-$S \notin \text{span\,}(T_1,\dots,T_n)$ because $Sv_1=u$ and $u \notin \text{range span\,}(T_1,\dots,T_n)$.
-
-Hence $\L(V,W)$ is infinite-dimensional because no list spans $\L(V,W)$.
+    To recap, for any list of linear maps from $V$ to $W$, there is another linear map from $V$ to $W$ not in the span of the list.
+    Hence no list spans $\L(V,W)$.
+    Thus $\L(V,W)$ is infinite-dimensional.
 \end{document}
