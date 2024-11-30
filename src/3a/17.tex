@@ -1,0 +1,128 @@
+\documentclass[a5paper]{article}
+\usepackage{amsmath}
+\usepackage[top=1cm,right=1cm,bottom=1cm,left=1cm]{geometry}
+\setlength\parindent{0pt}
+\setlength\parskip{1em}
+%
+%\usepackage{xcolor}
+%\pagecolor[rgb]{0.1,0.1,0.1}
+%\color[rgb]{1.0,1.0,1.0}
+%
+\begin{document}
+\newcommand   \C           {\mathbf{C}}
+\newcommand   \R           {\mathbf{R}}
+\renewcommand \L           {\mathcal{L}}
+\newcommand   \F           {\mathbf{F}}
+\renewcommand \P           {\mathcal{P}}
+\newcommand   \M           {\mathcal{M}}
+\newcommand   \op          {\operatorname}
+\newcommand \E             {\mathcal{E}}
+
+    3.A.17.
+    Suppose $V$ is finite-dimensional.
+    Show that the only two-sided ideals of $\L(V)$ are $\{0\}$ and $\L(V)$.
+
+    $\{0\}$ is a two-sided ideal of $\L(V)$ because for $T \in \L(V)$,
+\begin{equation*}
+        0T = T0 = 0 \in \{0\} .
+\end{equation*}
+    Suppose $\E$ is a two-sided ideal of $\L(V)$ such that $\E \neq \{0\}$.
+    Then there exists $E \in \E$ such that $E \neq 0$.
+
+    Since $E \in \L(V)$, it is defined with respect to a basis of $V$, $v_1,\dots,v_n$, by
+\begin{equation*}
+        Ev_k = w_k
+\end{equation*}
+    for $k = 1,\dots,n$.
+    Since $E \neq 0$, some $w_k \neq 0$.
+    Let $p$ denote the lowest value of $k$ such that $w_k \neq 0$.
+
+    Since $w_p \in V$, we can write it as
+\begin{equation*}
+        w_p = c_1v_1 + \dots + c_nv_n
+\end{equation*}
+    with $c_1,\dots,c_n \in \F$.
+    Since $w_p \neq 0$, some $c_k \neq 0$.
+    Let $q$ denote the lowest value of $k$ such that $c_k \neq 0$.
+
+    Define $S_1,\dots,S_n,T_1,\dots,T_n \in \L(V)$ such that for $j=1,\dots,n$ and $k=1,\dots,n$,
+\begin{align*}
+        T_jv_k &=
+            \begin{cases}
+                v_p               \; &\text{for}\ k =    j\\
+                0                 \; &\text{for}\ k \neq j
+            \end{cases} &\text{and}& &
+        S_jv_k &=
+            \begin{cases}
+                \frac{1}{c_q} v_j \; &\text{for}\ k =    q\\
+                0                 \; &\text{for}\ k \neq q .
+            \end{cases}
+\end{align*}
+    Define $I_1,\dots,I_n \in \L(V)$ such that each $I_j$ is $E$ sandwiched between $S_j$ and $T_j$:
+\begin{equation*}
+        I_j = S_jET_j .
+\end{equation*}
+    $ET_j \in \E$ because it is the product of $E \in \E$ and $T_j \in \L(V)$.
+    Hence $I_j \in \E$ because it is the product of $S_j \in \L(V)$ and $ET_j \in \E$.
+
+    Applying some $I_j$ to some $v_k$, there are two cases.
+    If $j=k$, then
+\begin{align*}
+        I_jv_k &= I_jv_j \\
+               &= (S_jE)(T_jv_j) \\
+                  &= (S_jE)(v_p)\\
+                  &= S_j(Ev_p)\\
+                  &= S_jw_p\\
+                  &= S_j(c_1v_1+\dots+c_nv_n)\\
+                  &= c_1S_jv_1+\dots+c_nS_jv_n\\
+                  &= c_q\left(\frac{1}{c_q}v_j\right)\\
+                  &= v_j.
+\end{align*}
+    If $k\neq j$, then
+\begin{align*}
+        I_jv_k = (S_jE)(T_jv_k) = (S_jE)(0) = 0 .
+\end{align*}
+    Let $I$ denote the sum of the $I_j$'s, as in
+\begin{equation*}
+        I = I_1 + \dots + I_n .
+\end{equation*}
+    $\E$, being a subspace of $\L(V)$, is closed under addition.
+    Hence $I \in \E$.
+
+    $I$ is so-called because it is the identity map on $V$.
+    To see this, suppose $v \in V$.
+    Then there exist $a_1,\dots,a_n \in \F$ such that
+\begin{align*}
+         v&=a_1v_1+\dots+a_nv_n .
+\end{align*}
+    So
+\begin{align*}
+        Iv &= (I_1+\dots+I_n)(v)\\
+           &= I_1v + \dots + I_nv\\
+           &= I_1(a_1v_1 + \dots + a_nv_n) + \dots + I_n(a_1v_1 + \dots + a_nv_n)\\
+           &= a_1I_1v_1 + \dots + a_nI_1v_n + \dots + a_1I_nv_1 + \dots + a_nI_nv_n\\
+           &= a_1(I_1v_1 + \dots + I_nv_1) + \dots + a_n(I_1v_n + \dots + I_nv_n)\\
+           &= a_1v_1 + \dots + a_nv_n\\
+           &= v .
+\end{align*}
+    Each $I_jv_k$ term disappears unless $j=k$, in which case it equals $v_k$.
+
+    Now we know $\E$ contains the identity map on $V$, suppose $T \in \L(V)$.
+    Then
+\begin{align*}
+        T &= T + TE - TE \\
+          &= T(I + E) - TE .
+\end{align*}
+    $T(I+E) \in \E$ because it is the product of $T \in \L(V)$ and $I+E$, which is in $\E$ because $I,E \in \E$ and $\E$ is closed under addition.
+    $-TE \in E$ because it is the additive inverse of the product of $T \in \L(V)$ and $E \in \E$.
+
+    Thus we can write $T$ as the sum of two elements of $\E$.
+    Since $\E$ is closed under addition, this means $T \in \E$.
+
+    Thus $\L(V) \subseteq \E$.
+
+    Clearly $\E \subseteq \L(V)$ because $\E$ is a subspace of $\L(V)$.
+    So $\E = \L(V)$.
+
+    Hence the only two-sided ideals of $\L(V)$ are $\{0\}$ and $\L(V)$.
+\end{document}
