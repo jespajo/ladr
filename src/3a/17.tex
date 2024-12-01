@@ -29,7 +29,7 @@
     Suppose $\E$ is a two-sided ideal of $\L(V)$ such that $\E \neq \{0\}$.
     Then there exists $E \in \E$ such that $E \neq 0$.
 
-    Since $E \in \L(V)$, it is defined with respect to a basis of $V$, $v_1,\dots,v_n$, by
+    Since $E \in \L(V)$, it is defined with respect to a basis of $V$, denoted $v_1,\dots,v_n$, by
 \begin{equation*}
         Ev_k = w_k
 \end{equation*}
@@ -107,21 +107,18 @@
 \end{align*}
     Each $I_jv_k$ term disappears unless $j=k$, in which case it equals $v_k$.
 
-    Now we know $\E$ contains the identity map on $V$, suppose $T \in \L(V)$.
+    Thus $\E$ contains the identity map on $V$.
+
+    Now suppose $T \in \L(V)$.
     Then
-\begin{align*}
-        T &= T + TE - TE \\
-          &= T(I + E) - TE .
-\end{align*}
-    $T(I+E) \in \E$ because it is the product of $T \in \L(V)$ and $I+E$, which is in $\E$ because $I,E \in \E$ and $\E$ is closed under addition.
-    $-TE \in E$ because it is the additive inverse of the product of $T \in \L(V)$ and $E \in \E$.
-
-    Thus we can write $T$ as the sum of two elements of $\E$.
-    Since $\E$ is closed under addition, this means $T \in \E$.
-
+\begin{equation*}
+        T = TI
+\end{equation*}
+    so $T$ is a product of $T \in \L(V)$ and $I \in \E$.
+    Hence $T \in \E$.
     Thus $\L(V) \subseteq \E$.
 
-    Clearly $\E \subseteq \L(V)$ because $\E$ is a subspace of $\L(V)$.
+    $\E \subseteq \L(V)$ because $\E$ is a subspace of $\L(V)$.
     So $\E = \L(V)$.
 
     Hence the only two-sided ideals of $\L(V)$ are $\{0\}$ and $\L(V)$.
