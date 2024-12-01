@@ -1,0 +1,73 @@
+\documentclass[a5paper]{article}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage[top=1cm,right=1cm,bottom=1cm,left=1cm]{geometry}
+\setlength\parindent{0pt}
+\setlength\parskip{1em}
+%
+\usepackage{xcolor}
+\pagecolor[rgb]{0.1,0.1,0.1}
+\color[rgb]{1.0,1.0,1.0}
+%
+\begin{document}
+\newcommand   \C           {\mathbf{C}}
+\newcommand   \R           {\mathbf{R}}
+\renewcommand \L           {\mathcal{L}}
+\newcommand   \F           {\mathbf{F}}
+\renewcommand \P           {\mathcal{P}}
+\newcommand   \M           {\mathcal{M}}
+\newcommand   \op          {\operatorname}
+
+    3.B.29.
+    Suppose $p \in \P(\R)$.
+    Prove that there exists a polynomial $q \in \P(\R)$ such that $5q'' + 3q' = p$.
+
+
+    Define $D \in \L(\P(\R))$ as the differentiation map.
+
+    Suppose $f \in \P(\R)$ such that $p = Df$.
+    We proved the existence of $f$ in the previous exercise.
+
+    As we will now prove, there exists $q \in \P(\R)$ such that $f = 5Dq + 3q$.
+    This fact completes our proof here because
+\begin{align*}
+        p &= Df \\
+          &= D(5Dq + 3q) \\
+          &= 5D^2q + 3Dq \\
+          &= 5q'' + 3q' .
+\end{align*}
+    Let $m$ denote the degree of $f$.
+    Then consider the list $g_0,\dots,g_m \in \P(\R)$, where
+\begin{align*}
+        g_k &=
+        \begin{cases}
+            3                \ &\text{for}\ k = 0 \\
+            5kz^{k-1} + 3z^k \ &\text{for}\ k = 1,\dots,m .
+        \end{cases}
+\end{align*}
+
+    To see that the list is linearly independent, consider a linear combination of the list with scalars $a_0,\dots,a_m \in \R$,
+\begin{equation*}
+        a_0g_0 + \dots + a_mg_m .
+\end{equation*}
+    Suppose some $a_k$ is nonzero.
+    Let $n$ denote the largest value of $k$ for which $a_k \neq 0$.
+    Then the linear combination as a whole is nonzero because it is a polynomial with a nonzero coefficient for $z^n$.
+    
+    Hence if the linear combination as a whole is zero, $a_0=\dots=a_m=0$.
+    So the list is linearly independent.
+    Therefore the list is a basis of $P_m(\R)$ because it is the right length, since $\op{dim}\P_m(\R) = m+1$.
+
+    Then, since $f \in \P_m(\R)$, there exist $b_0,\dots,b_m$ such that
+\begin{align*}
+        f &= b_0g_0 + \dots + b_mg_m \\
+          &= b_0(3) + b_1(5+3z) + \dots + b_m(5mz^{m-1} + 3z^m) \\
+          &= 3b_0 + 5b_1 + 3b_1z + \dots + 5mb_mz^{m-1} + 3b_mz^m \\
+          &= 3(b_0 + b_1z + \dots + b_mz^m) + 5(b_1 + 2b_1z + \dots + mb_mz^{m-1}) .
+\end{align*}
+    Thus with $q = b_0 + b_1z + \dots + b_mz^m$ we have
+\begin{equation*}
+        f = 3q + 5Dq
+\end{equation*}
+    as desired.
+\end{document}
