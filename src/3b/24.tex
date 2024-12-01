@@ -1,0 +1,104 @@
+\documentclass[a5paper]{article}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage[top=1cm,right=1cm,bottom=1cm,left=1cm]{geometry}
+\setlength\parindent{0pt}
+\setlength\parskip{1em}
+%
+%\usepackage{xcolor}
+%\pagecolor[rgb]{0.1,0.1,0.1}
+%\color[rgb]{1.0,1.0,1.0}
+%
+\begin{document}
+\newcommand   \C           {\mathbf{C}}
+\newcommand   \R           {\mathbf{R}}
+\renewcommand \L           {\mathcal{L}}
+\newcommand   \F           {\mathbf{F}}
+\renewcommand \P           {\mathcal{P}}
+\newcommand   \M           {\mathcal{M}}
+\newcommand   \op          {\operatorname}
+
+    3.B.24.
+    (a) Suppose $\op{dim}V = 5$ and $S,T \in \L(V)$ are such that $ST=0$.
+    Prove that $\op{dim}\op{range}TS \le 2$.
+
+    To show $\op{range}TS$ is a subspace of $\op{range}T$, suppose $v \in \op{range}TS$.
+    Then there exists $u \in V$ such that $(TS)u = v$.
+    Then
+\begin{equation*}
+        v = (TS)u = T(Su) .
+\end{equation*}
+    Thus $v \in \op{range}T$.
+    Hence $\op{range}TS \subseteq \op{range}T$ and so
+\begin{equation}
+        \op{dim}\op{range}TS \le \op{dim}\op{range}T .
+\end{equation}
+
+    To show $\op{range}T$ is a subspace of $\op{null}S$, suppose $v \in \op{range}T$.
+    Then there exists $u \in V$ such that $Tu = v$.
+    Then
+\begin{equation*}
+        Sv = S(Tu) = (ST)u = 0 .
+\end{equation*}
+    Thus $v \in \op{null}S$.
+    Hence $\op{range}T \subseteq \op{null}S$ and so
+\begin{equation}
+        \op{dim}\op{range}T \le \op{dim}\op{null}S .
+\end{equation}
+
+    By (1) and (2),
+\begin{equation}
+        \op{dim}\op{range}TS \le \op{dim}\op{null}S .
+\end{equation}
+
+    To show that $\op{null}S$ is a subspace of $\op{null}TS$, suppose $v \in \op{null}S$.
+    Then
+\begin{equation*}
+        (TS)v = T(Sv) = T(0) = 0 .
+\end{equation*}
+    Thus $v \in \op{null}TS$.
+    Hence $\op{null}S \subseteq \op{null}TS$ and so
+\begin{equation}
+        \op{dim}\op{null}S \le \op{dim}\op{null}TS .
+\end{equation}
+
+    By (3) and (4),
+\begin{equation}
+        \op{dim}\op{range}TS \le \op{dim}\op{null}TS .
+\end{equation}
+
+    From the Fundamental Theorem of Linear Maps,
+\begin{align*}
+        \op{dim}\op{range}TS + \op{dim}\op{null}TS &= 5  \\
+        \op{dim}\op{null}TS &= 5 - \op{dim}\op{range}TS .
+\end{align*}
+
+    Then by (5),
+\begin{align*}
+           \op{dim}\op{range}TS &\le 5 - \op{dim}\op{range}TS  \\
+        2(\op{dim}\op{range}TS) &\le 5                         \\
+           \op{dim}\op{range}TS &\le 2.5 
+\intertext{
+    so since $\op{dim}\op{range}TS$ is an integer
+}
+        \op{dim}\op{range}TS &\le 2
+\end{align*}
+    as desired. $\blacksquare$
+
+    (b) Give an example of $S,T \in \L(\F^5)$ with $ST=0$ and $\op{dim}\op{range}TS=2$.
+
+    Define $S,T \in \L(\F^5)$ by
+\begin{align*}
+        S(x_1, x_2, x_3, x_4, x_5) &= (0, x_3, x_5, 0, 0) \quad\text{and}\\
+        T(x_1, x_2, x_3, x_4, x_5) &= (0, x_2, 0, x_3, 0) .
+\end{align*}
+    Then
+\begin{equation*}
+        (ST)(x_1, x_2, x_3, x_4, x_5) = S(0, x_2, 0, x_3, 0) = (0, 0, 0, 0, 0)
+\end{equation*}
+    so $ST=0$ and
+\begin{equation*}
+        (TS)(x_1, x_2, x_3, x_4, x_5) = T(0, x_3, x_5, 0, 0) = (0, x_3, 0, x_5, 0) 
+\end{equation*}
+    so $\op{dim}\op{range}TS=2$.
+\end{document}
