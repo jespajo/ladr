@@ -1,0 +1,106 @@
+\documentclass[a5paper]{article}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage[top=1cm,right=1cm,bottom=1cm,left=1cm]{geometry}
+\setlength\parindent{0pt}
+\setlength\parskip{1em}
+%
+%\usepackage{xcolor}
+%\pagecolor[rgb]{0.1,0.1,0.1}
+%\color[rgb]{1.0,1.0,1.0}
+%
+\begin{document}
+\newcommand   \C           {\mathbf{C}}
+\newcommand   \R           {\mathbf{R}}
+\renewcommand \L           {\mathcal{L}}
+\newcommand   \F           {\mathbf{F}}
+\renewcommand \P           {\mathcal{P}}
+\newcommand   \M           {\mathcal{M}}
+\newcommand   \op          {\operatorname}
+
+    3.B.31.
+    Suppose $V$ is finite-dimensional, $X$ is a subspace of $V$, and $Y$ is a finite-dimensional subspace of $W$.
+    Prove that there exists $T \in \L(V,W)$ such that $\op{null}T = X$ and $\op{range}T = Y$ if and only if $\op{dim}X + \op{dim}Y = \op{dim}V$.
+
+    To prove in one direction, suppose there exists $T \in \L(V,W)$ such that $\op{null}T = X$ and $\op{range}T = Y$.
+    Then, from the Fundamental Theorem of Linear Maps,
+\begin{align*}
+        \op{dim}V &= \op{dim}\op{null}T + \op{dim}\op{range}T \\
+                  &= \op{dim}X + \op{dim}Y .
+\end{align*}
+
+    To prove in the other direction, suppose $\op{dim}X + \op{dim}Y = \op{dim}V$.
+    Suppose $x_1,\dots,x_m$ is a basis of $X$ and $y_1,\dots,y_n$ is a basis of $Y$.
+    Thus $\op{dim}V = m + n$.
+
+    Since $X$ is a subspace of $V$, we can extend our basis of $X$ to a basis of $V$.
+    Since $\op{dim}V = m + n$, this process involves adding an extra $n$ vectors to the list.
+    Denote the extra vectors $v_1,\dots,v_n$.
+    In other words,
+\begin{equation*}
+        x_1,\dots,x_m,v_1,\dots,v_n
+\end{equation*}
+    is a basis of $V$.
+
+    Define $T \in \L(V,W)$ in terms of this basis of $V$ such that
+\begin{align*}
+        Tx_j&=0&    \text{for}\ j&=1,\dots,m&\text{and} \\
+        Tv_k&=y_k&  \text{for}\ k&=1,\dots,n.&
+\end{align*}
+
+    We will complete our proof by showing that $\op{null}T = X$ and $\op{range}T = Y$.
+
+    To prove $X \subseteq \op{null}T$, suppose $x \in X$.
+    Then there exist $a_1,\dots,a_m \in \F$ such that 
+\begin{align*}
+        Tx &= T(a_1x_1 + \dots + a_mx_m) \\
+           &= a_1Tx_1 + \dots + a_mTx_m  \\
+           &= 0 .
+\end{align*}
+    So $x \in \op{null}T$.
+
+    To prove $\op{null}T \subseteq X$, suppose $u \in \op{null}T$.
+    Then since $u \in V$, there exist $b_1,\dots,b_{m+n}$ such that
+\begin{equation*}
+        u = b_1x_1 + \dots + b_mx_m + b_{m+1}v_1 + \dots + b_{m+n}v_n .
+\end{equation*}
+    Since $u \in \op{null}T$,
+\begin{align*}
+        0 &= Tu \\
+          &= T(b_1x_1 + \dots + b_mx_m + b_{m+1}v_1 + \dots + b_{m+n}v_n) \\
+          &= b_1Tx_1 + \dots + b_mTx_m + b_{m+1}Tv_1 + \dots + b_{m+n}Tv_n \\
+          &= b_{m+1}y_1 + \dots + b_{m+n}y_n .
+\end{align*}
+    The $b_jTx_j$ terms disappear because each $Tx_j = 0$.
+    We are left with a linear combination of $y_1,\dots,y_n$ equal to zero.
+    Since the $y$'s are linearly independent, this implies $b_{m+1}=\dots=b_{m+n}=0$.
+    Thus
+\begin{equation*}
+        u = b_1x_1 + \dots + b_mx_m .
+\end{equation*}
+    So $u \in X$.
+
+    Thus $\op{null}T = X$.
+
+    To prove $Y \subseteq \op{range}T$, suppose $y \in Y$.
+    Then there exist $c_1,\dots,c_n \in \F$ such that
+\begin{align*}
+        y &= c_1y_1 + \dots + c_ny_n \\
+          &= c_1Tv_1 + \dots + c_nTv_n \\
+          &= T(c_1v_1 + \dots + c_nv_n) .
+\end{align*}
+    Thus $y \in \op{range}T$.
+
+    To prove $\op{range}T \subseteq Y$, suppose $w \in \op{range}T$.
+    Then there exists $v \in V$ such that $Tv = w$.
+    Since $v \in V$, there exist $d_1,\dots,d_{m+n} \in \F$ such that
+\begin{align*}
+        w &= Tv \\
+          &= T(d_1x_1 + \dots + d_mx_m + d_{m+1}v_1 + \dots + d_{m+n}v_n) \\
+          &= d_1Tx_1 + \dots + d_mTx_m + d_{m+1}Tv_1 + \dots + d_{m+n}Tv_n \\
+          &= d_{m+1}y_1 + \dots + d_{m+n}y_n .
+\end{align*}
+    Thus $w \in Y$.
+
+    Thus $\op{range}T = Y$.
+\end{document}
