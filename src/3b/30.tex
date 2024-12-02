@@ -1,0 +1,86 @@
+\documentclass[a5paper]{article}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage[top=1cm,right=1cm,bottom=1cm,left=1cm]{geometry}
+\setlength\parindent{0pt}
+\setlength\parskip{1em}
+%
+%\usepackage{xcolor}
+%\pagecolor[rgb]{0.1,0.1,0.1}
+%\color[rgb]{1.0,1.0,1.0}
+%
+\begin{document}
+\newcommand   \C           {\mathbf{C}}
+\newcommand   \R           {\mathbf{R}}
+\renewcommand \L           {\mathcal{L}}
+\newcommand   \F           {\mathbf{F}}
+\renewcommand \P           {\mathcal{P}}
+\newcommand   \M           {\mathcal{M}}
+\newcommand   \op          {\operatorname}
+
+    3.B.30.
+    Suppose $\varphi \in \L(V,\F)$ and $\varphi \neq 0$.
+    Suppose $u \in V$ is not in $\op{null}\varphi$.
+    Prove that
+\begin{equation*}
+        V = \op{null}\varphi \oplus \{au : a \in \F\} .
+\end{equation*}
+
+    Suppose $v \in V$.
+
+    Since $u \notin \op{null}\varphi$, there exists $b \in \F$ with $b \neq 0$ such that
+\begin{equation*}
+        \varphi u = b .
+\end{equation*}
+    There also exists $c \in \F$ (with $c$ possibly being zero) such that
+\begin{equation*}
+        \varphi v = c .
+\end{equation*}
+
+    Consider the vector $v - \frac{c}{b} u \in V$.
+    Applying $\varphi$,
+\begin{align*}
+        \varphi \left( v - \frac{c}{b} u \right) &= \varphi v - \frac{c}{b} \varphi u \\
+                                                &= c - \frac{c}{b} b \\
+                                                &= c - c \\
+                                                &= 0 .
+\end{align*}
+    Thus $v - \frac{c}{b} u \in \op{null}\varphi$.
+
+    So we can write $v$ as the sum of a vector in $\op{null}\varphi$ and a vector in $\{au: a \in \F\}$:
+\begin{equation*}
+        v = \left( v - \frac{c}{b} u \right) + \frac{c}{b} u .
+\end{equation*}
+    Hence $V \subseteq \op{null}\varphi + \{au : a \in \F\}$.
+
+    To show inclusion in the other direction, both $\op{null}\varphi$ and $\{au : a \in \F\}$ are subspaces of $V$, so the sum of these subspaces is the smallest subspace of $V$ containing both subspaces.
+
+    Thus $V = \op{null}\varphi + \{au : a \in \F\}$.
+
+    To show that this is a direct sum, suppose that $w \in \op{null}\varphi$ and $du \in \{au : a \in \F\}$ such that
+\begin{equation}
+        0 = w + du .
+\end{equation}
+    Then
+\begin{equation*}
+        -w = du .
+\end{equation*}
+    Applying $\varphi$ to both sides,
+\begin{equation*}
+         -\varphi w = d \varphi u .
+\end{equation*}
+    The left side of the equation is zero because $w \in \op{null}\varphi$.
+    On the right side, $\varphi u$ is nonzero because $u \notin \op{null}\varphi$.
+    Thus $d = 0$.
+
+    So (1) becomes
+\begin{equation*}
+        0 = w + 0u = w.
+\end{equation*}
+
+    Hence the only choice of vectors from each subspace that sum to zero is to take zero from each subspace.
+    Thus
+\begin{equation*}
+        V = \op{null}\varphi \oplus \{au : a \in \F\} .
+\end{equation*}
+\end{document}
