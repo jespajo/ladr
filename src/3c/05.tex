@@ -1,0 +1,57 @@
+\documentclass[a5paper]{article}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage[top=1cm,right=1cm,bottom=1cm,left=1cm]{geometry}
+\setlength\parindent{0pt}
+\setlength\parskip{1em}
+%
+%\usepackage{xcolor}
+%\pagecolor[rgb]{0.1,0.1,0.1}
+%\color[rgb]{1.0,1.0,1.0}
+%
+\begin{document}
+\newcommand   \C           {\mathbf{C}}
+\newcommand   \R           {\mathbf{R}}
+\renewcommand \L           {\mathcal{L}}
+\newcommand   \F           {\mathbf{F}}
+\renewcommand \P           {\mathcal{P}}
+\newcommand   \M           {\mathcal{M}}
+\newcommand   \op          {\operatorname}
+
+    3.C.5.
+    Suppose $V$ and $W$ are finite-dimensional and $T \in \L(V,W)$.
+    Prove that there exists a basis of $V$ and a basis of $W$ such that with respect to these bases, all entries of $\M(T)$ are 0 except that the entries in row $k$, column $k$, equal 1 if $1 \le k \le \op{dim}\op{range}T$.
+
+    Suppose $u_1,\dots,u_m$ is a basis of $\op{null}T$.
+    Suppose we extend this list to a basis of $V$ by adding $v_1,\dots,v_n$ at the start.
+
+    For $w \in \op{range}T$ there exists $v \in V$ such that $Tv = w$.
+
+    So there exist $a_1,\dots,a_n,b_1,\dots,b_m \in \F$ such that
+\begin{align*}
+        w &= Tv \\
+          &= T(a_1v_1 + \dots + a_nv_n + b_1u_1 + \dots + b_mu_m) \\
+          &= a_1Tv_1 + \dots + a_nTv_n .
+\end{align*}
+    Hence the list $Tv_1,\dots,Tv_n$ spans $\op{range}T$.
+
+    From the Fundamental Theorem of Linear Maps,
+\begin{align*}
+        \op{dim}V &= \op{dim}\op{range}T + \op{dim}\op{null}T \\
+            m + n &= \op{dim}\op{range}T + m \\
+                n &= \op{dim}\op{range}T .
+\end{align*}
+    So $Tv_1,\dots,Tv_n$ is a basis of $\op{range}T$ because it is a spanning list of the right length.
+    Suppose we extend this list to a basis of $W$ by appending $w_1,\dots,w_p \in W$.
+
+    Define the matrix of $T$ with respect to
+\begin{align*}
+        v_1,\dots,v_n,u_1,\dots,u_m   &\quad\text{as a basis of $V$ and}\\
+        Tv_1,\dots,Tv_n,w_1,\dots,w_p &\quad\text{as a basis of $W$.}
+\end{align*}
+    Then for $k=1,\dots,n$, applying $T$ to the $k$th vector in the basis of $V$ produces the $k$th vector in the basis of $W$.
+    So the $k$th column of the matrix has $1$ in its $k$th slot and a $0$ in every other slot.
+
+    Any columns after the $n$th column contain the scalars in the linear combination of the basis of $W$ equal to some $Tu_j$.
+    Since the $u$'s are a basis of $\op{null}T$, $Tu_j = 0$, so all the scalars are 0.
+\end{document}
