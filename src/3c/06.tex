@@ -1,0 +1,38 @@
+\documentclass[a5paper]{article}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage[top=1cm,right=1cm,bottom=1cm,left=1cm]{geometry}
+\setlength\parindent{0pt}
+\setlength\parskip{1em}
+%
+%\usepackage{xcolor}
+%\pagecolor[rgb]{0.1,0.1,0.1}
+%\color[rgb]{1.0,1.0,1.0}
+%
+\begin{document}
+\newcommand   \C           {\mathbf{C}}
+\newcommand   \R           {\mathbf{R}}
+\renewcommand \L           {\mathcal{L}}
+\newcommand   \F           {\mathbf{F}}
+\renewcommand \P           {\mathcal{P}}
+\newcommand   \M           {\mathcal{M}}
+\newcommand   \op          {\operatorname}
+
+    3.C.6.
+    Suppose $v_1,\dots,v_m$ is a basis of $V$ and $W$ is finite-dimensional.
+    Suppose $T \in \L(V,W)$.
+    Prove that there exists a basis $w_1,\dots,w_n$ of $W$ such that all entries in the first column of $\M(T)$ [with respect to the bases $v_1,\dots,v_m$ and $w_1,\dots,w_n$] are 0 except for possibly a 1 in the first row, first column.
+
+    Suppose $Tv_1 = 0$.
+    Then suppose $w_1,\dots,w_n$ is any basis of $W$.
+    The only linear combination of $w_1,\dots,w_n$ equal to $Tv_1$ has 0 for all scalars.
+    Thus all entries in the first column of $\M(T)$ are 0, so we are done.
+
+    Suppose $Tv_1 \neq 0$.
+    Then let $w_1$ denote $Tv_1$.
+    Since $w_1$ is a nonzero vector in $W$, we can extend it to a basis of $W$.
+    Let $w_2,\dots,w_n$ denote the vectors added for this extension.
+
+    Since $w_1,\dots,w_n$ is a basis of $W$, the only linear combination of this list equal to $w_1$ has $w_1$ multiplied by 1 and all the other $w$'s multiplied by 0.
+    Hence the first column of $\M(T)$ defined with respect to these bases has 1 in the first entry and 0 in the other entries.
+\end{document}

@@ -1,0 +1,85 @@
+\documentclass[a5paper]{article}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage[top=1cm,right=1cm,bottom=1cm,left=1cm]{geometry}
+\setlength\parindent{0pt}
+\setlength\parskip{1em}
+%
+%\usepackage{xcolor}
+%\pagecolor[rgb]{0.1,0.1,0.1}
+%\color[rgb]{1.0,1.0,1.0}
+%
+\begin{document}
+\newcommand   \C           {\mathbf{C}}
+\newcommand   \R           {\mathbf{R}}
+\renewcommand \L           {\mathcal{L}}
+\newcommand   \F           {\mathbf{F}}
+\renewcommand \P           {\mathcal{P}}
+\newcommand   \M           {\mathcal{M}}
+\newcommand   \op          {\operatorname}
+
+    3.C.7.
+    Suppose $w_1,\dots,w_n$ is a basis of $W$ and $V$ is finite-dimensional.
+    Suppose $T \in \L(V,W)$.
+    Prove that there exists a basis $v_1,\dots,v_m$ of $V$ such that all entries in the first row of $\M(T)$ [with respect to the bases $v_1,\dots,v_m$ and $w_1,\dots,w_n$] are 0 except for possibly a 1 in the first row, first column.
+
+    Suppose $u_1,\dots,u_m$ is an arbitrary basis of $V$.
+    Let $A$ denote the matrix of $T$ defined with respect to $u_1,\dots,u_m$ and $w_1,\dots,w_n$.
+
+    To assist our proof, define $b \in \F$ as
+\begin{align*}
+        b &=
+        \begin{cases}
+            1/A_{1,1} \    &\text{if}\ A_{1,1} \neq 0 \quad\text{or} \\
+            1         \    &\text{if}\ A_{1,1} = 0 .
+        \end{cases} \\
+\intertext{
+    Thus $b \neq 0$.
+    Now define $v_1,\dots,v_m \in V$ such that
+}
+        v_k &=
+        \begin{cases}
+            b u_1            \    &\text{for}\ k = 1 \quad\text{and} \\
+            u_k - A_{1,k}u_1 \    &\text{for}\ k = 2,\dots,m .
+        \end{cases}
+\end{align*}
+
+    To see that $v_1,\dots,v_m$ is linearly independent, suppose $c_1,\dots,c_m \in \F$ such that
+\begin{align*}
+        0 &= c_1v_1 + \dots + c_mv_m   \\
+          &= c_1(b u_1) + c_2(u_2 - A_{1,2}u_1) + \dots + c_m(u_m - A_{1,m}u_1) \\
+          &= b c_1u_1 + c_2u_2 - c_2A_{1,2}u_1 + \dots + c_mu_m - c_mA_{1,m}u_1 \\
+          &= (b c_1 - c_2A_{1,2} - \dots - c_mA_{1,m})u_1 + c_2u_2 + \dots + c_mu_m .
+\end{align*}
+    This is a linear combination of a linearly independent list equal to 0, so all the scalars equal 0.
+    Thus $c_2=\dots=c_m=0$.
+    Then $bc_1=0$ because the other terms disappear from the first scalar.
+    So finally $c_1=0$ because $b$ is nonzero.
+
+    Thus $v_1,\dots,v_m$ is linearly independent.
+    Hence this list is a basis of $V$ because it also has the right length.
+
+    $\M(T)$ is defined with respect to the bases $v_1,\dots,v_m$ and $w_1,\dots,w_n$.
+    Applying $T$ to the first vector in the basis of $V$,
+\begin{align*}
+        Tv_1 &= T(b u_1) \\
+             &= b Tu_1 \\
+             &= b (A_{1,1}w_1 + \dots + A_{n,1}w_n) \\
+             &= b A_{1,1}w_1 + \dots + b A_{n,1}w_n .
+\end{align*}
+    The first row, first column of $\M(T)$ is the scalar multiple of $w_1$ here.
+    So we have two possibilities, depending on our earlier choice for $b$.
+    If $b=1/A_{1,1}$, the first term becomes $w_1$ multiplied by 1.
+    Otherwise, $A_{1,1}=0$, so the first term disappears.
+    Thus the first row, first column of $\M(T)$ is either 1 or 0.
+
+    For $k=2,\dots,m$, applying $T$ to the $k$th vector in the basis of $V$,
+\begin{align*}
+        Tv_k &= T(u_k - A_{1,k}u_1) \\
+             &= Tu_k - A_{1,k}Tu_1  \\
+             &= A_{1,k}w_1 + \dots + A_{n,k}w_n - A_{1,k}w_1 \\
+             &= A_{2,k}w_2 + \dots + A_{n,k}w_n .
+\end{align*}
+    The first row, $k$th column of $\M(T)$ is defined by the scalar multiple of $w_1$ here.
+    Thus every column after the first one has 0 in its top entry.
+\end{document}
