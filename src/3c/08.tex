@@ -1,0 +1,42 @@
+\documentclass[a5paper]{article}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage[top=1cm,right=1cm,bottom=1cm,left=1cm]{geometry}
+\setlength\parindent{0pt}
+\setlength\parskip{1em}
+%
+%\usepackage{xcolor}
+%\pagecolor[rgb]{0.1,0.1,0.1}
+%\color[rgb]{1.0,1.0,1.0}
+%
+\begin{document}
+\newcommand   \C           {\mathbf{C}}
+\newcommand   \R           {\mathbf{R}}
+\renewcommand \L           {\mathcal{L}}
+\newcommand   \F           {\mathbf{F}}
+\renewcommand \P           {\mathcal{P}}
+\newcommand   \M           {\mathcal{M}}
+\newcommand   \op          {\operatorname}
+
+    3.C.8.
+    Suppose $A$ is an $m$-by-$n$ matrix and $B$ is an $n$-by-$p$ matrix.
+    Prove that
+\begin{equation*}
+        (AB)_{j,\cdot} = A_{j,\cdot} B
+\end{equation*}
+    for each $1 \le j \le m$.
+    In other words, show that row $j$ of $AB$ equals (row $j$ of $A$) times $B$.
+
+    From the definition of matrix multiplication, $AB$ is an $m$-by-$p$ matrix.
+    Hence the left side of the equation above is a 1-by-$p$ matrix.
+    The right side of the equation is also a 1-by-$p$ matrix because it is the product of a 1-by-$n$ matrix and an $n$-by-$p$ matrix.
+
+    For each $1 \le k \le p$, the entry in the $k$th column of the matrix on the left side is $(AB)_{j,k}$.
+    This equals (row $j$ of $A$) times (column $k$ of $B$).
+
+    On the right side, the entry in the $k$th column is $(A_{j,\cdot}B)_{1,k}$.
+    This equals (row 1 of $A_{j,\cdot}$) times (column $k$ of $B$).
+    Since (row 1 of $A_{j,\cdot}$) is simply (row $j$ of $A$), this implies that the $k$th entries on both sides are the same.
+
+    Thus $(AB)_{j,\cdot}=A_{j,\cdot}B$.
+\end{document}
