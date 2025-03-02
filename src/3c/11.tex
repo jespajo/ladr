@@ -1,0 +1,64 @@
+\documentclass[a5paper]{article}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage[top=1cm,right=1cm,bottom=1cm,left=1cm]{geometry}
+\setlength\parindent{0pt}
+\setlength\parskip{1em}
+%
+%\usepackage{xcolor}
+%\pagecolor[rgb]{0.1,0.1,0.1}
+%\color[rgb]{1.0,1.0,1.0}
+%
+\begin{document}
+\newcommand   \C           {\mathbf{C}}
+\newcommand   \R           {\mathbf{R}}
+\renewcommand \L           {\mathcal{L}}
+\newcommand   \F           {\mathbf{F}}
+\renewcommand \P           {\mathcal{P}}
+\newcommand   \M           {\mathcal{M}}
+\newcommand   \op          {\operatorname}
+
+
+    3.C.11.
+    Prove that the distributive property holds for matrix addition and matrix multiplication.
+    In other words, suppose $A$, $B$, $C$, $D$, $E$ and $F$ are matrices whose sizes are such that $A(B+C)$ and $(D+E)F$ make sense.
+    Explain why $AB+AC$ and $DF+EF$ both make sense and prove that
+\begin{align*}
+        A(B+C) = AB+AC  \quad\text{and}\quad  (D+E)F = DF+EF .
+\end{align*}
+
+    Let $r_A$ denote the number of rows in $A$, let $r_B$ denote the number of rows in $B$ and so on.
+    Let $c_A$ denote the number of columns in $A$, let $c_B$ denote the number of columns in $B$ and so on.
+
+    Since we have only defined matrix addition on matrices of the same size, and $B+C$ makes sense, $B$ and $C$ are the same size.
+    Thus $B$, $C$ and $B+C$ are all $r_B$-by-$c_B$ matrices.
+
+    Since $B+C$ has $r_B$ rows and $A(B+C)$ makes sense, $A$ must have $r_B$ columns.
+    Thus $AB$ and $AC$ both make sense as $r_A$-by-$c_B$ matrices.
+    Hence $AB+AC$ makes sense.
+
+    For $j=1,\dots,r_A$ and $k=1,\dots,c_B$,
+\begin{align*}
+        (A(B+C))_{j,k} &= \sum_{i=1}^{r_B} A_{j,i} (B+C)_{i,k} \\
+                       &= \sum_{i=1}^{r_B} A_{j,i} (B_{i,k} + C_{i,k}) \\
+                       &= \sum_{i=1}^{r_B} (A_{j,i}B_{i,k} + A_{j,i}C_{i,k}) \\
+                       &= \sum_{i=1}^{r_B} A_{j,i}B_{i,k} + \sum_{i=1}^{r_B} A_{j,i}C_{i,k} \\
+                       &= (AB)_{j,k} + (AC)_{j,k} .
+\end{align*}
+
+    Next, because $D+E$ makes sense, $D$ and $E$ are the same size.
+    Thus $D$, $E$ and $D+E$ are all $r_D$-by-$c_D$ matrices.
+
+    Since $D+E$ has $c_D$ columns and $(D+E)F$ makes sense, $F$ must have $c_D$ rows.
+    Thus $DF$ and $EF$ both make sense as $r_D$-by-$c_F$ matrices.
+    Hence $DF+EF$ makes sense.
+
+    For $j=1,\dots,r_D$ and $k=1,\dots,c_F$,
+\begin{align*}
+        ((D+E)F)_{j,k} &= \sum_{i=1}^{r_B} (D+E)_{j,i} F_{i,k} \\
+                       &= \sum_{i=1}^{r_B} (D_{j,i}+E_{j,i}) F_{i,k} \\
+                       &= \sum_{i=1}^{r_B} (D_{j,i}F_{i,k} +E_{j,i} F_{i,k}) \\
+                       &= \sum_{i=1}^{r_B} D_{j,i}F_{i,k} +\sum_{i=1}^{r_B}E_{j,i} F_{i,k} \\
+                       &= (DF)_{j,k} + (EF)_{j,k} .
+\end{align*}
+\end{document}
