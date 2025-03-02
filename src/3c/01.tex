@@ -21,20 +21,19 @@
     Show with respect to each choice of bases of $V$ and $W$, the matrix of $T$ has at least $\op{dim} \op{range} T$ nonzero entries.
 }
 
-    Suppose $v_1,\dots,v_n$ is a basis of $V$, and $w_1,\dots,w_m$ is a basis of $W$.
+    Suppose $v_1,\dots,v_n$ is a basis of $V$ and $w_1,\dots,w_m$ is a basis of $W$.
 
     For $k \in \{1,\dots,n\}$,
 \begin{equation*}
         Tv_k = A_{1,k}w_1 + \dots + A_{m,k}w_m
 \end{equation*}
-    where each $A_{j,k}$ is an entry in the $k$th column of the matrix of $T$.
+    where each $A_{j,k}$ is the entry in row $j$, column $k$ of the matrix of $T$.
 
-    Suppose we went through the list $v_1,\dots,v_n$ and added each $v_k$ to another list if every $A_{j,k} = 0$.
-    Let $p$ denote the length of the new list.
+    Suppose we reduce $v_1,\dots,v_n$ to a new list of vectors, including each $v_k$ only if every entry in the $k$th column of the matrix of $T$ is zero.
+    Let $p$ denote the length of this new list.
 
     $T$ sends every vector in the new list to zero.
     So the new list would be a linearly independent list of vectors in the null space of $T$.
-    We could extend this list to a basis of $T$'s null space.
     Thus
 \begin{equation*}
         p \le \op{dim}\op{null}T .

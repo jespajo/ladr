@@ -1,0 +1,41 @@
+\documentclass[a5paper]{article}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage[top=1cm,right=1cm,bottom=1cm,left=1cm]{geometry}
+\setlength\parindent{0pt}
+\setlength\parskip{1em}
+%
+%\usepackage{xcolor}
+%\pagecolor[rgb]{0.1,0.1,0.1}
+%\color[rgb]{1.0,1.0,1.0}
+%
+\begin{document}
+\newcommand   \C           {\mathbf{C}}
+\newcommand   \R           {\mathbf{R}}
+\renewcommand \L           {\mathcal{L}}
+\newcommand   \F           {\mathbf{F}}
+\renewcommand \P           {\mathcal{P}}
+\newcommand   \M           {\mathcal{M}}
+\newcommand   \op          {\operatorname}
+
+
+    3.C.9.
+    Suppose $a = \begin{pmatrix} a_1 & \dots & a_n \end{pmatrix}$ is a 1-by-$n$ matrix and $B$ is an $n$-by-$p$ matrix.
+    Prove that
+\begin{align*}
+        aB = a_1B_{1,\cdot} + \dots + a_nB_{n,\cdot} .
+\end{align*}
+    In other words, show that $aB$ is a linear combination of the rows of $B$, with the scalars that multiply the rows coming from $a$.
+
+\rule{\linewidth}{0.4pt}
+
+
+    Considering the left side of the equation, the definition of matrix multiplication implies that it is a 1-by-$p$ matrix such that for $k = 1,\dots,p$, the entry in its $k$th column is
+\begin{align*}
+        a_1B_{1,k} + \dots + a_nB_{n,k} .
+\end{align*}
+    On the right side of the equation in the question, each term is a scalar multiple of a 1-by-$p$ matrix.
+    From the definitions of matrix scalar multiplication and matrix addition, the right side of the equation as a whole is also a 1-by-$p$ matrix such that for $k = 1,\dots,p$, the entry in its $k$th column is the number above.
+
+    Hence both sides of the equation are the same.
+\end{document}
