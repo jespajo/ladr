@@ -1,0 +1,64 @@
+\documentclass[a5paper]{article}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage[top=1cm,right=1cm,bottom=1.5cm,left=1cm]{geometry}
+\setlength\parindent{0pt}
+\setlength\parskip{1em}
+%
+%\usepackage{xcolor}
+%\pagecolor[rgb]{0.1,0.1,0.1}
+%\color[rgb]{1.0,1.0,1.0}
+%
+\begin{document}
+\newcommand   \C           {\mathbf{C}}
+\newcommand   \R           {\mathbf{R}}
+\renewcommand \L           {\mathcal{L}}
+\newcommand   \F           {\mathbf{F}}
+\renewcommand \P           {\mathcal{P}}
+\newcommand   \M           {\mathcal{M}}
+\newcommand   \op          {\operatorname}
+
+
+    3.C.12.
+    Prove that matrix multiplication is associative.
+    In other words, suppose $A$, $B$, and $C$ are matrices whose sizes are such that $(AB)C$ makes sense.
+    Explain why $A(BC)$ makes sense and prove that
+\begin{align*}
+        (AB)C = A(BC) .
+\end{align*}
+
+    Since $(AB)C$ makes sense, we know the number of columns in $AB$ equals the number of rows in $C$.
+    $B$ has the same number of columns as $AB$, so the number of columns in $B$ also equals the number of rows in $C$.
+    Thus $BC$ makes sense.
+
+    Since $AB$ makes sense, the number of columns in $A$ equals the number of rows in $B$.
+    $BC$ has the same number of rows as $B$.
+    Thus the number of columns in $A$ equals the number of rows in $BC$.
+    Hence $A(BC)$ makes sense.
+
+    Let $m$ denote the number of rows in $A$. Let $n$ denote the number of columns in $C$.
+    Both $(AB)C$ and $A(BC)$ are $m$-by-$n$ matrices.
+
+%    For each $j \in \{1,\dots,m\}$, row $j$ of $A(BC)$ equals (row $j$ of $A$) times $BC$.
+%    This is a linear combination of the rows of $BC$, with the coefficients for each row coming from the corresponding entry in row $j$ of $A$.
+%
+%    For each $j \in \{1,\dots,m\}$, row $j$ of $(AB)C$ equals (row $j$ of $AB$) times $C$.
+%    Row $j$ of $AB$ equals (row $j$ of $A$) times $B$.
+%    Thus row $j$ of $(AB)C$ equals ((row $j$ of $A$) times $B$) times $C$.
+%
+%    For each $k \in \{1,\dots,n\}$, column $k$ of $(AB)C$ equals $AB$ times (column $k$ of $C$).
+
+    Let $p$ denote the number of rows in $B$.
+    Let $q$ denote the number of columns in $B$.
+
+    For each $j \in \{1,\dots,m\}$,  and each $k \in \{1,\dots,n\}$,
+\begin{align*}
+        ((AB)C)_{j,k} &= \sum_{x=1}^q (AB)_{j,x} C_{x,k} \\
+                      &= \sum_{x=1}^q ( \sum_{y=1}^p A_{j,y} B_{y,x} ) C_{x,k} \\
+                      &= \sum_{x=1}^q \sum_{y=1}^p A_{j,y} B_{y,x} C_{x,k} \\
+                      &= \sum_{y=1}^p A_{j,y} \sum_{x=1}^q B_{y,x} C_{x,k} \\
+                      &= \sum_{y=1}^p A_{j,y} (BC)_{y,k} \\
+                      &= (A(BC))_{j,k} .
+\end{align*}
+    Thus $(AB)C$ and $A(BC)$ are matrices of the same size with the same entries.
+\end{document}
