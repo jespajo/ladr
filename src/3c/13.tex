@@ -1,0 +1,66 @@
+\documentclass[a5paper]{article}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage[top=1cm,right=1cm,bottom=1.5cm,left=1cm]{geometry}
+\setlength\parindent{0pt}
+\setlength\parskip{1em}
+%
+%\usepackage{xcolor}
+%\pagecolor[rgb]{0.1,0.1,0.1}
+%\color[rgb]{1.0,1.0,1.0}
+%
+\begin{document}
+\newcommand   \C           {\mathbf{C}}
+\newcommand   \R           {\mathbf{R}}
+\renewcommand \L           {\mathcal{L}}
+\newcommand   \F           {\mathbf{F}}
+\renewcommand \P           {\mathcal{P}}
+\newcommand   \M           {\mathcal{M}}
+\newcommand   \op          {\operatorname}
+
+
+    3.C.13.
+    Suppose $A$ is an $n$-by-$n$ matrix and $1 \le j,k \le n$.
+    Show that the entry in row $j$, column $k$, of $A^3$ (which is defined to mean $AAA$) is
+\begin{align*}
+        \sum_{p=1}^n \sum_{r=1}^n A_{j,p} A_{p,r} A_{r,k} .
+\end{align*}
+
+%    Since $A^3 = A(AA)$, the entry in row $j$, column $k$ of $A^3$ is (row $j$ of $A$) times (column $k$ of $AA$).
+%
+%    Looking first at column $k$ of $AA$, we see that it is equal to $A$ times column $k$ of $A$.
+%    This, in turn, is a linear combination of the columns of $A$, with the coefficients for each column coming from the corresponding entries in column $k$ of $A$.
+%\begin{align*}
+%        (AA)_{\cdot,k} &=
+%            \begin{pmatrix}
+%                %A_{1,k} A_{1,1} + \dots + A_{n,k} A_{1,n} \\
+%                \sum_{p=1}^n A_{p,k} A_{1,p} \\
+%                \vdots \\
+%                %A_{1,k} A_{n,1} + \dots + A_{n,k} A_{n,n}
+%                \sum_{p=1}^n A_{p,k} A_{n,p} \\
+%            \end{pmatrix} .
+%\end{align*}
+
+    Since $A^3 = (AA)A$, the entry in row $j$, column $k$ of $A^3$ is (row $j$ of $AA$) times (column $k$ of $A$):
+\begin{align*}
+        (A^3)_{j,k} &= (AA)_{j,\cdot} A_{\cdot,k} .
+\end{align*}
+
+    Looking first at row $j$ of $AA$, we see that it equals (row $j$ of $A$) times $A$:
+\begin{align*}
+        (AA)_{j,\cdot} &= A_{j,\cdot} A .
+\end{align*}
+    This, in turn, is a linear combination of the rows of $A$, with the coefficients coming from the corresponding entries in row $j$ of $A$:
+\begin{align*}
+        A_{j,\cdot} A &= A_{j,1}A_{1,\cdot} + \dots + A_{j,n}A_{n,\cdot} \\
+                      &= \begin{pmatrix} \sum_{p=1}^nA_{j,p}A_{p,1} & \dots & \sum_{p=1}^nA_{j,p}A_{p,n} \end{pmatrix} .
+        %A_{j,\cdot} A = \sum_{p=1}^nA_{j,p}A_{p,\cdot} = \begin{pmatrix} \sum_{p=1}^nA_{j,p}A_{p,1} & \dots & \sum_{p=1}^nA_{j,p}A_{p,n} \end{pmatrix}
+\end{align*}
+
+    Multiplying the row matrix above by column $k$ of $A$ means multiplying each entry in the row by the corresponding entry in column $k$ of $A$ and then summing the results:
+\begin{align*}
+        (AA)_{j,\cdot}A_{\cdot,k} &= \sum_{p=1}^n A_{j,p}A_{p,1} A_{1,k} + \dots + \sum_{p=1}^n A_{j,p}A_{p,n}A_{n,k} \\
+                                  &= \sum_{r=1}^n \sum_{p=1}^n A_{j,p} A_{p,r} A_{r,k} .
+\end{align*}
+    Thus we have the desired result.
+\end{document}
