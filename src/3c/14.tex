@@ -1,0 +1,46 @@
+\documentclass[a5paper]{article}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage[top=1cm,right=1cm,bottom=2cm,left=1cm]{geometry}
+\setlength\parindent{0pt}
+\setlength\parskip{1em}
+%
+%\usepackage{xcolor}
+%\pagecolor[rgb]{0.1,0.1,0.1}
+%\color[rgb]{1.0,1.0,1.0}
+%
+\begin{document}
+\newcommand   \C           {\mathbf{C}}
+\newcommand   \R           {\mathbf{R}}
+\renewcommand \L           {\mathcal{L}}
+\newcommand   \F           {\mathbf{F}}
+\renewcommand \P           {\mathcal{P}}
+\newcommand   \M           {\mathcal{M}}
+\newcommand   \op          {\operatorname}
+
+
+    3.C.14.
+    Suppose $m$ and $n$ are positive integers.
+    Prove that the function $A \rightarrow A^t$ is a linear map from $\F^{m,n}$ to $\F^{n,m}$.
+
+
+    Suppose $A \in \F^{m,n}$ and $\lambda \in \F$.
+    For each $j \in \{1,\dots,m\}$ and each $k \in \{1,\dots,n\}$,
+\begin{align*}
+        ((\lambda A)^t)_{k,j} &= (\lambda A)_{j,k} \\
+                              &= \lambda A_{j,k} \\
+                              &= \lambda (A^t)_{k,j} .
+\end{align*}
+    Thus the function is homogeneous.
+
+    Now suppose $B, C \in \F^{m,n}$.
+    For each $j \in \{1,\dots,m\}$ and each $k \in \{1,\dots,n\}$,
+\begin{align*}
+        ((A+B)^t)_{k,j} &= (A+B)_{j,k} \\
+                        &= A_{j,k} + B_{j,k} \\
+                        &= (A^t)_{k,j} + (B^t)_{k,j} .
+\end{align*}
+    Thus the function is additive.
+
+    Hence the function is a linear map.
+\end{document}
