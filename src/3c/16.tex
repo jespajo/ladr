@@ -1,0 +1,45 @@
+\documentclass[a5paper]{article}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage[top=1cm,right=1cm,bottom=2cm,left=1cm]{geometry}
+\setlength\parindent{0pt}
+\setlength\parskip{1em}
+%
+\begin{document}
+\newcommand   \C           {\mathbf{C}}
+\newcommand   \R           {\mathbf{R}}
+\renewcommand \L           {\mathcal{L}}
+\newcommand   \F           {\mathbf{F}}
+\renewcommand \P           {\mathcal{P}}
+\newcommand   \M           {\mathcal{M}}
+\newcommand   \op          {\operatorname}
+
+
+    3.C.16.
+    Suppose $A$ is an $m$-by-$n$ matrix with $A \neq 0$.
+    Prove that the rank of $A$ is 1 if and only if there exist $(c_1,\dots,c_m) \in \F^m$ and $(d_1,\dots,d_n) \in \F^n$ such that $A_{j,k} = c_j d_k$ for every $j = 1,\dots,m$ and every $k = 1,\dots,n$.
+
+    To prove in one direction, suppose the rank of $A$ is 1.
+
+    Then from the proof of column-row factorisation (3.56), there exist an $m$-by-1 matrix $C$ and a 1-by-$n$ matrix $D$ such that $A = CD$.
+
+    Let $c_1,\dots,c_m$ denote the entries of $C$ and let $d_1,\dots,d_n$ denote the entries of $D$.
+    Then from the definition of matrix multiplication,
+\begin{align*}
+        A_{j,k} = (CD)_{j,k} = C_{j,1} D_{1,k} = c_j d_k .
+\end{align*}
+
+    To prove in the other direction, suppose there exist $(c_1,\dots,c_m) \in \F^m$ and $(d_1,\dots,d_n) \in \F^n$ such that $A_{j,k} = c_j d_k$ for every $j = 1,\dots,m$ and every $k = 1,\dots,n$.
+
+    Suppose $C$ is an $m$-by-1 matrix with entries $c_1,\dots,c_m$.
+    For $k \in \{1,\dots,n\}$, column $k$ of $A$ equals $d_k C$.
+    Thus every column of $A$ can be written as a scalar multiple of $C$.
+    Hence the span of the columns of $A$ has a dimension no greater than 1.
+
+    Since $A \neq 0$, at least one column of $A$ has non-zero entries.
+    This column is a linearly independent list of length 1.
+    Thus the dimension of the span of the columns of $A$ is exactly 1.
+    In other words, the column rank of $A$ is 1.
+
+    Since the row rank equals the column rank (3.57), the rank of $A$ is 1.
+\end{document}
