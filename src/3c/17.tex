@@ -1,0 +1,110 @@
+\documentclass[a5paper]{article}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage[top=1cm,right=1cm,bottom=2cm,left=1cm]{geometry}
+\setlength\parindent{0pt}
+\setlength\parskip{1em}
+%
+\begin{document}
+\newcommand   \C           {\mathbf{C}}
+\newcommand   \R           {\mathbf{R}}
+\renewcommand \L           {\mathcal{L}}
+\newcommand   \F           {\mathbf{F}}
+\renewcommand \P           {\mathcal{P}}
+\newcommand   \M           {\mathcal{M}}
+\newcommand   \op          {\operatorname}
+
+
+    3.C.17.
+    Suppose $T \in \L(V)$ and $u_1,\dots,u_n$ and $v_1,\dots,v_n$ are bases of $V$.
+    Prove that the following are equivalent. \\
+    (a) $T$ is injective. \\
+    (b) The columns of $\M(T)$ are linearly independent in $\F^{n,1}$. \\
+    (c) The columns of $\M(T)$ span $\F^{n,1}$. \\
+    (d) The rows of $\M(T)$ span $\F^{1,n}$. \\
+    (e) The rows of $\M(T)$ are linearly independent in $\F^{1,n}$. \\
+    Here $\M(T)$ means $\M\big(T,(u_1,\dots,u_n),(v_1,\dots,v_n)\big)$.
+
+    Let $A = \M(T)$.
+
+    To prove in one direction, suppose $T$ is injective.
+
+    To prove (b), suppose there exists a linear combination of the columns of $\M(T)$ equal to 0.
+    In other words, suppose $b_1,\dots,b_n \in \F$ such that for each $j = 1,\dots,n$,
+\begin{align*}
+        b_1 A_{j,1} + \dots + b_n A_{j,n} = 0 .
+\end{align*}
+    Now suppose $u \in V$ such that
+\begin{align*}
+        u &= b_1 u_1 + \dots + b_n u_n .
+\end{align*}
+    Then
+\begin{align*}
+        Tu &= T(b_1u_1 + \dots + b_nu_n) \\
+           &= b_1Tu_1 + \dots + b_nTu_n \\
+           &= b_1(A_{1,1}v_1 + \dots + A_{n,1}v_n) + \dots + b_n(A_{1,n}v_1 + \dots + A_{n,n}v_n) \\
+           &= b_1A_{1,1}v_1 + \dots + b_1A_{n,1}v_n + \dots + b_nA_{1,n}v_1 + \dots + b_nA_{n,n}v_n \\
+           &= (b_1A_{1,1} + \dots + b_nA_{1,n})v_1 + \dots + (b_1A_{n,1} + \dots + b_nA_{n,n})v_n .
+\end{align*}
+    Each coefficient in the final line equals 0 because it is of the form $b_1 A_{j,1} + \dots + b_n A_{j,n}$ which we described above.
+
+    Hence $Tu = 0$.
+    Thus $u = 0$ since $T$ is injective (using 3.15).
+    Then because $b_1u_1 + \dots + b_nu_n = 0$, and this is a linear combination of a linearly independent list, $b_1=\dots=b_n=0$.
+
+    To recap, starting from the premise that a linear combination of the columns of $\M(T)$ equals 0 leads to the conclusion that every coefficient equals 0, proving (b).
+
+    Now we know that the columns of $\M(T)$ are a linearly independent list of length $n$.
+    Since $n = \op{dim} \F^{n,1}$, this means that the columns of $\M(T)$ are a basis of $\F^{n,1}$ (using 2.38).
+    This proves (c).
+
+    Since the column rank equals the row rank (3.57), the row rank of $\M(T)$ is $n$.
+    This means the dimension of the span of the rows of $\M(T)$ is $n$.
+    Hence the span of the rows of $\M(T)$ is $\F^{1,n}$ (using 2.39), proving (d).
+
+    Finally, to prove (e), the rows of $\M(T)$ are a spanning list of the right length (because $n = \op{dim} \F^{1,n}$), so they are a basis of $\F^{1,n}$ (using 2.42).
+
+    The same logic proves in the other direction, too.
+    % @Todo: Something simpler?
+    Suppose the rows of $\M(T)$ are linearly independent in $\F^{1,n}$.
+
+    Then the rows of $\M(T)$ are a linearly independent list of the right length, so they are also a basis and spanning list of $\F^{1,n}$, which proves (d).
+
+    Since the column rank equals the row rank, the span of the columns of $\M(T)$ has dimension $n$.
+    This means the columns of $\M(T)$ span the entire subspace of $\F^{n,1}$, proving (c).
+
+    Thus the columns of $\M(T)$ are a spanning list of the right length, and so they are a basis of $\F^{n,1}$, proving (b).
+
+    To prove (a), suppose $v \in V$ such that $Tv = 0$.
+
+    There exist $c_1,\dots,c_n \in \F$ such that $v = c_1u_1 + \dots + c_nu_n$.
+    Thus
+\begin{align*}
+        0 &= Tv \\
+          &= T(c_1u_1 + \dots + c_nu_n) \\
+          &= c_1Tu_1 + \dots + c_nTu_n \\
+          &= c_1(A_{1,1}v_1 + \dots + A_{n,1}v_n) + \dots + c_n(A_{1,n}v_1 + \dots + A_{n,n}v_n) \\
+          &= c_1A_{1,1}v_1 + \dots + c_1A_{n,1}v_n + \dots + c_nA_{1,n}v_1 + \dots + c_nA_{n,n}v_n \\
+          &= (c_1A_{1,1} + \dots + c_nA_{1,n})v_1 + \dots + (c_1A_{n,1} + \dots + c_nA_{n,n})v_n .
+\end{align*}
+    Then since this is a linear combination of a linearly independent list equal to 0, the coefficients equal 0.
+    In other words, for $k = 1,\dots,n$,
+\begin{align*}
+        c_1A_{k,1} + \dots + c_nA_{k,n} = 0 .
+\end{align*}
+    Take $c_1,\dots,c_n$ as the coefficients in a linear combination of the columns of $\M(T)$:
+\begin{align*}
+        c_1 A_{\cdot,1} + \dots + c_n A_{\cdot,n}
+\end{align*}
+    This is an $n$-by-1 matrix such that for $k = 1,\dots,n$, the $k$th entry is
+\begin{align*}
+        c_1A_{k,1} + \dots + c_nA_{k,n}
+\end{align*}
+    which equals 0.
+    Hence this linear combination as a whole equals 0.
+
+    Since the columns of $\M(T)$ are linearly independent, this means $c_1=\dots=c_n=0$.
+
+    Hence $v=0$.
+    This proves (a) because the only vector that $T$ takes to 0 is 0.
+\end{document}
