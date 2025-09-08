@@ -1,0 +1,42 @@
+\documentclass[a5paper]{article}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage[top=1cm,right=1cm,bottom=2cm,left=1cm]{geometry}
+\setlength\parindent{0pt}
+\setlength\parskip{1em}
+%
+\begin{document}
+\newcommand   \C           {\mathbf{C}}
+\newcommand   \R           {\mathbf{R}}
+\renewcommand \L           {\mathcal{L}}
+\newcommand   \F           {\mathbf{F}}
+\renewcommand \P           {\mathcal{P}}
+\newcommand   \M           {\mathcal{M}}
+\newcommand   \op          {\operatorname}
+
+
+    3.C.15.
+    Prove that if $A$ is an $m$-by-$n$ matrix and $C$ is an $n$-by-$p$ matrix, then
+\begin{align*}
+        (AC)^t = C^t A^t .
+\end{align*}
+
+    $AC$ is an $m$-by-$p$ matrix.
+    So the value on the left is a $p$-by-$m$ matrix.
+
+    The value on the right is a $p$-by-$n$ matrix multiplied by an $n$-by-$m$ matrix, which is also a $p$-by-$m$ matrix.
+
+    For each $j \in \{1,\dots\,m\}$ and each $k \in \{1,\dots,p\}$,
+\begin{align*}
+        (C^t A^t)_{k,j} &= \sum_{r=1}^n (C^t)_{k,r} (A^t)_{r,j} \\
+                        &= \sum_{r=1}^n (A^t)_{r,j} (C^t)_{k,r} \\
+                        &= \sum_{r=1}^n A_{j,r} C_{r,k} \\
+                        &= (AC)_{j,k} \\
+                        &= ((AC)^t)_{k,j} .
+\end{align*}
+    %The first and fourth equalities hold due to the definition of matrix multiplication.
+    %The second equality holds due to the commutativity of multiplication of scalars.
+    %The third and fifth equalities hold due to the definition of the transpose of a matrix.
+
+    Thus $(AC)^t$ and $C^tA^t$ are matrices of the same size with the same entries.
+\end{document}
