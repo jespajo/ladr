@@ -1,0 +1,41 @@
+\documentclass[a5paper]{article}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage[top=1cm,right=1cm,bottom=2cm,left=1cm]{geometry}
+\setlength\parindent{0pt}
+\setlength\parskip{1em}
+%
+\begin{document}
+\newcommand   \C           {\mathbf{C}}
+\newcommand   \R           {\mathbf{R}}
+\renewcommand \L           {\mathcal{L}}
+\newcommand   \F           {\mathbf{F}}
+\renewcommand \P           {\mathcal{P}}
+\newcommand   \M           {\mathcal{M}}
+\newcommand   \op          {\operatorname}
+
+    3.D.2.
+    Suppose $T \in \L(U,V)$ and $S \in \L(V,W)$ are both invertible linear maps.
+    Prove that $ST \in \L(U,W)$ is invertible and that $(ST)^{-1} = T^{-1} S^{-1}$.
+
+    Since $T$ is invertible, $T^{-1} \in \L(V,U)$ exists.
+    Since $S$ is invertible, $S^{-1} \in \L(W,V)$ exists.
+    Thus $T^{-1}S^{-1} \in \L(W,U)$ makes sense because $S^{-1}$ maps to the domain of $T^{-1}$.
+
+    For $w \in W$,
+\begin{align*}
+        (ST) (T^{-1}S^{-1}) w &= S (T T^{-1}) S^{-1} w \\
+                                &= S I S^{-1} w \\
+                                &= S S^{-1} w \\
+                                &= I w \\
+                                &= w .
+\end{align*}
+    For $u \in U$,
+\begin{align*}
+        (T^{-1}S^{-1}) (ST) u &= T^{-1} (S S^{-1}) T u \\
+                              &= T^{-1} I T u \\
+                              &= T^{-1} T u \\
+                              &= I u \\
+                              &= u .
+\end{align*}
+\end{document}
