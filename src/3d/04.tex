@@ -1,0 +1,68 @@
+\documentclass[a5paper]{article}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage[top=1cm,right=1cm,bottom=2cm,left=1cm]{geometry}
+\setlength\parindent{0pt}
+\setlength\parskip{1em}
+%
+\begin{document}
+\newcommand   \C           {\mathbf{C}}
+\newcommand   \R           {\mathbf{R}}
+\renewcommand \L           {\mathcal{L}}
+\newcommand   \F           {\mathbf{F}}
+\renewcommand \P           {\mathcal{P}}
+\newcommand   \M           {\mathcal{M}}
+\newcommand   \op          {\operatorname}
+
+    3.D.4.
+    Suppose $V$ is finite-dimensional and $\op{dim}V > 1$.
+    Prove that the set of noninvertible linear maps from $V$ to itself is not a subspace of $\L(V)$.
+
+    Suppose $v_1,\dots,v_n$ is a basis of $V$.
+    Thus $n > 1$.
+
+    %Define $T \in \L(V)$ such that $Tv_1 = 0$ and $Tv_j = v_j$ for $j = 2,\dots,n$.
+    Define $T \in \L(V)$ such that $Tv_1 = 0$ and $Tv_2 = v_2, \dots, Tv_n = v_n$.
+
+    %Define $S \in \L(V)$ such that $Sv_1 = v_1$ and $Sv_j = 0$ for $j = 2,\dots,n$.
+    Define $S \in \L(V)$ such that $Sv_1 = v_1$ and $Sv_2 = \dots = Sv_n = 0$.
+
+    These are valid definitions of linear maps because $n > 1$ and because they follow the structure given in the linear map lemma.
+
+    Clearly $v_1 \neq 0$ because it is in a basis of $V$.
+    So, since $v_1 \in \op{null}T$, we have $\op{null}T \neq \{0\}$.
+    Thus $T$ is not injective.
+    Hence $T$ is noninvertible.
+
+    Similarly, $v_2 \in \op{null}S$, so, following the same logic, $S$ is noninvertible.
+
+    The sum of $S$ and $T$ is the identity map on $V$.
+    To see this, suppose $v \in V$.
+    Then there exist $a_1,\dots,a_n \in \F$ such that
+\begin{align*}
+        v &= a_1 v_1 + \dots + a_n v_n .
+\end{align*}
+    Then
+%\begin{align*}
+%        (S + T) v   &= Sv + Tv \\
+%                    &= S(a_1v_1 + \dots + a_nv_n) + T(a_1v_1 + \dots + a_nv_n) \\
+%                    &= a_1Sv_1 + \dots + a_nSv_n + a_1Tv_1 + \dots + a_nTv_n \\
+%                    &= a_1v_1 + \dots + a_nv_n \\
+%                    &= v .
+%\end{align*}
+\begin{align*}
+        (S + T) v   &= (S + T)( a_1 v_1 + \dots + a_n v_n ) \\
+                    &= a_1(S + T)v_1 + \dots + a_n(S + T)v_n \\
+                    &= a_1(Sv_1 + Tv_1) + \dots + a_n(Sv_n + Tv_n) \\
+                    &= a_1(v_1 + 0) + a_2(0 + v_2) + \dots + a_n(0 + v_n) \\
+                    &= a_1v_1 + \dots + a_nv_n \\
+                    &= v .
+\end{align*}
+    Thus $S + T = I$.
+    $I$ is invertible because it has an inverse, $I$ (since $II = I$).
+
+    To recap, $S$ and $T$ are both noninvertible linear maps from $V$ to itself.
+    Their sum is an invertible linear map.
+    Thus the set of noninvertible linear maps from $V$ to itself is not closed under addition.
+    Therefore it is not a subspace of $\L(V)$.
+\end{document}
