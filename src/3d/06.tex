@@ -1,0 +1,141 @@
+\documentclass[a5paper]{article}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage[top=1cm,right=1cm,bottom=2cm,left=1cm]{geometry}
+\setlength\parindent{0pt}
+\setlength\parskip{1em}
+%
+\begin{document}
+\newcommand   \C           {\mathbf{C}}
+\newcommand   \R           {\mathbf{R}}
+\renewcommand \L           {\mathcal{L}}
+\newcommand   \F           {\mathbf{F}}
+\renewcommand \P           {\mathcal{P}}
+\newcommand   \M           {\mathcal{M}}
+\newcommand   \op          {\operatorname}
+
+    3.D.6.
+    Suppose that $W$ is finite-dimensional and $S,T \in \L(V,W)$.
+    Prove that $\op{null}S = \op{null}T$ if and only if there exists an invertible $E \in \L(W)$ such that $S = ET$.
+
+    To prove in one direction, suppose there exists an invertible $E \in \L(W)$ such that $S = ET$.
+    We must prove $\op{null}S = \op{null}T$.
+
+    To prove $\op{null}S \subseteq \op{null}T$, suppose $v \in \op{null}S$.
+    Then $Sv = 0$.
+    So $ETv = 0$.
+
+    Since $E$ is invertible and $W$ is finite-dimensional, $E$ is injective.
+    So $\op{null}E = \{0\}$.
+    Hence $Tv = 0$.
+    Thus $v \in \op{null}T$.
+    So $\op{null}S \subseteq \op{null}T$.
+
+    To prove $\op{null}T \subseteq \op{null}S$, suppose $u \in \op{null}T$.
+    Then $Tu = 0$.
+    Hence
+\begin{align*}
+        Su = ETu = E0 = 0 .
+\end{align*}
+    Thus $u \in \op{null}S$.
+    So $\op{null}T \subseteq \op{null}S$.
+
+    Hence $\op{null}S = \op{null}T$, completing our proof in one direction.
+
+    To prove in the other direction, suppose $\op{null}S = \op{null}T$.
+    We must prove there exists an invertible $E \in \L(W)$ such that $S = ET$.
+
+    Since $W$ is finite-dimensional, $\op{range}S$ is finite-dimensional.
+    So $\op{range}S$ has a basis.
+    Suppose $Sv_1,\dots,Sv_n$ is a basis of $\op{range}S$, with some $v_1,\dots,v_n \in V$.
+
+    The list $Tv_1,\dots,Tv_n$ is linearly independent.
+    To see this, suppose $a_1,\dots,a_n \in \F$ such that
+\begin{align*}
+        a_1 Tv_1 + \dots + a_n T v_n = 0 .
+\end{align*}
+    Then
+\begin{align*}
+        T(a_1 v_1 + \dots + a_n v_n) = 0 .
+\end{align*}
+    Thus $a_1v_1+\dots+a_nv_n \in \op{null}T$.
+
+    Since $\op{null}T = \op{null}S$, this means $a_1v_1+\dots+a_nv_n \in \op{null}S$.
+    Thus
+\begin{align*}
+        0 &= S(a_1 v_1 + \dots + a_n v_n) \\
+          &= a_1 Sv_1 + \dots + a_n Sv_n .
+\end{align*}
+    Since $Sv_1,\dots,Sv_n$ is a linearly independent list, we conclude $a_1=\dots=a_n=0$.
+    Thus $Tv_1,\dots,Tv_n$ is linearly independent.
+
+    %In fact $Tv_1,\dots,Tv_n$ is a basis of $\op{range}T$, but we don't need this for our proof, but here it is:
+    %Since $Tv_1,\dots,Tv_n$ is a linearly independent list of vectors in $\op{range}T$ of length $n = \op{dim}\op{range}S$, we conclude $\op{dim}\op{range}T \ge \op{dim}\op{range}S$.
+    %We can repeat the same steps with the roles of $S$ and $T$ interchanged to show that $\op{dim}\op{range}S \ge \op{dim}\op{range}T$.
+    %Thus $\op{dim}\op{range}T = \op{dim}\op{range}S$.
+    %Hence $Tv_1,\dots,Tv_n$ is a basis of $\op{range}T$ because it is a linearly independent list of the right length.
+
+    Suppose we extend $Tv_1,\dots,Tv_n$ to a basis of $W$ by appending $w_1,\dots,w_m \in W$.
+    Suppose we extend $Sv_1,\dots,Sv_n$ to a basis of $W$ by appending $u_1,\dots,u_m \in W$.
+    Now we have two bases of $W$:
+\begin{align*}
+        Tv_1,\dots,Tv_n,w_1,\dots,w_m \quad\text{and}\quad Sv_1,\dots,Sv_n,u_1,\dots,u_m .
+\end{align*}
+
+    Define $E \in \L(W)$ as the linear map that takes each vector in the first basis to the corresponding vector in the second basis.
+    In other words, for $j = 1,\dots,n$ and for $k = 1,\dots,m$,
+\begin{align*}
+        ETv_j = Sv_j \quad\text{and}\quad Ew_k = u_k .
+\end{align*}
+    $E$ is linear because we defined it using the structure from the linear map lemma.
+    So we need to show that $S = ET$ and that $E$ is invertible.
+
+    To see that $S = ET$, suppose $v \in V$.
+    We cannot define $v$ as a linear combination of a basis of $V$, because we do not know whether $V$ is finite-dimensional.
+    But we can find $Sv$ and $Tv$ in terms of our bases of $W$, as follows.
+
+    Since $Sv \in \op{range}S$, there exist $b_1,\dots,b_n \in \F$ such that
+\begin{align*}
+        Sv = b_1 Sv_1 + \dots + b_n Sv_n .
+\end{align*}
+    Subtracting $Sv$ from both sides,
+\begin{align*}
+        0 &= b_1 Sv_1 + \dots + b_n Sv_n - Sv \\
+          &= S( b_1 v_1 + \dots + b_n v_n - v ) .
+\end{align*}
+    Thus $b_1v_1+\dots+b_nv_n-v \in \op{null}S$.
+
+    Since $\op{null}S = \op{null}T$, this means $b_1v_1+\dots+b_nv_n-v \in \op{null}T$.
+    Thus
+\begin{align*}
+        0 &= T( b_1 v_1 + \dots + b_n v_n - v ) \\
+          &= b_1 T v_1 + \dots + b_n T v_n - Tv .
+\end{align*}
+    Adding $Tv$ to both sides,
+\begin{align*}
+        Tv &= b_1 T v_1 + \dots + b_n T v_n .
+\end{align*}
+
+    Hence
+\begin{align*}
+        Sv &= b_1Sv_1 + \dots + b_nSv_n \\
+           &= b_1ETv_1 + \dots + b_nETv_n \\
+           &= E(b_1Tv_1 + \dots + b_nTv_n) \\
+           &= ETv .
+\end{align*}
+    Thus $S = ET$.
+
+    To complete our proof, we need to show that $E$ is invertible.
+    The easiest way to do this is to show that $E$ is surjective, which is sufficient because $E \in \L(W)$ and $W$ is finite-dimensional.
+
+    Suppose $w \in W$.
+    Then there exist $c_1,\dots,c_n,d_1,\dots,d_m \in \F$ such that
+\begin{align*}
+        w &= c_1Sv_1 + \dots + c_nSv_n + d_1u_1 + \dots + d_mu_m \\
+          &= c_1ETv_1 + \dots + c_nETv_n + d_1Ew_1 + \dots + d_mEw_m \\
+          &= E(c_1Tv_1 + \dots + c_nTv_n + d_1w_1 + \dots + d_mw_m ) .
+\end{align*}
+    Thus $w \in \op{range}E$.
+    Hence $E$ is surjective.
+    Hence $E$ is invertible, as desired.
+\end{document}
