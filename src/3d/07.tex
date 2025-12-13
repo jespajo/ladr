@@ -1,0 +1,121 @@
+\documentclass[a5paper]{article}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage[top=1cm,right=1cm,bottom=2cm,left=1cm]{geometry}
+\setlength\parindent{0pt}
+\setlength\parskip{1em}
+%
+\begin{document}
+\newcommand   \C           {\mathbf{C}}
+\newcommand   \R           {\mathbf{R}}
+\renewcommand \L           {\mathcal{L}}
+\newcommand   \F           {\mathbf{F}}
+\renewcommand \P           {\mathcal{P}}
+\newcommand   \M           {\mathcal{M}}
+\newcommand   \op          {\operatorname}
+
+    3.D.7.
+    Suppose that $V$ is finite-dimensional and $S,T \in \L(V,W)$.
+    Prove that $\op{range}S = \op{range}T$ if and only if there exists an invertible $E \in \L(V)$ such that $S = TE$.
+
+    To prove in one direction, suppose there exists an invertible $E \in \L(V)$ such that $S = TE$.
+    We must prove that $\op{range}S = \op{range}T$.
+
+    To see that $\op{range}S \subseteq \op{range}T$, suppose $w \in \op{range}S$.
+    Then there exists $v \in V$ such that $Sv = w$.
+    Thus $TEv = w$.
+    So $w \in \op{range}T$.
+    Thus $\op{range}S \subseteq \op{range}T$.
+
+    To see that $\op{range}T \subseteq \op{range}S$, suppose $w \in \op{range}T$.
+    Then there exists $v \in V$ such that $Tv = w$.
+    Since $E$ is invertible and $V$ is finite-dimensional, $E$ is surjective.
+    So there exists $u \in V$ such that $Eu = v$.
+    Thus
+\begin{align*}
+        w = Tv = TEu = Su .
+\end{align*}
+    So $w \in \op{range}S$.
+    Thus $\op{range}T \subseteq \op{range}S$.
+
+    Hence $\op{range}S = \op{range}T$.
+
+    To prove in the other direction, suppose $\op{range}S = \op{range}T$.
+    We must prove there exists an invertible $E \in \L(V)$ such that $S = TE$.
+
+    We know $\op{range}S$ is finite-dimensional from the fundamental theorem of linear maps, because $V$ is finite-dimensional and $\op{dim}\op{range}S \le \op{dim}V$.
+
+    Suppose $w_1,\dots,w_m$ is a basis of $\op{range}S$ (and $\op{range}T$, since $\op{range}S = \op{range}T$).
+
+    Since $w_1,\dots,w_m \in \op{range}S$, there exist $u_1,\dots,u_m \in V$ such that
+\begin{align*}
+        Su_j = w_j
+\end{align*}
+    for $j = 1,\dots,m$.
+
+    $u_1,\dots,u_m$ is a linearly independent list of vectors in $V$.
+    To see this, suppose $a_1,\dots,a_m \in \F$ such that
+\begin{align*}
+        0 &= a_1u_1+\dots+a_mu_m .
+\end{align*}
+    Applying $S$ to both sides,
+\begin{align*}
+        S0 &= S(a_1u_1+\dots+a_mu_m) \\
+         0 &= a_1Su_1 + \dots + a_mSu_m \\
+           &= a_1w_1 + \dots + a_mw_m .
+\end{align*}
+    Since $w_1,\dots,w_m$ is a linearly independent list, $a_1=\dots=a_m=0$.
+    Thus $u_1,\dots,u_m$ is a linearly independent list.
+
+    Similarly, for $j = 1,\dots,m$, there exists $v_j \in V$ such that $Tv_j = w_j$.
+    Using the same logic, $v_1,\dots,v_m$ is a linearly independent list.
+
+    We can extend both of our linearly independent lists into bases of $V$.
+    Suppose that we do so by appending $u_{m+1},\dots,u_n$ to the first list and $v_{m+1},\dots,v_n$ to the second.
+
+    To recap, we have two bases of $V$:
+\begin{align*}
+        u_1,\dots,u_n \quad \text{and} \quad v_1,\dots,v_n
+\end{align*}
+    with $Su_j = Tv_j = w_j$ for $j = 1,\dots,m$, where $m \le n$.
+
+    Define $E \in \L(V)$ as the linear map that takes each $u_j$ to the corresponding $v_j$.
+    In other words,
+\begin{align*}
+        Eu_j = v_j \quad\text{for}\ j = 1,\dots,n .
+\end{align*}
+    $E$ is linear because it follows the structure in the linear map lemma.
+    So, to complete our proof, we need to show that $S = TE$ and that $E$ is invertible.
+
+    To see that $S = TE$, suppose $u \in V$.
+    Then there exist $b_1,\dots,b_n \in \F$ such that
+\begin{align*}
+        u &= b_1u_1 + \dots + b_nu_n .
+\end{align*}
+    Hence
+\begin{align*}
+        Su &= S(b_1u_1 + \dots + b_nu_n) \\
+           &= b_1Su_1 + \dots + b_nSu_n \\
+           &= b_1Tv_1 + \dots + b_nTv_n \\
+           &= b_1TEu_1 + \dots + b_nTEu_n \\
+           &= TE(b_1u_1 + \dots + b_nu_n) \\
+           &= TEu .
+\end{align*}
+    Thus $S = TE$.
+
+    Finally, we can show that $E$ is invertible by showing that it is injective, because $E$ is a linear map whose domain and range are both finite-dimensional vector spaces of the same dimension (they are both $V$).
+
+    To see that $E$ is injective, suppose $w \in V$ such that $Ew = 0$.
+    Because $w \in V$, there exists $c_1,\dots,c_n \in \F$ such that
+\begin{align*}
+        w &= c_1u_1 + \dots + c_nu_n .
+\end{align*}
+    Hence
+\begin{align*}
+        0 &= E(c_1u_1 + \dots + c_nu_n) \\
+          &= c_1Eu_1 + \dots + c_nEu_n \\
+          &= c_1v_1 + \dots + c_nv_n .
+\end{align*}
+    Since this is a linear combination of a linearly independent list, we conclude that $c_1=\dots=c_n=0$.
+    Thus $E$ is injective, completing our proof.
+\end{document}
