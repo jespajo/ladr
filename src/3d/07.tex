@@ -40,82 +40,116 @@
 
     Hence $\op{range}S = \op{range}T$.
 
+
+
     To prove in the other direction, suppose $\op{range}S = \op{range}T$.
     We must prove there exists an invertible $E \in \L(V)$ such that $S = TE$.
 
-    We know $\op{range}S$ is finite-dimensional from the fundamental theorem of linear maps, because $V$ is finite-dimensional and $\op{dim}\op{range}S \le \op{dim}V$.
+    Suppose $u_1,\dots,u_m$ is a basis of $\op{null}S$.
+    Such a basis exists because $\op{null}S$ is a subspace of $V$, a finite-dimensional vector space.
 
-    Suppose $w_1,\dots,w_m$ is a basis of $\op{range}S$ (and $\op{range}T$, since $\op{range}S = \op{range}T$).
+    Extend this list to a basis of $V$ by appending $v_1,\dots,v_n \in V$.
 
-    Since $w_1,\dots,w_m \in \op{range}S$, there exist $u_1,\dots,u_m \in V$ such that
+    $Sv_1,\dots,Sv_n$ is a linearly independent list of vectors in $\op{range}S$.
+    To see this, suppose $a_1,\dots,a_n \in \F$ such that $a_1Sv_1+\dots+a_nSv_n=0$.
+    Then
 \begin{align*}
-        Su_j = w_j
+        0 &= S(a_1v_1 + \dots + a_nv_n)
 \end{align*}
-    for $j = 1,\dots,m$.
-
-    $u_1,\dots,u_m$ is a linearly independent list of vectors in $V$.
-    To see this, suppose $a_1,\dots,a_m \in \F$ such that
+    so $a_1v_1+\dots+a_nv_n$ is a vector in $\op{null}S$.
+    So there exist $b_1,\dots,b_m \in \F$ such that
 \begin{align*}
-        0 &= a_1u_1+\dots+a_mu_m .
+        b_1u_1+\dots+b_mu_m &= a_1v_1+\dots+a_nv_n .
 \end{align*}
-    Applying $S$ to both sides,
+    Moving the right side over, we have
 \begin{align*}
-        S0 &= S(a_1u_1+\dots+a_mu_m) \\
-         0 &= a_1Su_1 + \dots + a_mSu_m \\
-           &= a_1w_1 + \dots + a_mw_m .
+        0 &= a_1v_1+\dots+a_nv_n - b_1u_1-\dots-b_mu_m .
 \end{align*}
-    Since $w_1,\dots,w_m$ is a linearly independent list, $a_1=\dots=a_m=0$.
-    Thus $u_1,\dots,u_m$ is a linearly independent list.
+    This is a linear combination of a linearly independent list, so $a_1=\dots=a_n=b_1=\dots=b_n=0$.
+    Thus $Sv_1,\dots,Sv_n$ is linearly independent.
 
-    Similarly, for $j = 1,\dots,m$, there exists $v_j \in V$ such that $Tv_j = w_j$.
-    Using the same logic, $v_1,\dots,v_m$ is a linearly independent list.
-
-    We can extend both of our linearly independent lists into bases of $V$.
-    Suppose that we do so by appending $u_{m+1},\dots,u_n$ to the first list and $v_{m+1},\dots,v_n$ to the second.
-
-    To recap, we have two bases of $V$:
+    From the fundamental theorem of linear maps, we have
 \begin{align*}
-        u_1,\dots,u_n \quad \text{and} \quad v_1,\dots,v_n
+        \op{dim}V &= \op{dim}\op{null}S + \op{dim}\op{range}S \\
+            m + n &= m + \op{dim}\op{range}S \\
+                n &= \op{dim}\op{range}S .
 \end{align*}
-    with $Su_j = Tv_j = w_j$ for $j = 1,\dots,m$, where $m \le n$.
+    Hence $Sv_1,\dots,Sv_n$ is a basis of $\op{range}S$ because it is a linearly independent list of the right length.
 
-    Define $E \in \L(V)$ as the linear map that takes each $u_j$ to the corresponding $v_j$.
-    In other words,
+    To recap, our steps so far have established a basis of $V$,
 \begin{align*}
-        Eu_j = v_j \quad\text{for}\ j = 1,\dots,n .
+        u_1,\dots,u_m,v_1,\dots,v_n ,
 \end{align*}
-    $E$ is linear because it follows the structure in the linear map lemma.
-    So, to complete our proof, we need to show that $S = TE$ and that $E$ is invertible.
+    where $u_1,\dots,u_m$ is a basis of $\op{null}S$ and $Sv_1,\dots,Sv_n$ is a basis of $\op{range}S$.
 
-    To see that $S = TE$, suppose $u \in V$.
-    Then there exist $b_1,\dots,b_n \in \F$ such that
+    Suppose $w_1,\dots,w_m$ is a basis of $\op{null}T$.
+
+    For each $k=1,\dots,n$, since $Sv_k$ is an element of $\op{range}S$ and $\op{range}T = \op{range}S$, $Sv_k \in \op{range}T$.
+    Hence there exists $x_k \in V$ such that
 \begin{align*}
-        u &= b_1u_1 + \dots + b_nu_n .
+        Sv_k = Tx_k .
 \end{align*}
-    Hence
+    We will now show that $w_1,\dots,w_m,x_1,\dots,x_n$ is a basis of $V$ by showing that it is a linearly independent list of the right length.
+    Suppose $c_1,\dots,c_m,d_1,\dots,d_n \in \F$ such that
 \begin{align*}
-        Su &= S(b_1u_1 + \dots + b_nu_n) \\
-           &= b_1Su_1 + \dots + b_nSu_n \\
-           &= b_1Tv_1 + \dots + b_nTv_n \\
-           &= b_1TEu_1 + \dots + b_nTEu_n \\
-           &= TE(b_1u_1 + \dots + b_nu_n) \\
-           &= TEu .
+        0 &= c_1w_1 + \dots + c_mw_m + d_1x_1 + \dots d_nx_n .
 \end{align*}
+    Applying $T$ to both sides,
+\begin{align*}
+         0 &= T(c_1w_1 + \dots + c_mw_m + d_1x_1 + \dots d_nx_n) \\
+           &= c_1Tw_1 + \dots + c_mTw_m + d_1Tx_1 + \dots d_nTx_n \\
+           &= d_1Tx_1 + \dots d_nTx_n \\
+           &= d_1Sv_1 + \dots d_nSv_n .
+\end{align*}
+    The $c_jTw_j$ terms disappeared because each $w_j \in \op{null}T$.
+
+    Thus $d_1=\dots=d_n=0$ because we have a linear combination of a linearly independent list of vectors equal to zero.
+    Hence our equation becomes
+\begin{align*}
+        0 &= c_1w_1 + \dots + c_mw_m
+\end{align*}
+    so $c_1=\dots=c_m=0$ for the same reason.
+
+    Thus $w_1,\dots,w_m,x_1,\dots,x_n$ is a linearly independent list, which means it is a basis of $V$ because it is the right length.
+
+    We are now ready to define $E \in \L(V)$ as a linear map such that
+\begin{align*}
+        Eu_j = w_j \quad\text{and}\quad Ev_k = x_k
+\end{align*}
+    for $j=1,\dots,m$ and $k=1,\dots,n$.
+
+    This is a valid definition of a linear map because it defines $E$ completely on a basis of $V$ ($u_1,\dots,u_m,v_1,\dots,v_m$).
+    So to complete our proof, we need to show that $S=TE$ and that $E$ is invertible.
+
+    To see that $S=TE$, suppose $v \in V$.
+    Then there exist $p_1,\dots,p_m,q_1,\dots,q_n \in \F$ such that
+\begin{align*}
+        v &= p_1u_1 + \dots + p_mu_m + q_1v_1 + \dots + q_nv_n .
+\end{align*}
+    Applying $S$ to $v$,
+\begin{align*}
+        Sv &= S(p_1u_1 + \dots + p_mu_m + q_1v_1 + \dots + q_nv_n) \\
+           &= p_1Su_1 + \dots + p_mSu_m + q_1Sv_1 + \dots + q_nSv_n \\
+           &= q_1Sv_1 + \dots + q_nSv_n .
+\end{align*}
+    %The $p_jSu_j$ terms disappeared because each $u_j \in \op{null}S$.
+
+    Applying $TE$ to $v$,
+\begin{align*}
+        TEv &= TE(p_1u_1 + \dots + p_mu_m + q_1v_1 + \dots + q_nv_n) \\
+            &= T(p_1Eu_1 + \dots + p_mEu_m + q_1Ev_1 + \dots + q_nEv_n) \\
+            &= T(p_1w_1 + \dots + p_mw_m + q_1x_1 + \dots + q_nx_n) \\
+            &= p_1Tw_1 + \dots + p_mTw_m + q_1Tx_1 + \dots + q_nTx_n \\
+            &= q_1Tx_1 + \dots + q_nTx_n \\
+            &= q_1Sv_1 + \dots + q_nSv_n \\
+            &= Sv .
+\end{align*}
+    %The $p_jTw_j$ terms disappeared because each $w_j \in \op{null}T$.
+
     Thus $S = TE$.
 
-    Finally, we can show that $E$ is invertible by showing that it is injective, because $E$ is a linear map whose domain and range are both finite-dimensional vector spaces of the same dimension (they are both $V$).
-
-    To see that $E$ is injective, suppose $w \in V$ such that $Ew = 0$.
-    Because $w \in V$, there exists $c_1,\dots,c_n \in \F$ such that
-\begin{align*}
-        w &= c_1u_1 + \dots + c_nu_n .
-\end{align*}
-    Hence
-\begin{align*}
-        0 &= E(c_1u_1 + \dots + c_nu_n) \\
-          &= c_1Eu_1 + \dots + c_nEu_n \\
-          &= c_1v_1 + \dots + c_nv_n .
-\end{align*}
-    Since this is a linear combination of a linearly independent list, we conclude that $c_1=\dots=c_n=0$.
-    Thus $E$ is injective, completing our proof.
+    Finally, it is easy to see that $E$ is invertible because $E$ maps each vector in one basis of $V$ ($u_1,\dots,u_m,v_1,\dots,v_n$) to a vector in another basis of $V$ ($w_1,\dots,w_m,x_1,\dots,x_n$).
+    Any $w \in V$ is expressible as a linear combination of the second basis, so we could take the coefficients from this linear combination and use them in a linear combination of the first basis to find a vector that $E$ maps to $w$.
+    Thus $E$ is surjective.
+    Hence $E$ is invertible because it is a surjective operator on a finite-dimensional vector space.
 \end{document}
