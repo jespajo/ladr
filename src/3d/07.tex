@@ -76,20 +76,17 @@
 \end{align*}
     Hence $Sv_1,\dots,Sv_n$ is a basis of $\op{range}S$ because it is a linearly independent list of the right length.
 
-    To recap, our steps so far have established a basis of $V$,
-\begin{align*}
-        u_1,\dots,u_m,v_1,\dots,v_n ,
-\end{align*}
-    where $u_1,\dots,u_m$ is a basis of $\op{null}S$ and $Sv_1,\dots,Sv_n$ is a basis of $\op{range}S$.
-
     Suppose $w_1,\dots,w_m$ is a basis of $\op{null}T$.
-
-    For each $k=1,\dots,n$, since $Sv_k$ is an element of $\op{range}S$ and $\op{range}T = \op{range}S$, $Sv_k \in \op{range}T$.
+    The fundamental theorem of linear maps tells us that $m$ is the correct number of elements:
+\begin{align*}
+        \op{dim}\op{null}T = \op{dim}V - \op{dim}\op{range}T = (m+n) - n &= m .
+\end{align*}
+    Next, for each $k=1,\dots,n$, since $Sv_k \in \op{range}S$ and $\op{range}T = \op{range}S$, $Sv_k \in \op{range}T$.
     Hence there exists $x_k \in V$ such that
 \begin{align*}
         Sv_k = Tx_k .
 \end{align*}
-    We will now show that $w_1,\dots,w_m,x_1,\dots,x_n$ is a basis of $V$ by showing that it is a linearly independent list of the right length.
+    We will show that $w_1,\dots,w_m,x_1,\dots,x_n$ is a basis of $V$ by showing that it is a linearly independent list of the right length.
     Suppose $c_1,\dots,c_m,d_1,\dots,d_n \in \F$ such that
 \begin{align*}
         0 &= c_1w_1 + \dots + c_mw_m + d_1x_1 + \dots d_nx_n .
@@ -109,19 +106,23 @@
         0 &= c_1w_1 + \dots + c_mw_m
 \end{align*}
     so $c_1=\dots=c_m=0$ for the same reason.
+    Thus $w_1,\dots,w_m,x_1,\dots,x_n$ is linearly independent, as desired, which means it is a basis of $V$.
 
-    Thus $w_1,\dots,w_m,x_1,\dots,x_n$ is a linearly independent list, which means it is a basis of $V$ because it is the right length.
-
-    We are now ready to define $E \in \L(V)$ as a linear map such that
+    To recap, our steps so far have established two bases of $V$,
 \begin{align*}
-        Eu_j = w_j \quad\text{and}\quad Ev_k = x_k
+        u_1,\dots,u_m,v_1,\dots,v_n \quad\text{and}\quad w_1,\dots,w_m,x_1,\dots,x_n,
 \end{align*}
-    for $j=1,\dots,m$ and $k=1,\dots,n$.
+    where $u_1,\dots,u_m$ is a basis of $\op{null}S$, $w_1,\dots,w_m$ is a basis of $\op{null}T$ and $Sv_1,\dots,Sv_n$, which is the same as $Tx_1,\dots,Tx_n$, is a basis of $\op{range}S$ and $\op{range}T$.
 
+    Now define $E \in \L(V)$ as a linear map that takes each vector in the first basis to the corresponding vector in the second basis.
+    In other words, for $j=1,\dots,m$ and $k=1,\dots,n$,
+\begin{align*}
+        Eu_j = w_j \quad\text{and}\quad Ev_k = x_k .
+\end{align*}
     This is a valid definition of a linear map because it defines $E$ completely on a basis of $V$ ($u_1,\dots,u_m,v_1,\dots,v_m$).
     So to complete our proof, we need to show that $S=TE$ and that $E$ is invertible.
 
-    To see that $S=TE$, suppose $v \in V$.
+    Suppose $v \in V$.
     Then there exist $p_1,\dots,p_m,q_1,\dots,q_n \in \F$ such that
 \begin{align*}
         v &= p_1u_1 + \dots + p_mu_m + q_1v_1 + \dots + q_nv_n .
@@ -132,20 +133,15 @@
            &= p_1Su_1 + \dots + p_mSu_m + q_1Sv_1 + \dots + q_nSv_n \\
            &= q_1Sv_1 + \dots + q_nSv_n .
 \end{align*}
-    %The $p_jSu_j$ terms disappeared because each $u_j \in \op{null}S$.
-
     Applying $TE$ to $v$,
 \begin{align*}
-        TEv &= TE(p_1u_1 + \dots + p_mu_m + q_1v_1 + \dots + q_nv_n) \\
-            &= T(p_1Eu_1 + \dots + p_mEu_m + q_1Ev_1 + \dots + q_nEv_n) \\
+        TEv &= T(p_1Eu_1 + \dots + p_mEu_m + q_1Ev_1 + \dots + q_nEv_n) \\
             &= T(p_1w_1 + \dots + p_mw_m + q_1x_1 + \dots + q_nx_n) \\
             &= p_1Tw_1 + \dots + p_mTw_m + q_1Tx_1 + \dots + q_nTx_n \\
             &= q_1Tx_1 + \dots + q_nTx_n \\
             &= q_1Sv_1 + \dots + q_nSv_n \\
             &= Sv .
 \end{align*}
-    %The $p_jTw_j$ terms disappeared because each $w_j \in \op{null}T$.
-
     Thus $S = TE$.
 
     Finally, it is easy to see that $E$ is invertible because $E$ maps each vector in one basis of $V$ ($u_1,\dots,u_m,v_1,\dots,v_n$) to a vector in another basis of $V$ ($w_1,\dots,w_m,x_1,\dots,x_n$).

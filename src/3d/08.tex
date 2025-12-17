@@ -1,0 +1,119 @@
+\documentclass[a5paper]{article}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage[top=1cm,right=1cm,bottom=2cm,left=1cm]{geometry}
+\setlength\parindent{0pt}
+\setlength\parskip{1em}
+%
+\begin{document}
+\newcommand   \C           {\mathbf{C}}
+\newcommand   \R           {\mathbf{R}}
+\renewcommand \L           {\mathcal{L}}
+\newcommand   \F           {\mathbf{F}}
+\renewcommand \P           {\mathcal{P}}
+\newcommand   \M           {\mathcal{M}}
+\newcommand   \op          {\operatorname}
+
+    3.D.8.
+    Suppose $V$ and $W$ are finite-dimensional and $S,T \in \L(V,W)$.
+    Prove that there exist invertible $E_1 \in \L(V)$ and $E_2 \in \L(W)$ such that $S = E_2TE_1$ if and only if $\op{dim}\op{null}S = \op{dim}\op{null}T$.
+    \\
+
+    First, suppose there exist invertible $E_1 \in \L(V)$ and $E_2 \in \L(W)$ such that $S = E_2 T E_1$.
+
+    Using the result of exercise 3.B.22, we have
+\begin{align*}
+        \op{dim}\op{null}(E_2TE_1) &\le \op{dim}\op{null}(E_2 T) + \op{dim}\op{null}E_1 \\
+                                   &=   \op{dim}\op{null}(E_2 T) .
+\end{align*}
+    $\op{dim}\op{null}E_1$ disappears because $E_1$ is invertible so its null space is $\{0\}$.
+
+    Replacing $E_2TE_1$ with $S$, and applying the same results again, we then have
+\begin{align*}
+        \op{dim}\op{null}S &\le \op{dim}\op{null}(E_2 T) \\
+                           &\le \op{dim}\op{null}E_2 + \op{dim}\op{null}T \\
+                           &= \op{dim}\op{null}T .
+\end{align*}
+    Next, take our original equation, $S = E_2TE_1$, right-multiply both sides by $E_1^{-1}$, and left-multiply both sides by $E_2^{-1}$ to get
+\begin{align*}
+        E_2^{-1} S E_1^{-1} &= T .
+\end{align*}
+    Since this is equivalent to our original equation with the roles of $S$ and $T$ interchanged, we can apply the steps above with the roles of $S$ and $T$ interchanged to find that
+\begin{align*}
+        \op{dim}\op{null}T \le \op{dim}\op{null}S.
+\end{align*}
+    Thus $\op{dim}\op{null}S = \op{dim}\op{null}T$, completing the proof in one direction.
+
+    To complete the proof in the other direction, suppose $\op{dim}\op{null}S = \op{dim}\op{null}T$.
+
+    Then suppose $u_1,\dots,u_m$ is a basis of $\op{null}S$.
+    Extend this list to a basis of $V$ by appending $v_1,\dots,v_n$.
+
+    Suppose $w_1,\dots,w_m$ is a basis of $\op{null}T$.
+    Extend this list to a basis of $V$ by appending $x_1,\dots,x_n$.
+
+
+    Define $E_1 \in \L(V)$ as a linear map such that for $j=1,\dots,m$ and for $k=1,\dots,n$,
+\begin{align*}
+        E_1u_j = w_j \quad\text{and}\quad E_1v_k = x_k .
+\end{align*}
+    $E_1$ is invertible because it takes each vector in one basis of $V$ to a vector in another basis of $V$ (see the end of the previous exercise for a more in-depth proof of this lemma).
+
+
+    We will now show that $Sv_1,\dots,Sv_n$ is a basis of $\op{range}S$ and that $Tx_1,\dots,Tx_n$ is a basis of $\op{range}T$.
+
+    From the fundamental theorem of linear maps,
+\begin{align*}
+        \op{dim}V   &= \op{dim}\op{null}S + \op{dim}\op{range}S \\
+                    &= \op{dim}\op{null}T + \op{dim}\op{range}T .
+\end{align*}
+    Since the null spaces of $S$ and $T$ both have dimension $m$, and the dimension of $V$ is $(m+n)$, we have
+\begin{align*}
+        \op{dim}\op{range}S = \op{dim}\op{range}T = n .
+\end{align*}
+    Now suppose $w \in \op{range}S$.
+    Then there exists $u \in V$ such that $Su = w$.
+    Since $u \in V$, there exist $a_1,\dots,a_m,b_1,\dots,b_n \in \F$ such that\
+\begin{align*}
+        u &= a_1u_1 + \dots + a_mu_m + b_1v_1 + \dots + b_nv_n .
+\end{align*}
+    Applying $S$ to both sides,
+\begin{align*}
+        Su &= b_1Sv_1 + \dots + b_nSv_n .
+\end{align*}
+    The $a_jSu_j$ terms disappear because each $u_j \in \op{null}S$.
+    Hence any vector in the range of $S$ can be written as a linear combination of $Sv_1,\dots,Sv_n$.
+    So this list is a basis of $\op{range}S$ because it is a spanning list of the right length.
+
+    Repeat this logic with $Tx_1,\dots,Tx_n$ instead of $Sv_1,\dots,Sv_n$ to see that $Tx_1,\dots,Tx_n$ is a basis of $\op{range}T$.
+
+    Suppose we extend $Sv_1,\dots,Sv_n$ to a basis of $W$ by appending $y_1,\dots,y_m \in \F$.
+    Suppose we extend $Tx_1,\dots,Tx_n$ to a basis of $W$ by appending $z_1,\dots,z_m \in \F$.
+
+    Now that we have two bases of $W$, we can define an invertible $E_2 \in \L(W)$ such that for $k=1,\dots,n$ and $j=1,\dots,m$,
+\begin{align*}
+        E_2(Tx_k) = Sv_k \quad\text{and}\quad E_2z_j = y_j .
+\end{align*}
+    To complete our proof, we need to show that $S = E_2TE_1$.
+    Suppose $v \in V$.
+    Then there exist $c_1,\dots,c_m,d_1,\dots,d_m \in \F$ such that
+\begin{align*}
+        v &= c_1u_1 + \dots + c_mu_m + d_1v_1 + \dots + d_nv_n .
+\end{align*}
+    Applying $S$ to $v$,
+\begin{align*}
+        Sv &= S(c_1u_1 + \dots + c_mu_m + d_1v_1 + \dots + d_nv_n) \\
+           &= d_1Sv_1 + \dots + d_nSv_n .
+\end{align*}
+    Applying $E_2TE_1$ to $v$,
+\begin{align*}
+        E_2TE_1v &= E_2T(c_1E_1u_1 + \dots + c_mE_1u_m + d_1E_1v_1 + \dots + d_nE_1v_n) \\
+                 &= E_2T(c_1w_1 + \dots + c_mw_m + d_1x_1 + \dots + d_nx_n) \\
+                 &= E_2(c_1Tw_1 + \dots + c_mTw_m + d_1Tx_1 + \dots + d_nTx_n) \\
+                 &= E_2(d_1Tx_1 + \dots + d_nTx_n) \\
+                 &= d_1E_2Tx_1 + \dots + d_nE_2Tx_n \\
+                 &= d_1Sv_1 + \dots + d_nSv_n \\
+                 &= Sv .
+\end{align*}
+    Thus $S = E_2TE_1$ as desired.
+\end{document}
