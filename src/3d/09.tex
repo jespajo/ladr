@@ -1,0 +1,62 @@
+\documentclass[a5paper]{article}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage[top=1cm,right=1cm,bottom=2cm,left=1cm]{geometry}
+\setlength\parindent{0pt}
+\setlength\parskip{1em}
+%
+\begin{document}
+\newcommand   \C           {\mathbf{C}}
+\newcommand   \R           {\mathbf{R}}
+\renewcommand \L           {\mathcal{L}}
+\newcommand   \F           {\mathbf{F}}
+\renewcommand \P           {\mathcal{P}}
+\newcommand   \M           {\mathcal{M}}
+\newcommand   \op          {\operatorname}
+
+    3.D.9.
+    Suppose $V$ is finite-dimensional and $T: V \rightarrow W$ is a surjective linear map of $V$ onto $W$.
+    Prove that there is a subspace $U$ of $V$ such that $T\vert_U$ is an isomorphism of $U$ onto $W$.
+    \\
+
+    Suppose $v_1,\dots,v_m$ is a basis of the null space of $T$.
+    Extend this list to a basis of $V$ by appending $u_1,\dots,u_n$.
+
+    $Tu_1,\dots,Tu_n$ is a basis of $W$.
+    We can see this from the fact that it is a spanning list of the right length.
+
+    To see that it is the right length, consider the fundamental theorem of linear maps:
+\begin{align*}
+        \op{dim}\op{range}T &= \op{dim}V - \op{dim}\op{null}T \\
+                            &= (m + n) - m \\
+                            &= n .
+\end{align*}
+    Since $T$ is surjective, $\op{range}T = W$.
+    Thus $\op{dim}W = n$.
+
+    To see that $Tu_1,\dots,Tu_n$ spans $W$, suppose $w \in W$.
+    Then because $T$ is surjective, there exists $v \in V$ and $a_1,\dots,a_m,b_1,\dots,b_n \in \F$ such that
+\begin{align*}
+        w   &= Tv \\
+            &= T(a_1v_1 + \dots + a_mv_m + b_1u_1 + \dots + b_nu_n) \\
+            &= a_1Tv_1 + \dots + a_mTv_m + b_1Tu_1 + \dots + b_nTu_n \\
+            &= b_1Tu_1 + \dots + b_nTu_n .
+\end{align*}
+    Thus $w$ can be written as a linear combination of $Tu_1,\dots,Tu_n$.
+    Thus $Tu_1,\dots,Tu_n$ is a basis of $W$ because it is a spanning list of the right length.
+
+    Define $U$ as the span of $u_1,\dots,u_n$.
+
+    $T\vert_U$ is surjective.
+    To see this, add another line to the equation above:
+\begin{align*}
+        w   &= T(b_1u_1 + \dots + b_nu_n) .
+\end{align*}
+    Thus any vector in $W$ can be written as $T$ applied to a vector in $U$.
+    Hence restricting $T$'s domain to $U$ does not decrease its range.
+
+    Thus $T\vert_U$ is an isomorphism because it is a surjective linear map whose domain and target are finite-dimensional vector spaces with the same dimension:
+\begin{align*}
+        \op{dim}U = \op{dim}W = n .
+\end{align*}
+\end{document}
