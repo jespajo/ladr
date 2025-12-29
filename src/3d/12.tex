@@ -1,0 +1,32 @@
+\documentclass[a5paper]{article}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage[top=1cm,right=1cm,bottom=2cm,left=1cm]{geometry}
+\setlength\parindent{0pt}
+\setlength\parskip{1em}
+%
+\begin{document}
+\newcommand   \C           {\mathbf{C}}
+\newcommand   \R           {\mathbf{R}}
+\renewcommand \L           {\mathcal{L}}
+\newcommand   \F           {\mathbf{F}}
+\renewcommand \P           {\mathcal{P}}
+\newcommand   \M           {\mathcal{M}}
+\newcommand   \E           {\mathcal{E}}
+\newcommand   \op          {\operatorname}
+
+    3.D.12.
+    Suppose $V$ is finite-dimensional and $S,T,U \in \L(V)$ and $STU = I$.
+    Show that $T$ is invertible and that $T^{-1} = US$.
+    \hfill
+
+    First, $I = STU = (ST)U$.
+
+    Because $ST$ and $U$ are both operators on a finite-dimensional vector space, we can use the multiplicative commutativity shown in proof 3.68 to get $U(ST) = I$.
+
+    Hence $I = U(ST) = (US)T$.
+
+    Again using proof 3.68, this implies that $T(US) = I$.
+
+    Thus $US$ and $T$ are invertible with $T^{-1} = US$.
+\end{document}
