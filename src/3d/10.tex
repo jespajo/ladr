@@ -1,0 +1,93 @@
+\documentclass[a5paper]{article}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage[top=1cm,right=1cm,bottom=2cm,left=1cm]{geometry}
+\setlength\parindent{0pt}
+\setlength\parskip{1em}
+%
+\begin{document}
+\newcommand   \C           {\mathbf{C}}
+\newcommand   \R           {\mathbf{R}}
+\renewcommand \L           {\mathcal{L}}
+\newcommand   \F           {\mathbf{F}}
+\renewcommand \P           {\mathcal{P}}
+\newcommand   \M           {\mathcal{M}}
+\newcommand   \E           {\mathcal{E}}
+\newcommand   \op          {\operatorname}
+\newcommand   \A           {\mathcal{A}}
+
+    3.D.10.
+    Suppose $V$ and $W$ are finite-dimensional and $U$ is a subspace of $V$.
+    Let
+\begin{align*}
+        \E &= \{ T \in \L(V,W) : U \subseteq \op{null}T \} .
+\end{align*}
+    (a) Show that $\E$ is a subspace of $\L(V,W)$. \\
+    (b) Find a formula for $\op{dim}\E$ in terms of $\op{dim}V$, $\op{dim}W$ and $\op{dim}U$.
+
+    \hfill
+
+    (a) Since $\E$ is a subset of the vector space $\L(V,W)$, we can show that it is a subspace by checking three properties.
+
+    The zero map $0 \in \L(V,W)$ is an element of $\E$ because $\op{null}0 = V$, so $U \subseteq \op{null}0$.
+
+    To see that $\E$ is closed under addition, suppose $S,T \in \E$.
+    Suppose $u \in U$.
+    Then $u \in \op{null}S$ and $u \in \op{null}T$.
+    So
+\begin{align*}
+        (S+T)u = Su + Tu = 0 + 0 = 0 .
+\end{align*}
+    Thus $u \in \op{null}(S+T)$, so $S+T \in \E$.
+
+    To see that $\E$ is closed under scalar multiplication, suppose $T \in \E$ and $a \in \F$.
+    Suppose $u \in U$.
+    Then
+\begin{align*}
+        (aT)u = a(Tu) = a0 = 0 .
+\end{align*}
+    Thus $u \in \op{null} aT$, so $aT \in \E$.
+
+    \hfill
+
+    (b) The formula is
+\begin{align*}
+        \op{dim}\E &= (\op{dim}V - \op{dim}U) \times \op{dim}W .
+\end{align*}
+    Suppose $u_1,\dots,u_m$ is a basis of $U$.
+    Suppose we extend this to a basis of $V$ by appending $v_1,\dots,v_n \in V$.
+    Suppose $w_1,\dots,w_r$ is a basis of $W$.
+
+    Let $\A$ denote the set of matrices of elements of $\E$ with respect to these two bases:
+\begin{align*}
+        \A &= \{ \M\big( T, (u_1,\dots,u_m,v_1,\dots,v_n), (w_1,\dots,w_r) \big) : T \in \E \} .
+\end{align*}
+    The standard basis of $\F^{r,m+n}$ is the list of distinct $r$-by-$(m+n)$ matrices that have $0$ in all entries except for a $1$ in one entry.
+    Reduce this list by removing all matrices that contain a $1$ in any of the first $m$ columns.
+    The reduced list has length $nr$.
+
+    $\A$ equals the span of this reduced list.
+    To see this, suppose $A \in \A$.
+    Then $A$ is the matrix of some $T \in \E$ with respect to the bases above.
+    For $j = 1,\dots,m$, each $Tu_j = 0$.
+    Thus the first $m$ columns of $A$ have $0$ in all entries.
+    So we can write $A$ as a linear combination of our reduced list of matrices.
+    This proves that $\A$ is a subset of the span of our list.
+
+    To prove inclusion in the other direction, suppose $B$ is an element in the span of our reduced list of matrices.
+    Then $B$ is the matrix of some $S \in \L(V,W)$ with respect to the bases above.
+    Suppose $u \in U$.
+    The unique linear combination of $u_1,\dots,u_m,v_1,\dots,v_n$ equal to $u$ has $0$ as coefficients for $v_1,\dots,v_n$.
+    So the column-matrix of $u$ has $0$ in the first $m$ rows.
+    Since $B$ has all zeroes in its first $m$ columns, this means that $B\M(u) = 0$.
+    So $S \in \E$ because $Su = 0$.
+
+    Since $\A$ is the span of a linearly independent list of length $nr$, we know that it is a subspace of $\F^{r,m+n}$ and we know its dimension:
+\begin{align*}
+        \op{dim}\A = n \times r = (\op{dim}V - \op{dim}U) \times \op{dim}W .
+\end{align*}
+    So we can complete the proof of our formula by showing that $\A$ is isomorphic to $\E$.
+    The isomorphism is $\M$.
+    We know $\M$ is injective on the domain $\L(V,W)$ (see proof 3.71 in the book) so it is injective when we restrict its domain to $\E$.
+    $\M$ is surjective onto $\A$ by definition.
+\end{document}
