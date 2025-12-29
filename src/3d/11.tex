@@ -1,0 +1,55 @@
+\documentclass[a5paper]{article}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage[top=1cm,right=1cm,bottom=2cm,left=1cm]{geometry}
+\setlength\parindent{0pt}
+\setlength\parskip{1em}
+%
+\begin{document}
+\newcommand   \C           {\mathbf{C}}
+\newcommand   \R           {\mathbf{R}}
+\renewcommand \L           {\mathcal{L}}
+\newcommand   \F           {\mathbf{F}}
+\renewcommand \P           {\mathcal{P}}
+\newcommand   \M           {\mathcal{M}}
+\newcommand   \E           {\mathcal{E}}
+\newcommand   \op          {\operatorname}
+
+    3.D.11.
+    Suppose $V$ is finite-dimensional and $S,T \in \L(V)$.
+    Prove that
+\begin{align*}
+        ST\ \text{is invertible}\ \Longleftrightarrow\ S\ \text{and}\ T\ \text{are invertible} .
+\end{align*}
+    \hfill
+
+    Suppose $S$ and $T$ are invertible.
+    Then
+\begin{align*}
+        (T^{-1} S^{-1}) (ST) = T^{-1} (S^{-1}S) T = T^{-1}I T = T^{-1} T = I .
+\end{align*}
+    Thus $T^{-1}S^{-1}$ is the inverse of $ST$, completing the proof in one direction.
+
+    To prove in the other direction, suppose $ST$ is invertible.
+    Then $ST$ is surjective.
+    So
+\begin{align*}
+        \op{dim}\op{range}ST = \op{dim}V .
+\end{align*}
+    Using the result of exercise 3.B.23,
+\begin{align*}
+        \op{dim}\op{range}ST  &\le \op{min}\{ \op{dim}\op{range}S, \op{dim}\op{range}T \} .
+\end{align*}
+    Thus
+\begin{align*}
+        \op{dim}\op{range}S \ge \op{dim}V \quad\text{and}\quad \op{dim}\op{range}T \ge \op{dim}V .
+\end{align*}
+    The ranges of $S$ and $T$ are subspaces of $V$.
+    So their dimensions cannot be greater than the dimension of $V$.
+    Hence
+\begin{align*}
+        \op{dim}\op{range}S = \op{dim}V \quad\text{and}\quad \op{dim}\op{range}T = \op{dim}V .
+\end{align*}
+    Thus $S$ and $T$ are surjective.
+    Hence they are invertible because they are surjective operators on a finite-dimensional vector space.
+\end{document}
