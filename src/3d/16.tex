@@ -1,0 +1,105 @@
+\documentclass[a5paper]{article}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage[top=1cm,right=1cm,bottom=2cm,left=1cm]{geometry}
+\setlength\parindent{0pt}
+\setlength\parskip{1em}
+%
+\begin{document}
+\newcommand   \C           {\mathbf{C}}
+\newcommand   \R           {\mathbf{R}}
+\renewcommand \L           {\mathcal{L}}
+\newcommand   \F           {\mathbf{F}}
+\renewcommand \P           {\mathcal{P}}
+\newcommand   \M           {\mathcal{M}}
+\newcommand   \E           {\mathcal{E}}
+\newcommand   \op          {\operatorname}
+
+    3.D.16.
+    Prove that every linear map from $\F^{n,1}$ to $\F^{m,1}$ is given by a matrix multiplication.
+    In other words, prove that if $T \in \L(\F^{n,1}, \F^{m,1})$, then there exists an $m$-by-$n$ matrix $A$ such that $Tx = Ax$ for every $x \in \F^{n,1}$.
+
+    For compactness, let $N_1,\dots,N_n$ denote the column matrices in the standard basis of $\F^{n,1}$.
+    So
+\begin{align*}
+        N_1 = \begin{pmatrix}
+                1 \\
+                0 \\
+                \vdots \\
+                0
+            \end{pmatrix}, \quad
+        N_2 = \begin{pmatrix}
+                0 \\
+                1 \\
+                \vdots \\
+                0
+            \end{pmatrix}, \quad
+        \dots, \quad
+        N_n = \begin{pmatrix}
+                0 \\
+                0 \\
+                \vdots \\
+                1
+            \end{pmatrix} .
+\end{align*}
+    As a linear map, $T$ is completely determined by its values on a basis of $\F^{n,1}$.
+    These values are the list $TN_1, \dots, TN_n$.
+    Each $TN_k$ is the $m$-by-$1$ matrix you get when you apply $T$ to the $k$th column matrix in the standard basis of $\F^{n,1}$.
+
+    Let $A_{1,k},\dots,A_{m,k}$ denote the entries of $TN_k$.
+    In other words, for $k=1,\dots,n$,
+\begin{align*}
+        T N_k &=    \begin{pmatrix}
+                        A_{1,k} \\
+                        A_{2,k} \\
+                        \vdots \\
+                        A_{m,k}
+                    \end{pmatrix} .
+\end{align*}
+    Then for $x \in \F^{n,1}$ we have
+\begin{align*}
+    x =    \begin{pmatrix}
+                x_1 \\
+                x_2 \\
+                \vdots \\
+                x_n
+            \end{pmatrix}
+      = x_1N_1 + \dots + x_nN_n .
+\end{align*}
+    Applying $T$,
+\begin{align*}
+        Tx &= T(x_1N_1 + \dots + x_nN_n) \\
+           &= x_1TN_1 + \dots + x_nTN_n .
+\end{align*}
+    Thus
+\begin{align*}
+        Tx &= x_1   \begin{pmatrix}
+                        A_{1,1} \\
+                        A_{2,1} \\
+                        \vdots \\
+                        A_{m,1}
+                    \end{pmatrix}
+            + \dots
+            + x_n   \begin{pmatrix}
+                        A_{1,n} \\
+                        A_{2,n} \\
+                        \vdots \\
+                        A_{m,n}
+                    \end{pmatrix} .
+\end{align*}
+    Thus $Tx$ is a linear combination of a list of $n$ vectors in $\F^{m,1}$, with the coefficients coming from $x$.
+
+    Let $A$ be the matrix created by putting these vectors side by side as the columns in an $m$-by-$n$ matrix:
+\begin{align*}
+        A &=
+            \begin{pmatrix}
+                A_{1,1}\ \dots\ A_{1,n} \\
+                A_{2,1}\ \dots\ A_{2,n} \\
+                \vdots                    \\
+                A_{m,1}\ \dots\ A_{m,n}
+            \end{pmatrix} .
+\end{align*}
+    Using proof 3.50, $Ax$ is a linear combination of the columns of $A$, with the scalars that multiply the columns coming from $x$.
+
+    Thus $Ax = Tx$ as desired.
+\end{document}

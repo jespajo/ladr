@@ -1,0 +1,41 @@
+\documentclass[a5paper]{article}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage[top=1cm,right=1cm,bottom=2cm,left=1cm]{geometry}
+\setlength\parindent{0pt}
+\setlength\parskip{1em}
+%
+\begin{document}
+\newcommand   \C           {\mathbf{C}}
+\newcommand   \R           {\mathbf{R}}
+\renewcommand \L           {\mathcal{L}}
+\newcommand   \F           {\mathbf{F}}
+\renewcommand \P           {\mathcal{P}}
+\newcommand   \M           {\mathcal{M}}
+\newcommand   \E           {\mathcal{E}}
+\newcommand   \op          {\operatorname}
+
+    3.D.15.
+    Suppose $T \in \L(V)$ and $v_1,\dots,v_m$ is a list in $V$ such that $Tv_1,\dots,Tv_m$ spans $V$.
+    Prove that $v_1,\dots,v_m$ spans $V$.
+
+    Since $Tv_1,\dots,Tv_m$ spans $V$, we can reduce this list to a basis of $V$.
+    Let $Tu_1,\dots,Tu_n$ denote the vectors in the basis.
+
+    Suppose $a_1,\dots,a_n \in \F$ such that
+\begin{align*}
+        0 &= a_1u_1 + \dots + a_nu_n .
+\end{align*}
+    Applying $T$ to both sides,
+\begin{align*}
+        0 &= T( a_1u_1 + \dots + a_nu_n ) \\
+          &= a_1Tu_1 + \dots + a_nTu_n .
+\end{align*}
+    Since this is a linear combination of a linearly independent list, this implies $a_1=\dots=a_n=0$.
+
+    Thus $u_1,\dots,u_n$ is a linearly independent list.
+
+    Hence $u_1,\dots,u_n$ is a basis of $V$ because it is a linearly independent list of the right length.
+
+    So $v_1,\dots,v_m$ spans $V$ because it contains all of the $u$'s, and the $u$'s span $V$.
+\end{document}

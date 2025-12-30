@@ -1,0 +1,53 @@
+\documentclass[a5paper]{article}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage[top=1cm,right=1cm,bottom=2cm,left=1cm]{geometry}
+\setlength\parindent{0pt}
+\setlength\parskip{1em}
+%
+\begin{document}
+\newcommand   \C           {\mathbf{C}}
+\newcommand   \R           {\mathbf{R}}
+\renewcommand \L           {\mathcal{L}}
+\newcommand   \F           {\mathbf{F}}
+\renewcommand \P           {\mathcal{P}}
+\newcommand   \M           {\mathcal{M}}
+\newcommand   \E           {\mathcal{E}}
+\newcommand   \op          {\operatorname}
+
+    3.D.14.
+    Prove or give a counterexample:
+    If $V$ is a finite-dimensional vector space and $R,S,T \in \L(V)$ are such that $RST$ is surjective, then $S$ is injective.
+
+    Since $RST$ is surjective, $\op{dim}\op{range}RST = \op{dim}V$.
+
+    We can use the result of exercise 3.B.23 to see that
+\begin{align*}
+        \op{dim}V = \op{dim}\op{range}RST \le \op{min}\{ \op{dim}\op{range}RS, \op{dim}\op{range}T \} .
+\end{align*}
+    Thus
+\begin{align*}
+        \op{dim}V \le \op{dim}\op{range}RS \quad\text{and}\quad \op{dim}V \le \op{dim}\op{range}T .
+\end{align*}
+    Since $\op{range}RS$ and $\op{range}T$ are subspaces of $V$, we also have
+\begin{align*}
+        \op{dim}V \ge \op{dim}\op{range}RS \quad\text{and}\quad \op{dim}V \ge \op{dim}\op{range}T .
+\end{align*}
+    This implies that
+\begin{align*}
+        \op{dim}V = \op{dim}\op{range}RS = \op{dim}\op{range}T .
+\end{align*}
+    Thus $RS$ is surjective.
+
+    Applying the same logic recursively, we have
+\begin{align*}
+        \op{dim}V = \op{dim}\op{range}RS \le \op{min}\{ \op{dim}\op{range}R, \op{dim}\op{range}S \} .
+\end{align*}
+    Hence
+\begin{align*}
+        \op{dim}V = \op{dim}\op{range}R = \op{dim}\op{range}S = \op{dim}\op{range}T .
+\end{align*}
+    Thus $S$ is surjective.
+
+    Since $S$ is an operator on a finite-dimensional vector space, this implies that $S$ is injective.
+\end{document}
