@@ -1,0 +1,46 @@
+\documentclass[a5paper]{article}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage[top=1cm,right=1cm,bottom=2cm,left=1cm]{geometry}
+\setlength\parindent{0pt}
+\setlength\parskip{1em}
+%
+\begin{document}
+\newcommand   \C           {\mathbf{C}}
+\newcommand   \R           {\mathbf{R}}
+\renewcommand \L           {\mathcal{L}}
+\newcommand   \F           {\mathbf{F}}
+\renewcommand \P           {\mathcal{P}}
+\newcommand   \M           {\mathcal{M}}
+\newcommand   \E           {\mathcal{E}}
+\newcommand   \op          {\operatorname}
+
+    3.D.13.
+    Show that the result in Exercise 12 can fail without the hypothesis that $V$ is finite-dimensional.
+
+    Define $S,T,U \in \L(\F^{\infty})$ as follows.
+    $S$ and $T$ are the backwards-shift linear map.
+    $U$ is the forward-shift-by-two linear map.
+    So
+\begin{align*}
+        S(x_1,x_2,x_3,\dots) &= (x_2,x_3,\dots) . \\
+        T(x_1,x_2,x_3,\dots) &= (x_2,x_3,\dots) . \\
+        U(x_1,x_2,x_3,\dots) &= (0,0,x_1,x_2,x_3,\dots) .
+\end{align*}
+    Then
+\begin{align*}
+        STU(x_1,x_2,x_3,\dots) &= ST(0,0,x_1,x_2,x_3,\dots) \\
+                               &= S(0,x_1,x_2,x_3,\dots) \\
+                               &= (x_1,x_2,x_3,\dots) .
+\end{align*}
+    Thus $STU = I$.
+
+    But
+\begin{align*}
+        TUS(x_1,x_2,x_3,\dots) &= TU(x_2,x_3,\dots) \\
+              &= T(0,0,x_2,x_3,\dots) \\
+              &= (0,x_2,x_3,\dots) .
+\end{align*}
+    So $TUS \neq I$.
+    Hence $US$ is not the inverse of $T$.
+\end{document}
