@@ -1,0 +1,91 @@
+\documentclass[a5paper]{article}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage[top=1cm,right=1cm,bottom=2cm,left=1cm]{geometry}
+\setlength\parindent{0pt}
+\setlength\parskip{1em}
+%
+\begin{document}
+\newcommand   \C           {\mathbf{C}}
+\newcommand   \R           {\mathbf{R}}
+\renewcommand \L           {\mathcal{L}}
+\newcommand   \F           {\mathbf{F}}
+\renewcommand \P           {\mathcal{P}}
+\newcommand   \M           {\mathcal{M}}
+\newcommand   \E           {\mathcal{E}}
+\newcommand   \op          {\operatorname}
+\newcommand   \A           {\mathcal{A}}
+\newcommand   \B           {\mathcal{B}}
+
+    3.D.17.
+    Suppose $V$ is finite-dimensional and $S \in \L(V)$.
+    Define $\A \in \L\big(\L(V)\big)$ by
+\begin{align*}
+        \A(T) &= ST
+\end{align*}
+    for $T \in \L(V)$.
+
+    (a) Show that $\op{dim}\op{null}\A = (\op{dim}V)(\op{dim}\op{null}S)$. \\
+    (b) Show that $\op{dim}\op{range}\A = (\op{dim}V)(\op{dim}\op{range}S)$.
+
+\hfill
+
+    Suppose $v_1,\dots,v_m$ is a basis of the null space of $S$.
+    Extend this to a basis of $V$ by appending some $v_{m+1},\dots,v_n \in V$.
+
+    Thus $\op{dim}\op{null}S = m$ and $\op{dim}V = n$ with $m \le n$.
+
+    Consider the standard basis of $\F^{n,n}$.
+    This is the list of distinct $n$-by-$n$ matrices having $0$ in every entry except for a $1$ in one entry.
+    Reduce this list by removing all matrices that contain a $1$ in any rows lower than the $m$th row.
+
+    Let $\B$ denote the span of this reduced list of matrices.
+    The list contains one matrix for every entry in the top $m$ rows of an $n$-by-$n$ matrix.
+    The list is also linearly independent.
+    Thus $\B$ is a subspace of $\L(V)$ with $\op{dim}\B = mn$.
+
+    $\M\vert_{\op{null}\A}$ is an isomorphism from the null space of $\A$ onto $\B$.
+
+    To see that $\M\vert_{\op{null}\A}$ is surjective onto $\B$, suppose $B \in \B$.
+    So $B$ is an $n$-by-$n$ matrix containing only zeroes after the $m$th row.
+
+    There exists $T \in \L(V)$ such that
+\begin{align*}
+        Tv_k &= B_{1,k}v_1 + \dots + B_{m,k}v_m
+\end{align*}
+    for $k=1,\dots,n$.
+
+    Notice that each $Tv_k$ is a linear combination of only the first $m$ vectors in the basis of $V$.
+    Applying $S$,
+\begin{align*}
+        S(Tv_k) &= B_{1,k}Sv_1 + \dots + B_{m,k}Sv_m \\
+                &= 0 .
+\end{align*}
+    Thus $\op{range}T \subseteq \op{null}S$.
+    Hence $T \in \op{null}\A$.
+
+    $\M(T) = B$.
+    Thus $\M\vert_{\op{null}\A}$ is surjective onto $\B$.
+
+    The isomorphism implies that the null space of $\A$ has the same dimension as $\B$.
+    Thus
+\begin{align*}
+        \op{dim}\op{null}\A &= m n \\
+                            &= (\op{dim}\op{null}S)(\op{dim}V) ,
+\end{align*}
+    proving (a).
+
+    Using the fundamental theorem of linear maps,
+\begin{align*}
+        \op{dim}\op{range}S &= \op{dim}V - \op{dim}\op{null}S \\
+                            &= n - m .
+\end{align*}
+    Using the fundamental theorem again,
+\begin{align*}
+        \op{dim}\op{range}\A &= \op{dim}\L(V) - \op{dim}\op{null}\A \\
+                             &= nn - mn \\
+                             &= n (n - m) \\
+                             &= (\op{dim}V) (\op{dim}\op{range}S) ,
+\end{align*}
+    proving (b).
+\end{document}
