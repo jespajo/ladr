@@ -17,6 +17,8 @@
 \newcommand   \A           {\mathcal{A}}
 \newcommand   \B           {\mathcal{B}}
 
+% This is slightly better than my attempt to do much the same thing in 3.D.10, but it still feels kinda loose. I think the looseness is that I'm working with \M restricted to the null space of \A and I'm leaving implicit assumptions that restricting the domain of \M does not change certain properties of \M, in particular its linearity and injectivity (since I rely on surjectivity alone to argue that it is an isomorphism). I think that if I instead define some other symbol e.g. f as a function from the null space of \A to \F^{n,n} such that f(T) = \M(T), then prove that f is linear and injective as well as surjective, then I will have a more robust proof that the isomorphism exists. But that's also a bit more tedious for the same effect. -Jesse, 1 Jan 2026
+
     3.D.17.
     Suppose $V$ is finite-dimensional and $S \in \L(V)$.
     Define $\A \in \L\big(\L(V)\big)$ by

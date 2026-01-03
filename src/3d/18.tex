@@ -1,0 +1,33 @@
+\documentclass[a5paper]{article}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage[top=1cm,right=1cm,bottom=2cm,left=1cm]{geometry}
+\setlength\parindent{0pt}
+\setlength\parskip{1em}
+%
+\begin{document}
+\newcommand   \C           {\mathbf{C}}
+\newcommand   \R           {\mathbf{R}}
+\renewcommand \L           {\mathcal{L}}
+\newcommand   \F           {\mathbf{F}}
+\renewcommand \P           {\mathcal{P}}
+\newcommand   \M           {\mathcal{M}}
+\newcommand   \E           {\mathcal{E}}
+\newcommand   \op          {\operatorname}
+\newcommand   \A           {\mathcal{A}}
+
+    3.D.18.
+    Show that $V$ and $\L(\F, V)$ are isomorphic vector spaces.
+
+    From 3.72,
+\begin{align*}
+        \op{dim}\L(\F, V) &= (\op{dim}\F)(\op{dim}V)    \\
+                          &= 1 \times \op{dim}V         \\
+                          &= \op{dim}V .
+\end{align*}
+    To see that $\op{dim}\F = 1$, consider that any $x \in \F$ can be written as $x1$, regardless of whether $\F$ is $\R$ or $\C$.
+    Thus $1$ spans $\F$.
+    So $\F$ has a basis of length $1$.
+
+    Thus $V$ and $\L(\F,V)$ are isomorphic because they have the same dimension (from 3.70).
+\end{document}
