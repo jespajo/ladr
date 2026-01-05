@@ -1,0 +1,95 @@
+\documentclass[a5paper]{article}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage[top=1cm,right=1cm,bottom=2cm,left=1cm]{geometry}
+\setlength\parindent{0pt}
+\setlength\parskip{1em}
+%
+\begin{document}
+\newcommand   \C           {\mathbf{C}}
+\newcommand   \R           {\mathbf{R}}
+\renewcommand \L           {\mathcal{L}}
+\newcommand   \F           {\mathbf{F}}
+\renewcommand \P           {\mathcal{P}}
+\newcommand   \M           {\mathcal{M}}
+\newcommand   \E           {\mathcal{E}}
+\newcommand   \op          {\operatorname}
+\newcommand   \A           {\mathcal{A}}
+
+    3.A.11.
+    Suppose $V$ is finite-dimensional and $T \in \L(V)$.
+    Prove that $T$ is a scalar multiple of the identity if and only if $ST = TS$ for every $S \in \L(V)$.
+
+    Suppose $T$ is a scalar multiple of the identity.
+    Then $a \in \F$ such that $T = aI$.
+
+    Thus for $v \in V$,
+\begin{align*}
+        STv = S(Tv) = S(aIv) = S(av) = aSv = aI(Sv) = T(Sv) = TSv .
+\end{align*}
+    This completes the proof in one direction.
+
+    To prove in the other direction, suppose $ST=TS$ for every $S \in \L(V)$.
+
+    Suppose $v_1,\dots,v_n$ is a basis of $V$.
+
+    $T \in \L(V)$ is defined by some $w_1,\dots,w_n \in V$ such that $Tv_k=w_k$ for $k=1,\dots,n$.
+    Let each $w_k$ be defined by $A_{1,k},\dots,A_{n,k} \in \F$ such that
+\begin{align*}
+        Tv_k = w_k = A_{1,k}v_1 + \dots A_{n,k}v_n .
+\end{align*}
+    For convenience, let the subscripts of the $v$'s and the $A$'s wrap around at $n$.
+    In other words, let $v_{n+1}=v_1$ and let $A_{j,n+1}=A_{j,1}$ and let $A_{n+1,k}=A_{1,k}$.
+
+    Define $S_1,\dots,S_n \in \L(V)$ such that each $S_j$ takes $v_j$ to $v_{j+1}$ and takes all the other $v$'s in the basis of $V$ to $0$.
+    In other words, for each $j,k \in \{1,\dots,n\}$,
+\begin{align*}
+        S_jv_k &=
+        \begin{cases}
+            \ v_{k+1}   &\text{for}\ j  =   k \\
+            \ 0         &\text{for}\ j \neq k .
+        \end{cases}
+\end{align*}
+    Applying $S_jT$ to $v_j$, we have
+\begin{align*}
+        S_jTv_j &= S_j(A_{1,j}v_1 + \dots + A_{n,j}v_n) \\
+                &= A_{1,j}S_jv_1 + \dots + A_{n,j}S_jv_n \\
+                &= A_{j,j}v_{j+1} .
+\end{align*}
+    Since $TS=ST$, we also have
+\begin{align*}
+        S_jTv_j &= T(S_jv_j) \\
+                &= Tv_{j+1} \\
+                &= A_{1,j+1}v_1 + \dots + A_{n,j+1}v_n .
+\end{align*}
+    We have expressed the same vector as two linear combinations of a basis of $V$, so the coefficients must be equal.
+    The first equation only has a non-zero coefficient for $v_{j+1}$, so the coefficients of all the other $v$'s in the second equation must equal $0$.
+    Thus $A_{1,j+1}=\dots=A_{j,j+1}=A_{j+2,j+1}=A_{n,j+1}=0$.
+
+    Hence we can write the second equation more simply as
+\begin{align*}
+        S_jTv_j &= A_{j+1,j+1}v_{j+1} .
+\end{align*}
+    The coefficients of $v_{j+1}$ in the two equations are also equal.
+    Hence $A_{j,j} = A_{j+1,j+1}$.
+
+    Let $a = A_{1,1}$.
+    Thus $a = A_{1,1} = A_{2,2} = \dots = A_{n,n}$.
+
+    We can now write $Tv_k$ more simply:
+\begin{align*}
+        Tv_k &= A_{1,k}v_1 + \dots + A_{n,k}v_n \\
+             &= A_{k,k}v_k \\
+             &= a v_k .
+\end{align*}
+    Suppose $v \in V$.
+    There exists $b_1,\dots,b_n \in \F$ such that $v=b_1v_1+\dots+b_nv_n$.
+    Thus
+\begin{align*}
+        Tv &= T(b_1v_1+\dots+b_nv_n) \\
+           &= b_1Tv_1+\dots+b_nTv_n \\
+           &= b_1av_1 + \dots + b_nav_n \\
+           &= a(b_1v_1 + \dots + b_nv_n) \\
+           &= av .
+\end{align*}
+\end{document}
