@@ -1,0 +1,102 @@
+\documentclass[a5paper]{article}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage[top=1cm,right=1cm,bottom=2cm,left=1cm]{geometry}
+\setlength\parindent{0pt}
+\setlength\parskip{1em}
+%
+\begin{document}
+\newcommand   \C           {\mathbf{C}}
+\newcommand   \R           {\mathbf{R}}
+\renewcommand \L           {\mathcal{L}}
+\newcommand   \F           {\mathbf{F}}
+\renewcommand \P           {\mathcal{P}}
+\newcommand   \M           {\mathcal{M}}
+\newcommand   \E           {\mathcal{E}}
+\newcommand   \op          {\operatorname}
+\newcommand   \A           {\mathcal{A}}
+
+    3.D.19.
+    Suppose $V$ is finite-dimensional and $T \in \L(V)$.
+    Prove that $T$ has the same matrix with respect to every basis of $V$ if and only if $T$ is a scalar multiple of the identity operator.
+
+    Suppose $T$ is a scalar multiple of the identity operator.
+    Then there exists $a \in \F$ such that $T = aI$.
+
+    Suppose $v_1,\dots,v_n$ is a basis of $V$. Then for each $k=1,\dots,n$,
+\begin{align*}
+        Tv_k = aI v_k = av_k .
+\end{align*}
+    So the matrix of $T$ with respect to $v_1,\dots,v_n$ contains all $0$'s except for $a$'s on the diagonal from top-left to bottom-right.
+    Thus the matrix of $T$ is the same for any basis of $V$, completing one direction of the proof.
+
+    To prove in the other direction, suppose $T$ has the same matrix with respect to every basis of $V$.
+
+    % Todo: Do we need to deal with dim V = 1 first? I don't think so, because everything we say below is still valid if dim V = 1.
+
+    Suppose $v_1,\dots,v_n$ is a basis of $V$.
+    Suppose $b \in \F$ such that $b \neq 0$.
+
+    Take one $v_k$ from the basis of $V$, multiply it by $b$ and move it to the start of the list.
+    The resulting list is
+\begin{align*}
+        bv_k,v_1,\dots,v_{k-1},v_{k+1},\dots,v_n .
+\end{align*}
+    The new list is also a basis of $V$.
+    To see that the new list is linearly independent, suppose $c_1,\dots,c_n \in \F$ are scalars in a linear combination of the new list equal to $0$.
+    Then
+\begin{align*}
+        0 &= c_1bv_k + c_2v_1 + \dots + c_kv_{k-1} + c_{k+1}v_{k+1} + \dots + c_nv_n .
+\end{align*}
+    This is a linear combination of the basis $v_1,\dots,v_n$, so we conclude $c_1b = c_2 = \dots = c_n = 0$.
+    Since $b \neq 0$, we also know $c_1=0$.
+    Hence the new list is a basis of $V$ because it is linearly independent and the right length.
+
+    Let $A$ denote the matrix of $T$ with respect to any basis.
+    Then, considering $A$ as the matrix of $T$ with respect to the basis $v_1,\dots,v_n$, the $k$th column of $A$ signifies that
+\begin{align*}
+        Tv_k &= A_{1,k}v_1 + \dots + A_{n,k}v_n .
+\end{align*}
+    Considering $A$ as the matrix of $T$ with respect to $bv_k,v_1,\dots,v_{k-1},v_{k+1},\dots,v_n$, the first column of $A$ signifies that
+\begin{align*}
+        T(bv_k) &= A_{1,1}(bv_k) + A_{2,1}v_1 + \dots + A_{k,1}v_{k-1} + A_{k+1,1}v_{k+1} + \dots + A_{n,1}v_n \\
+                &= A_{2,1}v_1 + \dots + A_{k,1}v_{k-1} + A_{1,1}(bv_k) + A_{k+1,1}v_{k+1} + \dots + A_{n,1}v_n .
+\end{align*}
+    Dividing both sides by $b$,
+\begin{align*}
+        Tv_k &= \frac{A_{2,1}}{b}v_1 + \dots + \frac{A_{k,1}}{b}v_{k-1} + A_{1,1}v_k + \frac{A_{k+1,1}}{b}v_{k+1} + \dots + \frac{A_{n,1}}{b}v_n .
+\end{align*}
+    We have now represented $Tv_k$ as two linear combinations of the same basis of $V$.
+    Hence the scalar coefficients in the equations must be equal.
+    Thus we have, for each $j=1,\dots,n$,
+\begin{align*}
+        A_{j,k} &=
+        \begin{cases}
+            \ A_{j+1,1}/b &\text{for}\ j < k \\
+            \ A_{1,1}     &\text{for}\ j = k \\
+            \ A_{j,1}/b   &\text{for}\ j > k
+        \end{cases}
+\end{align*}
+    Since $b$ could be any nonzero scalar, we can reduce our cases to two:
+\begin{align*}
+        A_{j,k} &=
+        \begin{cases}
+            \ 0           &\text{for}\ j \neq k \\
+            \ A_{1,1}     &\text{for}\ j = k .
+        \end{cases}
+\end{align*}
+    Hence $Tv_k = A_{1,1}v_k$.
+
+    Now suppose $v \in V$.
+    There exist $d_1,\dots,d_n \in \F$ such that $v=d_1v_1+\dots+d_nv_n$.
+    Thus
+\begin{align*}
+        Tv &= T(d_1v_1+\dots+d_nv_n) \\
+           &= d_1Tv_1+\dots+d_nTv_n \\
+           &= d_1A_{1,1}v_1+\dots+d_nA_{1,1}v_n \\
+           &= A_{1,1}(d_1v_1+\dots+d_nv_n) \\
+           &= A_{1,1}v .
+\end{align*}
+    Hence $T=A_{1,1}I$.
+    Thus $T$ is a scalar multiple of the identity operator.
+\end{document}
