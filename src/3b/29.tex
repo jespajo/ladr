@@ -26,7 +26,7 @@
     Define $D \in \L(\P(\R))$ as the differentiation map.
 
     Suppose $f \in \P(\R)$ such that $p = Df$.
-    We proved the existence of $f$ in the previous exercise.
+    We showed the existence of $f$ in the previous exercise by proving that $D$ is surjective.
 
     As we will now prove, there exists $q \in \P(\R)$ such that $f = 5Dq + 3q$.
     This fact completes our proof here because
@@ -42,18 +42,17 @@
         g_k &=
         \begin{cases}
             3                \ &\text{for}\ k = 0 \\
-            5kz^{k-1} + 3z^k \ &\text{for}\ k = 1,\dots,m .
+            3z^k + 5kz^{k-1} \ &\text{for}\ k = 1,\dots,m .
         \end{cases}
 \end{align*}
-
     To see that the list is linearly independent, consider a linear combination of the list with scalars $a_0,\dots,a_m \in \R$,
 \begin{equation*}
         a_0g_0 + \dots + a_mg_m .
 \end{equation*}
-    Suppose some $a_k$ is nonzero.
+    Suppose at least one of the $a$'s is nonzero.
     Let $n$ denote the largest value of $k$ for which $a_k \neq 0$.
     Then the linear combination as a whole is nonzero because it is a polynomial with a nonzero coefficient for $z^n$.
-    
+
     Hence if the linear combination as a whole is zero, $a_0=\dots=a_m=0$.
     So the list is linearly independent.
     Therefore the list is a basis of $P_m(\R)$ because it is the right length, since $\op{dim}\P_m(\R) = m+1$.
@@ -61,8 +60,8 @@
     Then, since $f \in \P_m(\R)$, there exist $b_0,\dots,b_m$ such that
 \begin{align*}
         f &= b_0g_0 + \dots + b_mg_m \\
-          &= b_0(3) + b_1(5+3z) + \dots + b_m(5mz^{m-1} + 3z^m) \\
-          &= 3b_0 + 5b_1 + 3b_1z + \dots + 5mb_mz^{m-1} + 3b_mz^m \\
+          &= b_0(3) + b_1(3z+5) + \dots + b_m(3z^m + 5mz^{m-1}) \\
+          &= 3b_0 + 3b_1z + 5b_1 + \dots + 3b_mz^m + 5mb_mz^{m-1} \\
           &= 3(b_0 + b_1z + \dots + b_mz^m) + 5(b_1 + 2b_1z + \dots + mb_mz^{m-1}) .
 \end{align*}
     Thus with $q = b_0 + b_1z + \dots + b_mz^m$ we have

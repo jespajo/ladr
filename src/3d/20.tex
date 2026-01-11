@@ -1,0 +1,120 @@
+\documentclass[a5paper]{article}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage[top=1cm,right=1cm,bottom=2cm,left=1cm]{geometry}
+\setlength\parindent{0pt}
+\setlength\parskip{1em}
+%
+\begin{document}
+\newcommand   \C           {\mathbf{C}}
+\newcommand   \R           {\mathbf{R}}
+\renewcommand \L           {\mathcal{L}}
+\newcommand   \F           {\mathbf{F}}
+\renewcommand \P           {\mathcal{P}}
+\newcommand   \M           {\mathcal{M}}
+\newcommand   \E           {\mathcal{E}}
+\newcommand   \op          {\operatorname}
+\newcommand   \A           {\mathcal{A}}
+\newcommand   \Q           {\mathcal{Q}}
+
+    3.D.20.
+    Suppose $q \in \P(\R)$.
+    Prove that there exists a polynomial $p \in \P(\R)$ such that
+\begin{align*}
+        q(x) &= (x^2 + x)p''(x) + 2xp'(x) + p(3)
+\end{align*}
+    for all $x \in \R$.
+
+    Let $m$ denote the degree of $q$.
+    There exist $a_0,\dots,a_m \in \R$ such that
+\begin{align*}
+        q(x) &= a_0+a_1x+\dots+a_mx^m .
+\end{align*}
+    Define $T : \P_m(\R) \rightarrow \P_m(\R)$ by
+\begin{align*}
+        Tf &= (x^2 + x)f'' + 2xf' .
+\end{align*}
+    $T$ is linear.
+    The proofs of the additivity and homogeneity of $T$ have been omitted.
+%    To see that $T$ is additive, suppose $f, g \in \P_m(\R)$.
+%    Then
+%\begin{align*}
+%        T(f + g) &= (x^2 + x)(f + g)'' + 2x(f +  g)' \\
+%                 &= (x^2 + x)(f'' + g'') + 2x(f' +  g') \\
+%                 &= (x^2 + x)f'' + 2xf' + (x^2 + x)g'' + 2xg' \\
+%                 &= Tf + Tg .
+%\end{align*}
+%    To see that $T$ is homogenous, suppose $f \in P_m(\R), \lambda \in \R$.
+%    Then
+%\begin{align*}
+%        T(\lambda f) &= (x^2 + x)(\lambda f)'' + 2x(\lambda f)' \\
+%                     &= \lambda \big((x^2 + x)f'' + 2xf'\big) \\
+%                     &= \lambda Tf .
+%\end{align*}
+%    Hence $T$ is linear.
+
+    Let $\Q$ denote the span of the standard basis of $\P_m(\R)$ with the $1$ removed.
+    In other words, $\Q$ is the subspace of $\P_m(\R)$ that you can write without a constant term.
+
+    The range of $T$ is a subset of $\Q$.
+    To see this, observe that
+\begin{align*}
+        Tf(x) &= x^2f''(x) + xf''(x) + 2xf'(x) .
+\end{align*}
+    The right side of the equation is a sum in which every term is multiplied by $x$.
+    Thus $Tf(x)$ has no constant term.
+    Hence $\op{range}T \subseteq \Q$.
+
+    $T$ becomes injective when its domain is restricted to $\Q$.
+    To see this, suppose that in the equation above, $f \in \Q$.
+    Now suppose $f \neq 0$.
+    Let $j$ be the lowest power of $x$ such that $x^j$ has a non-zero coefficient in the definition of $f(x)$.
+    Then, in the equation above, only one term, $xf''(x)$, has a non-zero coefficient for $x^{j-1}$.
+    (Remember that $1 \le j \le m$ because $f \in \Q$.)
+    Hence the right side of the equation is non-zero as a whole.
+    Thus, by contraposition, if $Tf=0$, then $f=0$.
+    Hence $T\vert_\Q$ is an injective.
+
+    Hence $T\vert_\Q$ is invertible because it is an injective linear map from $\Q$ to $\Q$.
+    Let $S = (T\vert_\Q)^{-1}$.
+    So $STf=TSf=f$ for $f \in \Q$.
+
+    Define $r \in \Q$ by
+\begin{align*}
+        r(x) = a_1x + \dots + a_mx^m .
+\end{align*}
+    $Sr \in \Q$ exists.
+    So there exist $b_1,\dots,b_m \in \R$ such that
+\begin{align*}
+        Sr(x) = b_1x + \dots + b_mx^m .
+\end{align*}
+    Let $c = a_0 - 3b_1 - \dots - 3^mb_m$.
+    Each term after $a_0$ is of the form $3^kb_k$.
+    Thus
+\begin{align*}
+        a_0 = c + 3b_1 + \dots + 3^mb_m .
+\end{align*}
+    Now we are ready to define $p \in \P_m(\R)$ by
+\begin{align*}
+        p(x) = c + b_1x + \dots + b_mx^m .
+\end{align*}
+    Thus
+\begin{align*}
+            q(x) &= a_0 + a_1x + \dots + a_mx^m \\
+                &= a_0 + r(x) \\
+                &= a_0 + TSr(x) \\
+                &= a_0 + T(b_1x + \dots + b_mx^m) \\
+                &= a_0 + T(b_1x + \dots + b_mx^m + c - c) \\
+                &= a_0 + T(p(x) - c) .
+\end{align*}
+    Since $Tf$ differentiates $f$ at least once in every term, we have $Tf(x) = T(f(x) + k)$ for all $k \in \R$.
+    So, continuing,
+\begin{align*}
+        q(x) &= a_0 + Tp(x) \\
+             &= Tp(x) + a_0 \\
+             &= Tp(x) + c + 3b_1 + \dots + 3^mb_m \\
+             &= Tp(x) + p(3) \\
+             &= (x^2 + x)p''(x) + 2xp(x) + p(3)
+\end{align*}
+    as desired.
+\end{document}
