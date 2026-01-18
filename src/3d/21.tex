@@ -1,0 +1,67 @@
+\documentclass[a5paper]{article}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage[top=1cm,right=1cm,bottom=2cm,left=1cm]{geometry}
+\setlength\parindent{0pt}
+\setlength\parskip{1em}
+\begin{document}
+\newcommand   \C           {\mathbf{C}}
+\newcommand   \R           {\mathbf{R}}
+\renewcommand \L           {\mathcal{L}}
+\newcommand   \F           {\mathbf{F}}
+\renewcommand \P           {\mathcal{P}}
+\newcommand   \M           {\mathcal{M}}
+\newcommand   \E           {\mathcal{E}}
+\newcommand   \op          {\operatorname}
+\newcommand   \A           {\mathcal{A}}
+\newcommand   \Q           {\mathcal{Q}}
+
+    3.D.21.
+    Suppose $n$ is a positive integer and $A_{j,k} \in \F$ for all $j,k=1,\dots,n$.
+    Prove the following are equivalent (note that in both parts below, the number of equations equals the number of variables).\\
+    (a) The trivial solution $x_1=\dots=x_n=0$ is the only solution to the homogeneous system of equations
+\begin{align*}
+        \sum_{k=1}^n A_{1,k}x_k &= 0 \\
+        &\vdots \\
+        \sum_{k=1}^n A_{n,k}x_k &= 0.
+\end{align*}
+    (b) For every $c_1,\dots,c_n \in \F$, there exists a solution to the system of equations
+\begin{align*}
+        \sum_{k=1}^n A_{1,k}x_k &= c_1 \\
+        &\vdots \\
+        \sum_{k=1}^n A_{n,k}x_k &= c_n.
+\end{align*}
+
+    Consider $A$ as an $n$-by-$n$ matrix such that $A_{j,k}$ is the entry in row $j$, column $k$ of $A$.
+
+    Suppose $T \in \L(\F^n)$ such that $\M(T)=A$, with $\M(T)$ defined with respect to the standard basis of $\F^n$.
+    The existence and uniqueness of $T$ come from the fact that $\M$ is an isomorphism.
+
+    We can restate both parts of the exercise as statements about the equation
+\begin{align*}
+        A
+        \begin{pmatrix}
+            x_1 \\
+            \vdots \\
+            x_n
+        \end{pmatrix}
+        =
+        \begin{pmatrix}
+            c_1 \\
+            \vdots \\
+            c_n
+        \end{pmatrix} .
+\end{align*}
+    Since linear maps act like matrix multiplication, we can also write this equation as
+\begin{align*}
+        T(x_1,\dots,x_n) = (c_1,\dots,c_n) .
+\end{align*}
+    Part (a) is the statement that if the $c$'s are all $0$, then the $x$'s are all $0$.
+    In other words, $T$ is injective.
+
+    Part (b) is the statement that no matter what values we are given for the $c$'s, we can find values for the $x$'s to satisfy the equation.
+    In other words, $T$ is surjective.
+
+    Since $T$ is a linear map whose domain and target vector spaces have the same finite dimension, the injectivity and surjectivity of $T$ are equivalent.
+    Hence (a) and (b) are equivalent.
+\end{document}
