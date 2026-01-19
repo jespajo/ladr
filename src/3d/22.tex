@@ -22,13 +22,15 @@
 \begin{align*}
         \M\big(T, (v_1,\dots,v_n) \big)\ \text{is invertible}\ \Longleftrightarrow\ T\ \text{is invertible}.
 \end{align*}
-    First suppose $A = \M\big(T, (v_1,\dots,v_n) \big)$ is invertible.
+    In both parts of the proof below, let $A = \M\big(T, (v_1,\dots,v_n) \big)$.
 
-    Then there exists an $n$-by-$n$ matrix $A^{-1}$ such that $AA^{-1} = I$.
-    Let $S \in \L(V)$ denote the linear operator on $V$ such that $A^{-1} = \M\big( S, (v_1,\dots,v_n) \big)$.
+    First suppose $A$ is invertible.
+    Then there exists an $n$-by-$n$ matrix $A^{-1}$ such that $AA^{-1}$ equals the identity matrix.
 
-    $T$ is surjective.
-    To see this, suppose $v \in V$.
+    Since $\M$ is an isomorphism, $\M$ is surjective onto $\F^{n,n}$.
+    So there exists $S \in \L(V)$ such that $A^{-1} = \M\big( S, (v_1,\dots,v_n) \big)$.
+
+    Suppose $v \in V$.
     Then
 \begin{align*}
         \M(v) &= \M(Iv) \\
@@ -41,29 +43,22 @@
     Since $\M$ is an isomorphism, $\M$ is injective.
     Hence the above equation implies that $v=T(Sv)$.
     Thus $v \in \op{range}T$.
+    Hence $T$ is surjective.
 
-    Since $T$ is a surjective operator on a finite-dimensional vector space, $T$ is invertible, completing the proof in one direction.
+    Thus $T$ is a surjective operator on a finite-dimensional vector space.
+    Hence $T$ is invertible, completing the proof in one direction.
 
-    To prove in the other direction, suppose $T$ is invertible.
+    Now suppose $T$ is invertible.
+    In other words, there exists $T^{-1} \in \L(V)$ such that $TT^{-1}=T^{-1}T=I$.
 
-    Then $Tv_1,\dots,Tv_n$ is a basis of $V$.
-    To see this, suppose $a_1,\dots,a_n \in \F$ such that $a_1Tv_1 + \dots + a_nTv_n = 0$.
-    Then $T(a_1v_1 + \dots + a_nv_n) = 0$.
-    Since $T$ is invertible, $T$ is injective, so $\op{null}T = \{0\}$.
-    Thus $a_1v_1 + \dots + a_nv_n = 0$.
-    So we have $a_1=\dots=a_n=0$.
-    Hence the list $Tv_1,\dots,Tv_n$ is linearly independent.
-    Therefore the list is a basis of $V$ because it is also the right length.
-
-    Let $A = \M\big(T, (v_1,\dots,v_n) \big)$.
-    For each $k=1,\dots,n$, the $k$th column of $A$ implies that
+    Let $B = \M\big(T^{-1}, (v_1,\dots,v_n) \big)$.
+    Then we have
 \begin{align*}
-        Tv_k = A_{1,k}v_1 + \dots + A_{n,k}v_n .
+        AB = \M(T)\M(T^{-1}) = \M(T T^{-1}) = \M(I)
 \end{align*}
-    Replacing the left side of the equation with $I(Tv_k)$ shows that $A$ is also the matrix of the identity operator with respect to two different bases:
+    and
 \begin{align*}
-        A = \M\big( I, (Tv_1,\dots,Tv_n), (v_1,\dots,v_n) \big) .
+        BA = \M(T^{-1})\M(T) = \M(T^{-1} T) = \M(I) .
 \end{align*}
-    We know that the matrix of the identity operator with respect to any two bases is invertible (from 3.82).
-    Thus $A$ is invertible, as desired.
+    Hence $A$ is invertible, as desired.
 \end{document}

@@ -1,0 +1,38 @@
+\documentclass[a5paper]{article}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage[top=1cm,right=1cm,bottom=2cm,left=1cm]{geometry}
+\setlength\parindent{0pt}
+\setlength\parskip{1em}
+\begin{document}
+\newcommand   \C           {\mathbf{C}}
+\newcommand   \R           {\mathbf{R}}
+\renewcommand \L           {\mathcal{L}}
+\newcommand   \F           {\mathbf{F}}
+\renewcommand \P           {\mathcal{P}}
+\newcommand   \M           {\mathcal{M}}
+\newcommand   \E           {\mathcal{E}}
+\newcommand   \op          {\operatorname}
+\newcommand   \A           {\mathcal{A}}
+\newcommand   \Q           {\mathcal{Q}}
+
+    3.D.23.
+    Suppose that $u_1,\dots,u_n$ and $v_1,\dots,v_n$ are bases of $V$.
+    Let $T \in \L(V)$ be such that $Tv_k=u_k$ for each $k=1,\dots,n$.
+    Prove that
+\begin{align*}
+        \M\big( T, (v_1,\dots,v_n) \big) = \M \big( (u_1,\dots,u_n), (v_1,\dots,v_n) \big) .
+\end{align*}
+    Let $A=\M\big( T, (v_1,\dots,v_n) \big)$.
+
+    For each $k=1,\dots,n$, the $k$th column of $A$ implies that
+\begin{align*}
+        Tv_k &= A_{1,k}v_1 + \dots + A_{n,k}v_n .
+\end{align*}
+    Since $Tv_k=u_k$, we can replace the left side of the equation with $I(u_k)$.
+    Then the equation shows that $A$ is the matrix of the identity operator with respect to two different bases:
+\begin{align*}
+        A = \M\big( I, (u_1,\dots,u_n), (v_1,\dots,v_n) \big)
+\end{align*}
+    as desired.
+\end{document}
