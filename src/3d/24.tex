@@ -1,0 +1,39 @@
+\documentclass[a5paper]{article}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage[top=1cm,right=1cm,bottom=2cm,left=1cm]{geometry}
+\setlength\parindent{0pt}
+\setlength\parskip{1em}
+\begin{document}
+\newcommand   \C           {\mathbf{C}}
+\newcommand   \R           {\mathbf{R}}
+\renewcommand \L           {\mathcal{L}}
+\newcommand   \F           {\mathbf{F}}
+\renewcommand \P           {\mathcal{P}}
+\newcommand   \M           {\mathcal{M}}
+\newcommand   \E           {\mathcal{E}}
+\newcommand   \op          {\operatorname}
+\newcommand   \A           {\mathcal{A}}
+\newcommand   \Q           {\mathcal{Q}}
+
+    3.D.24.
+    Suppose $A$ and $B$ are square matrices of the same size and $AB=I$.
+    Prove that $BA=I$.
+
+    Let $n$ denote the number of columns in $A$ and $B$.
+    Note that all instances of $\M$ in this exercise define a matrix with respect to the standard basis of $\F^n$.
+
+    Suppose $S,T \in \L(\F^n)$ such that $\M(S) = A$ and $\M(T) = B$.
+    The existence of $S$ and $T$ follows from the surjectivity of $\M$ from $\L(\F^n)$ onto $\F^{n,n}$ (see 3.71).
+    Then
+\begin{align*}
+        \M(I) = AB = \M(S)\M(T) = \M(ST) .
+\end{align*}
+    Since $\M$ is injective, this implies $ST=I$.
+
+    Hence $TS=I$ because the domain and target vector spaces of $S$ and $T$ have the same dimension (using 3.68).
+    Thus
+\begin{align*}
+        \M(I) = \M(TS) = \M(T)\M(S) = B A .
+\end{align*}
+\end{document}
