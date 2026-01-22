@@ -1,0 +1,115 @@
+\documentclass[a5paper]{article}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage[top=1cm,right=1cm,bottom=2cm,left=1cm]{geometry}
+\setlength\parindent{0pt}
+\setlength\parskip{1em}
+\begin{document}
+\newcommand   \C            {\mathbf{C}}
+\newcommand   \R            {\mathbf{R}}
+\renewcommand \L            {\mathcal{L}}
+\newcommand   \F            {\mathbf{F}}
+\renewcommand \P            {\mathcal{P}}
+\newcommand   \M            {\mathcal{M}}
+\newcommand   \E            {\mathcal{E}}
+\newcommand   \op           {\operatorname}
+\newcommand   \A            {\mathcal{A}}
+\newcommand   \Q            {\mathcal{Q}}
+\newcommand   \conj[1]      {\overline{#1}}
+
+    4.1.
+    Suppose $w, z \in \C$.
+    Verify the following equalities and inequalities.
+
+    In the answers below, let $a,b,c,d \in \R$ such that
+\begin{align*}
+        a=\op{Re}w,\quad  b=\op{Im}w,\quad  c=\op{Re}z\quad\text{and}\quad d=\op{Im}z .
+\end{align*}
+    In other words,
+\begin{align*}
+        w = a+bi \quad\text{and}\quad z = c+di .
+\end{align*}
+
+    (a) $z + \conj{z} = 2 \op{Re}z$
+\begin{align*}
+        z + \conj{z} &= (c + di) + (c - di) \\
+                     &= 2c \\
+                    &= 2\op{Re}z .
+\end{align*}
+    (b) $z - \conj{z} = 2(\op{Im}z)i$
+\begin{align*}
+        z - \conj{z} &= (c + di) - (c - di) \\
+                     &= c + di - c + di \\
+                     &= 2di \\
+                     &= 2(\op{Im}z)i .
+\end{align*}
+    (c) $z \conj{z} = |z|^2$
+\begin{align*}
+        z \conj{z} &= (c + di) (c - di) \\
+                   &= c^2 - cdi + dic - d^2i^2 \\
+                   &= c^2 + d^2 \\
+                   &= \Big( \sqrt{c^2 + d^2} \Big)^2 \\
+                   &= |z|^2 .
+\end{align*}
+    (d) $\conj{w + z} = \conj{w} + \conj{z}$ and $\conj{wz} = \conj{w}\ \conj{z}$
+\begin{align*}
+        \conj{w+z}  &= \conj{a + bi + c + di} \\
+                    &= \conj{a+c + (b+d)i} \\
+                    &= a+c - (b+d)i \\
+                    &= a+c - bi - di \\
+                    &= a - bi + c - di \\
+                    &= \conj{w} + \conj{z} .
+\end{align*}
+\begin{align*}
+        \conj{wz} &= \conj{ (a+bi)(c+di) } \\
+                  &= \conj{ ac + adi + bic + bdi^2 } \\
+                  &= \conj{ ac - bd + (ad + bc)i } \\
+                  &= ac - bd - (ad + bc)i \\
+                  &= ac - bd - adi - bci \\
+                  &= ac - adi - bci + bdi^2 \\
+                  &= (a - bi)(c - di) \\
+                  &= \conj{w}\ \conj{z} .
+\end{align*}
+    (e) $\conj{\conj{z}} = z$
+\begin{align*}
+        \conj{\conj{z}} &= \conj{\conj{c+di}} \\
+                        &= \conj{c-di} \\
+                        &= c+di \\
+                        &= z .
+\end{align*}
+    (f) $|\op{Re}z| \le |z|$ and $|\op{Im}z| \le |z|$
+\begin{align*}
+        |\op{Re}z| &= |c| \\
+                   &= \sqrt{c^2} \\
+                   &\le \sqrt{c^2 + d^2} \\
+                   &= |z| .
+\end{align*}
+\begin{align*}
+        |\op{Im}z| &= |d| \\
+                   &= \sqrt{d^2} \\
+                   &\le \sqrt{d^2 + c^2} \\
+                   &= |z| .
+\end{align*}
+    (g) $|\conj{z}| = |z|$
+\begin{align*}
+        |\conj{z}| &= | c - di | \\
+                   &= \sqrt{c^2 + (-d)^2 } \\
+                   &= \sqrt{c^2 + d^2 } \\
+                   &= |z| .
+\end{align*}
+    (h) $|wz| = |w| |z|$
+\begin{align*}
+        |wz| &= |(a+bi)(c+di)| \\
+             &= |ac + adi + bic + bdi^2| \\
+             &= |ac + adi + bic - bd| \\
+             &= |ac-bd + (ad+bc)i| \\
+             &= \sqrt{(ac-bd)^2 + (ad+bc)^2} \\
+             &= \sqrt{(ac)^2 - 2abcd + (bd)^2 + (ad)^2 + 2abcd + (bc)^2} \\
+             &= \sqrt{(ac)^2 + (bd)^2 + (ad)^2 + (bc)^2} \\
+             &= \sqrt{(ac)^2 + (ad)^2 + (bc)^2 + (bd)^2} \\
+             &= \sqrt{a^2c^2 + a^2d^2 + b^2c^2 + b^2d^2} \\
+             &= \sqrt{(a^2 + b^2) (c^2 + d^2) } \\
+             &= \Big( \sqrt{a^2 + b^2} \Big) \Big( \sqrt{c^2 + d^2} \Big) \\
+             &= |w| |z| .
+\end{align*}
+\end{document}
