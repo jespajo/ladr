@@ -1,0 +1,41 @@
+\documentclass[a5paper]{article}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage[top=1cm,right=1cm,bottom=2cm,left=1cm]{geometry}
+\setlength\parindent{0pt}
+\setlength\parskip{1em}
+\begin{document}
+\newcommand   \C            {\mathbf{C}}
+\newcommand   \R            {\mathbf{R}}
+\renewcommand \L            {\mathcal{L}}
+\newcommand   \F            {\mathbf{F}}
+\renewcommand \P            {\mathcal{P}}
+\newcommand   \M            {\mathcal{M}}
+\newcommand   \E            {\mathcal{E}}
+\newcommand   \op           {\operatorname}
+\newcommand   \A            {\mathcal{A}}
+\newcommand   \Q            {\mathcal{Q}}
+\newcommand   \conj[1]      {\overline{#1}}
+
+    4.2.
+    Prove that if $w,z \in \C$, then $\big| |w| - |z| \big| \le |w - z|$.
+\begin{align*}
+        |w - z|^2   &= (w - z) (\conj{w - z}) \\
+                    &= (w - z) (\conj{w} - \conj{z}) \\
+                    &= w\conj{w} - w\conj{z} - z\conj{w} + z\conj{z} \\
+                    &= |w|^2 - w\conj{z} - z\conj{w} + |z|^2 \\
+                    &= |w|^2 + |z|^2 - w\conj{z} - z\conj{w} \\
+                    &= |w|^2 + |z|^2 - w\conj{z} - \conj{\conj{z}}\ \conj{w} \\
+                    &= |w|^2 + |z|^2 - w\conj{z} - \conj{\conj{z} w} \\
+                    &= |w|^2 + |z|^2 - 2 \op{Im}(w\conj{z})i \\
+                    &\ge |w|^2 + |z|^2 - 2 |w\conj{z}| \\
+                    &= |w|^2 + |z|^2 - 2 |w| |\conj{z}| \\
+                    &= |w|^2 + |z|^2 - 2 |w| |z| \\
+                    &= |w|^2 - 2 |w| |z| + |z|^2 \\
+                    &= (|w| - |z|)^2 \\
+                    &= \big| |w| - |z| \big|^2 .
+\end{align*}
+    Taking the square roots of both sides now gives the desired inequality.
+
+    Geometric interpretation: the length of one side of a triangle is greater than or equal to the difference in the lengths of the other two sides.
+\end{document}
