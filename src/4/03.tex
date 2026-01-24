@@ -1,0 +1,47 @@
+\documentclass[a5paper]{article}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage[top=1cm,right=1cm,bottom=2cm,left=1cm]{geometry}
+\setlength\parindent{0pt}
+\setlength\parskip{1em}
+\begin{document}
+\newcommand   \C            {\mathbf{C}}
+\newcommand   \R            {\mathbf{R}}
+\renewcommand \L            {\mathcal{L}}
+\newcommand   \F            {\mathbf{F}}
+\renewcommand \P            {\mathcal{P}}
+\newcommand   \M            {\mathcal{M}}
+\newcommand   \E            {\mathcal{E}}
+\newcommand   \op           {\operatorname}
+\newcommand   \A            {\mathcal{A}}
+\newcommand   \Q            {\mathcal{Q}}
+\newcommand   \conj[1]      {\overline{#1}}
+
+    4.3.
+    Suppose $V$ is a complex vector space and $\varphi \in V'$.
+    Define $\sigma : V \rightarrow \R$ by $\sigma(v) = \op{Re}\varphi(v)$ for each $v \in V$.
+    Show that
+\begin{align*}
+        \varphi(v) = \sigma(v) - i \sigma(iv)
+\end{align*}
+    for all $v \in V$.
+
+    For $v \in V$, since $\varphi(v) \in \C$, there exist $a,b \in \R$ such that
+\begin{align*}
+        \varphi(v) = a+bi .
+\end{align*}
+    Since $\varphi$ is a linear map, $\varphi$ is homogeneous.
+    Thus $\varphi(iv) = i\varphi(v)$.
+
+    Hence
+\begin{align*}
+        \sigma(v) - i \sigma(iv) &= \op{Re}\varphi(v) - i\op{Re}\varphi(iv) \\
+                                 &= \op{Re}(a+bi) - i\op{Re}\big(i \varphi(v) \big) \\
+                                 &= a - i\op{Re}\big(i (a + bi) \big) \\
+                                 &= a - i\op{Re}\big( ai + bi^2 \big) \\
+                                 &= a - i\op{Re}( ai - b ) \\
+                                 &= a - i(-b) \\
+                                 &= a + bi \\
+                                 &= \varphi(v) .
+\end{align*}
+\end{document}

@@ -1,0 +1,43 @@
+\documentclass[a5paper]{article}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage[top=1cm,right=1cm,bottom=2cm,left=1cm]{geometry}
+\setlength\parindent{0pt}
+\setlength\parskip{1em}
+\begin{document}
+\newcommand   \C            {\mathbf{C}}
+\newcommand   \R            {\mathbf{R}}
+\renewcommand \L            {\mathcal{L}}
+\newcommand   \F            {\mathbf{F}}
+\renewcommand \P            {\mathcal{P}}
+\newcommand   \M            {\mathcal{M}}
+\newcommand   \E            {\mathcal{E}}
+\newcommand   \op           {\operatorname}
+\newcommand   \A            {\mathcal{A}}
+\newcommand   \Q            {\mathcal{Q}}
+\newcommand   \conj[1]      {\overline{#1}}
+
+    4.4.
+    Suppose $m$ is a positive integer.
+    Is the set
+\begin{align*}
+        \{ 0 \} \cup \{ p \in \P(\F) : \op{deg}p = m \}
+\end{align*}
+    a subspace of $\P(\F)$?
+
+    No, becuase the set is not closed under addition.
+    For example, suppose $m = 2$.
+    Then define $p,q \in \P(\F)$ by
+\begin{align*}
+        p(x) = x^2 + 1 \quad\text{and}\quad q(x) = -x^2 + 1
+\end{align*}
+    for all $x \in \F$.
+    Both $p$ and $q$ are elements of the set in question because $\op{deg}p = \op{deg}q = 2$.
+    But
+\begin{align*}
+        p(x) + q(x) &= x^2 + 1 + (-x^2 + 1) \\
+                    &= 2 .
+\end{align*}
+    Thus $p+q$ is not in the set because $\op{deg}(p+q)=0$.
+    So the set is not a subspace of $\P(\F)$ because it is not closed under addition.
+\end{document}

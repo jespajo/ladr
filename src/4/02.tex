@@ -23,14 +23,12 @@
         |w - z|^2   &= (w - z) (\conj{w - z}) \\
                     &= (w - z) (\conj{w} - \conj{z}) \\
                     &= w\conj{w} - w\conj{z} - z\conj{w} + z\conj{z} \\
-                    &= |w|^2 - w\conj{z} - z\conj{w} + |z|^2 \\
-                    &= |w|^2 + |z|^2 - w\conj{z} - z\conj{w} \\
-                    &= |w|^2 + |z|^2 - w\conj{z} - \conj{\conj{z}}\ \conj{w} \\
-                    &= |w|^2 + |z|^2 - w\conj{z} - \conj{\conj{z} w} \\
-                    &= |w|^2 + |z|^2 - 2 \op{Im}(w\conj{z})i \\
-                    &\ge |w|^2 + |z|^2 - 2 |w\conj{z}| \\
-                    &= |w|^2 + |z|^2 - 2 |w| |\conj{z}| \\
-                    &= |w|^2 + |z|^2 - 2 |w| |z| \\
+                    &= |w|^2 - w\conj{z} - \conj{w}z + |z|^2 \\
+                    &= |w|^2 - w\conj{z} - \conj{w}\ \conj{\conj{z}} + |z|^2  \\
+                    &= |w|^2 - w\conj{z} - \conj{w \conj{z}}         + |z|^2  \\
+                    &= |w|^2 - 2 \op{Im}(w\conj{z})i                 + |z|^2  \\
+                    &\ge |w|^2 - 2 |w\conj{z}|   + |z|^2  \\
+                    &= |w|^2 - 2 |w| |\conj{z}|  + |z|^2  \\
                     &= |w|^2 - 2 |w| |z| + |z|^2 \\
                     &= (|w| - |z|)^2 \\
                     &= \big| |w| - |z| \big|^2 .
