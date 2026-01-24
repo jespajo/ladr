@@ -1,0 +1,36 @@
+\documentclass[a5paper]{article}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage[top=1cm,right=1cm,bottom=2cm,left=1cm]{geometry}
+\setlength\parindent{0pt}
+\setlength\parskip{1em}
+\begin{document}
+\newcommand   \C            {\mathbf{C}}
+\newcommand   \R            {\mathbf{R}}
+\renewcommand \L            {\mathcal{L}}
+\newcommand   \F            {\mathbf{F}}
+\renewcommand \P            {\mathcal{P}}
+\newcommand   \M            {\mathcal{M}}
+\newcommand   \E            {\mathcal{E}}
+\newcommand   \op           {\operatorname}
+\newcommand   \A            {\mathcal{A}}
+\newcommand   \Q            {\mathcal{Q}}
+\newcommand   \conj[1]      {\overline{#1}}
+
+    4.6.
+    Suppose that $m$ and $n$ are positive integers with $m \le n$, and suppose $\lambda_1,\dots,\lambda_m \in \F$.
+    Prove that there exists a polynomial $p \in \P(\F)$ with $\op{deg}p=n$ such that $0 =p(\lambda_1)=\dots=p(\lambda_m)$ and such that $p$ has no other zeros.
+
+    Define $p: \F \rightarrow \F$ by
+\begin{align*}
+        p(z) &= (z - \lambda_1) \times \dots \times (z - \lambda_m) \times \underbrace{(z - \lambda_1) \times \dots \times (z - \lambda_1)}_\text{$(n-m)$ times} .
+\end{align*}
+    In other words, $p(z)$ is equal to the number you get by multiplying together $(z-\lambda_j)$ for every $j=1,\dots,m$, and then multiplying the result by $(z-\lambda_1)$ again as many times as needed to have a total of $n$ factors in the product as a whole.
+
+    Notice that multiplying out the factors on the right side of the equation gives a polynomial with a highest-order term of $z^n$.
+    Thus $p \in \P(\F)$ with $\op{deg}p = n$.
+
+    If $z \in \{\lambda_1,\dots,\lambda_m\}$, then one of the factors on the right side of the equation equals $0$, so $p(z)=0$.
+    Otherwise, none of the factors equals $0$, so $p(z)\neq 0$.
+    Hence the zeros of $p$ in $\F$ are exactly $\lambda_1,\dots,\lambda_m$, as desired.
+\end{document}
